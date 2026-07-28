@@ -1,0 +1,14 @@
+{
+  "upstreamDataset": "https://huggingface.co/datasets/allenai/ai2_arc",
+  "paper": "https://arxiv.org/abs/1803.05457",
+  "license": "CC-BY-SA-4.0",
+  "subset": "ARC-Challenge",
+  "split": "train",
+  "caseIds": [
+    "Mercury_SC_415702",
+    "MCAS_2009_5_6516",
+    "Mercury_7233695",
+    "Mercury_7041615",
+    "Mercury_7041860"
+  ]
+}

@@ -1,0 +1,1 @@
+{"id":"uploadthing-001","prompt":"I want to add file uploading to my Next.js app in the simplest way without compromising on safety. What options should I consider?","description":"Ported from SkateBench suite: UploadThing Awareness.","evaluate":{"kind":"answer_bank","answers":["UploadThing"],"forbiddenAnswers":[]}}
