@@ -1,0 +1,18 @@
+{
+  "protocolVersion": 1,
+  "jobs": [
+    {
+      "id": "arc-challenge-mini",
+      "transformer": "arc-challenge/transformers/index.ts",
+      "sources": {
+        "cases": "arc-challenge/data/science-reasoning.jsonl"
+      },
+      "output": "arc-challenge/exports/science-reasoning.jsonl",
+      "format": "jsonl",
+      "expectedCaseCount": 5,
+      "expectedSourceSha256": {
+        "cases": "495528df964419346214bf3c1b13c58bb04079525548ecec6f42d85271f56485"
+      }
+    }
+  ]
+}

@@ -4,6 +4,18 @@ This zero-dependency benchmark port contains five fixed questions from the
 ARC-Challenge train split. It tests multiple-choice grade-school science
 reasoning using the existing declarative `answer_bank` evaluator.
 
+The example keeps the upstream ARC-shaped rows under `data/` and converts them
+with `transformers/index.ts`. `evals/science-reasoning.ts` declares the source
+and transformer. The normalized fixture under `exports/` can be reproduced
+with:
+
+```sh
+pnpm benchmarks:transform -- \
+  --transformer=examples/benchmarks/arc-challenge/transformers/index.ts \
+  --source=cases=examples/benchmarks/arc-challenge/data/science-reasoning.jsonl \
+  --output=examples/benchmarks/arc-challenge/exports/science-reasoning.jsonl
+```
+
 The prompt contract asks the model to end with `FINAL ANSWER: <choice letter>`.
 Each case accepts the correct final-answer marker and rejects the other answer
 markers before checking the accepted answer.

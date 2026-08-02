@@ -1,0 +1,15 @@
+{
+  "protocolVersion": 1,
+  "manifest": "transform-batch.json",
+  "jobCount": 1,
+  "caseCount": 5,
+  "results": [
+    {
+      "id": "arc-challenge-mini",
+      "transformerName": "ARC-Challenge transformer",
+      "caseCount": 5,
+      "output": "arc-challenge/exports/science-reasoning.jsonl",
+      "receipt": "arc-challenge/exports/science-reasoning.jsonl.manifest.json"
+    }
+  ]
+}
