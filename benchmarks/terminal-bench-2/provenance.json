@@ -1,0 +1,16 @@
+{
+  "source": {
+    "repository": "https://github.com/harbor-framework/terminal-bench-2",
+    "commit": "2fd12b88aafdd04a52c298e3940bcb189f9766d6",
+    "license": "Apache-2.0"
+  },
+  "files": {
+    "verifier-assets/build-pov-ray/tests/reference_illum1.png": "bb084f430bbc9d5b623a656920670dc06cee6d9132a9d550be4a1b99e41ab9e0",
+    "verifier-assets/make-doom-for-mips/tests/reference.jpg": "d1909be8f3266a72686c3945029a553b82e5b46acd624eda65f3fdd5eb339574",
+    "verifier-assets/make-mips-interpreter/tests/reference.jpg": "d1909be8f3266a72686c3945029a553b82e5b46acd624eda65f3fdd5eb339574",
+    "verifier-assets/pytorch-model-recovery/tests/weights_gtruth.pt": "71471e71c5a311a897362dd5b77413e7ca2ca59abd00a110bdc2cd3f8584d080",
+    "verifier-assets/sam-cell-seg/tests/test_img.png": "a0136a49776ad05b3444ed21d79f01e24d78dfd826c4f5ff5223d3bfc958559d",
+    "verifier-assets/train-fasttext/tests/private_test.tar.gz": "8397bce0c447bca9b73ea66a0f258143701817c4b850fd905166c30a61d2d0e4",
+    "verifier-assets/video-processing/tests/test_video.mp4": "46b237abcaff81c7d3817f2943da1b913f4ab0106d62afb4be73f67259f09c7a"
+  }
+}
