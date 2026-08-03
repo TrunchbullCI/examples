@@ -13,6 +13,6 @@
       "sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14"
     }
   },
-  "portedRepository": null,
-  "portedCommit": null
+  "portedRepository": "https://github.com/TrunchbullCI/examples",
+  "portedCommit": "e3075394da9fdabfb49ed82a092e1f4aa36651c1"
 }
