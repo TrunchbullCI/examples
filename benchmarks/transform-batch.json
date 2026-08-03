@@ -2,16 +2,35 @@
   "protocolVersion": 1,
   "jobs": [
     {
-      "id": "arc-challenge-mini",
+      "id": "arc-challenge",
       "transformer": "arc-challenge/transformers/index.ts",
       "sources": {
-        "cases": "arc-challenge/data/science-reasoning.jsonl"
+        "train": "arc-challenge/data/train.jsonl",
+        "validation": "arc-challenge/data/validation.jsonl",
+        "test": "arc-challenge/data/test.jsonl"
       },
       "output": "arc-challenge/exports/science-reasoning.jsonl",
       "format": "jsonl",
-      "expectedCaseCount": 5,
+      "expectedCaseCount": 2590,
       "expectedSourceSha256": {
-        "cases": "495528df964419346214bf3c1b13c58bb04079525548ecec6f42d85271f56485"
+        "train": "844d818dfa70bb4a0076528fce1f4a9774319d4cd10c12262cff26a4aee93c1c",
+        "validation": "b20cb4ffda1c57f81882a3b86a6c1d5068d2a680d404f3b5d146db88ef2b1d8d",
+        "test": "e6b72ff6d4661d55e4fcae2b816c9a874887d4e029c72241a202530437b2524a"
+      }
+    },
+    {
+      "id": "gsm8k",
+      "transformer": "gsm8k/transformers/index.ts",
+      "sources": {
+        "train": "gsm8k/data/train.jsonl",
+        "test": "gsm8k/data/test.jsonl"
+      },
+      "output": "gsm8k/exports/arithmetic-reasoning.jsonl",
+      "format": "jsonl",
+      "expectedCaseCount": 8792,
+      "expectedSourceSha256": {
+        "train": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+        "test": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14"
       }
     }
   ]

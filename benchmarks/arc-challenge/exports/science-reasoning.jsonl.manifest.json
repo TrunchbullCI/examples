@@ -1,21 +1,31 @@
 {
   "protocolVersion": 1,
   "transformer": {
-    "name": "ARC-Challenge transformer",
+    "name": "ARC-Challenge complete-splits transformer",
     "path": "arc-challenge/transformers/index.ts",
-    "sha256": "953d21997b34d9ccf5a754e62f12775632c10ea02ea518ab9e4ddb3acd87f424"
+    "sha256": "d0620ddd69e1d8c82df177f215761ac22964302b2fcafee7d69e005e86fca369"
   },
   "sources": {
-    "cases": {
-      "path": "arc-challenge/data/science-reasoning.jsonl",
-      "sha256": "495528df964419346214bf3c1b13c58bb04079525548ecec6f42d85271f56485",
-      "bytes": 1670
+    "test": {
+      "path": "arc-challenge/data/test.jsonl",
+      "sha256": "e6b72ff6d4661d55e4fcae2b816c9a874887d4e029c72241a202530437b2524a",
+      "bytes": 424767
+    },
+    "train": {
+      "path": "arc-challenge/data/train.jsonl",
+      "sha256": "844d818dfa70bb4a0076528fce1f4a9774319d4cd10c12262cff26a4aee93c1c",
+      "bytes": 396778
+    },
+    "validation": {
+      "path": "arc-challenge/data/validation.jsonl",
+      "sha256": "b20cb4ffda1c57f81882a3b86a6c1d5068d2a680d404f3b5d146db88ef2b1d8d",
+      "bytes": 109232
     }
   },
-  "caseCount": 5,
+  "caseCount": 2590,
   "output": {
     "path": "arc-challenge/exports/science-reasoning.jsonl",
     "format": "jsonl",
-    "sha256": "c7dae6a5bf0022c1808c740e4cba9e5babf4700e389b4eb99de645d35e039690"
+    "sha256": "6cc55714e3581fb99a63ea37433844e6084cfbbb3cc45ebdbba34d14a58525fe"
   }
 }

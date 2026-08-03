@@ -1,0 +1,26 @@
+{
+  "protocolVersion": 1,
+  "transformer": {
+    "name": "GSM8K complete-splits transformer",
+    "path": "gsm8k/transformers/index.ts",
+    "sha256": "b6153df7aef76ab53636e8c43a018716a40a55a10b783cd5310f6caa03878e03"
+  },
+  "sources": {
+    "test": {
+      "path": "gsm8k/data/test.jsonl",
+      "sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+      "bytes": 749738
+    },
+    "train": {
+      "path": "gsm8k/data/train.jsonl",
+      "sha256": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+      "bytes": 4166206
+    }
+  },
+  "caseCount": 8792,
+  "output": {
+    "path": "gsm8k/exports/arithmetic-reasoning.jsonl",
+    "format": "jsonl",
+    "sha256": "db0886654e1d4cee33f66985f2454b43f0d2c9071a4b6067068f1239c64c33ed"
+  }
+}

@@ -1,15 +1,22 @@
 {
   "protocolVersion": 1,
   "manifest": "transform-batch.json",
-  "jobCount": 1,
-  "caseCount": 5,
+  "jobCount": 2,
+  "caseCount": 11382,
   "results": [
     {
-      "id": "arc-challenge-mini",
-      "transformerName": "ARC-Challenge transformer",
-      "caseCount": 5,
+      "id": "arc-challenge",
+      "transformerName": "ARC-Challenge complete-splits transformer",
+      "caseCount": 2590,
       "output": "arc-challenge/exports/science-reasoning.jsonl",
       "receipt": "arc-challenge/exports/science-reasoning.jsonl.manifest.json"
+    },
+    {
+      "id": "gsm8k",
+      "transformerName": "GSM8K complete-splits transformer",
+      "caseCount": 8792,
+      "output": "gsm8k/exports/arithmetic-reasoning.jsonl",
+      "receipt": "gsm8k/exports/arithmetic-reasoning.jsonl.manifest.json"
     }
   ]
 }

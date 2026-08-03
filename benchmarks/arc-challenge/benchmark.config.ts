@@ -1,9 +1,9 @@
 export default {
   protocolVersion: 1,
-  title: "ARC-Challenge Mini",
+  title: "ARC-Challenge",
   version: "1.0.0",
   description:
-    "A five-case Trunchbull sampler of challenging grade-school science questions from the AI2 Reasoning Challenge.",
+    "The complete labeled ARC-Challenge train, validation, and test splits for grade-school science reasoning.",
   license: "CC-BY-SA-4.0",
   homepage: "https://huggingface.co/datasets/allenai/ai2_arc",
   tags: ["science", "reasoning", "multiple-choice", "ported"],

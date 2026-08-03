@@ -1,33 +1,24 @@
-# ARC-Challenge Mini Trunchbull port
+# ARC-Challenge Trunchbull port
 
-This zero-dependency benchmark port contains five fixed questions from the
-ARC-Challenge train split. It tests multiple-choice grade-school science
-reasoning using the existing declarative `answer_bank` evaluator.
+This zero-dependency port contains all 2,590 labeled ARC-Challenge cases from
+the train, validation, and test splits. The source snapshot is pinned in
+`provenance.json`; the future organization repository and commit are
+intentionally left unset until that repository exists.
 
-The example keeps the upstream ARC-shaped rows under `data/` and converts them
-with `transformers/index.ts`. `evals/science-reasoning.ts` declares the source
-and transformer. The normalized fixture under `exports/` can be reproduced
-with:
+The transformer namespaces every case ID by split and converts the upstream
+multiple-choice rows into Trunchbull `answer_bank` evaluators. Models must end
+with `FINAL ANSWER: <choice label>`.
+
+Generate the immutable JSONL export and hash receipt with:
 
 ```sh
 pnpm benchmarks:transform -- \
   --transformer=examples/benchmarks/arc-challenge/transformers/index.ts \
-  --source=cases=examples/benchmarks/arc-challenge/data/science-reasoning.jsonl \
+  --source=train=examples/benchmarks/arc-challenge/data/train.jsonl \
+  --source=validation=examples/benchmarks/arc-challenge/data/validation.jsonl \
+  --source=test=examples/benchmarks/arc-challenge/data/test.jsonl \
   --output=examples/benchmarks/arc-challenge/exports/science-reasoning.jsonl
 ```
 
-The prompt contract asks the model to end with `FINAL ANSWER: <choice letter>`.
-Each case accepts the correct final-answer marker and rejects the other answer
-markers before checking the accepted answer.
-
-## Provenance
-
-- Dataset publisher: Allen Institute for AI
-- Dataset: <https://huggingface.co/datasets/allenai/ai2_arc>
-- Dataset license: CC BY-SA 4.0
-- Paper: <https://arxiv.org/abs/1803.05457>
-- Source subset: `ARC-Challenge`
-- Source split: `train`
-
-The public marketing sampler and this authoring example intentionally use the
-same five source IDs.
+The source is AllenAI's `ai2_arc` dataset at revision
+`b4aa6eae7e30ce80562db961fd6947ff2d17d590`, licensed CC BY-SA 4.0.
