@@ -1,8 +1,8 @@
 {
   "protocolVersion": 1,
   "manifest": "transform-batch.json",
-  "jobCount": 4,
-  "caseCount": 15442,
+  "jobCount": 5,
+  "caseCount": 17280,
   "results": [
     {
       "id": "arc-challenge",
@@ -31,6 +31,13 @@
       "caseCount": 790,
       "output": "truthfulqa-mc/exports/mc1.jsonl",
       "receipt": "truthfulqa-mc/exports/mc1.jsonl.manifest.json"
+    },
+    {
+      "id": "piqa",
+      "transformerName": "PIQA validation transformer",
+      "caseCount": 1838,
+      "output": "piqa/exports/validation.jsonl",
+      "receipt": "piqa/exports/validation.jsonl.manifest.json"
     }
   ]
 }
