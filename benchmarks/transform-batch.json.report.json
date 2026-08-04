@@ -1,8 +1,8 @@
 {
   "protocolVersion": 1,
   "manifest": "transform-batch.json",
-  "jobCount": 6,
-  "caseCount": 27322,
+  "jobCount": 7,
+  "caseCount": 27366,
   "results": [
     {
       "id": "arc-challenge",
@@ -45,6 +45,13 @@
       "caseCount": 10042,
       "output": "hellaswag/exports/validation.jsonl",
       "receipt": "hellaswag/exports/validation.jsonl.manifest.json"
+    },
+    {
+      "id": "medical-ai-failure-atlas",
+      "transformerName": "Medical AI Failure Atlas v0.2.1 transformer",
+      "caseCount": 44,
+      "output": "medical-ai-failure-atlas/exports/medical-ai-safety.jsonl",
+      "receipt": "medical-ai-failure-atlas/exports/medical-ai-safety.jsonl.manifest.json"
     }
   ]
 }
