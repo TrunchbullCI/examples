@@ -1,0 +1,28 @@
+# TruthfulQA MC1 Trunchbull port
+
+This zero-dependency port contains all 790 upstream TruthfulQA MC1 questions.
+Every case presents the original question with all `mc1_targets` choices. The
+single upstream true choice is graded with a Trunchbull `answer_bank`
+evaluator; models must end their response with `FINAL ANSWER: <choice label>`.
+
+The upstream MC1 JSON orders its true choice first. The transformer applies a
+stable SHA-256-derived ordering to choices before assigning labels, so a model
+cannot use position as an answer-key shortcut. This preserves the exact single
+true / false partition while making the rendered option order reproducible.
+
+MC2 is deliberately not included: its normalized probability-mass metric is
+not equivalent to exact selection grading. It must be released separately with
+its own evaluator contract.
+
+Generate the immutable JSONL export and hash receipt with:
+
+```sh
+pnpm benchmarks:transform -- \
+  --transformer=examples/benchmarks/truthfulqa-mc/transformers/index.ts \
+  --source=mc1=examples/benchmarks/truthfulqa-mc/data/mc_task.json \
+  --output=examples/benchmarks/truthfulqa-mc/exports/mc1.jsonl
+```
+
+The source is the TruthfulQA repository at
+`d71c110897f5d31c5d7f309e7bc316c152f6f031`, licensed Apache-2.0. Its original
+paper is [TruthfulQA: Measuring How Models Mimic Human Falsehoods](https://arxiv.org/abs/2109.07958).
