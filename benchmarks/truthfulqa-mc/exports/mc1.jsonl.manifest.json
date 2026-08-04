@@ -1,0 +1,21 @@
+{
+  "protocolVersion": 1,
+  "transformer": {
+    "name": "TruthfulQA MC1 transformer",
+    "path": "truthfulqa-mc/transformers/index.ts",
+    "sha256": "6ded796f131bdfd61769ecae61963d72235671481186597c93144a7b7fe486de"
+  },
+  "sources": {
+    "mc1": {
+      "path": "truthfulqa-mc/data/mc_task.json",
+      "sha256": "c90d853454fd48c676accb33e16923ac438dbb6fb37ecc7c6a70e33c9e556e87",
+      "bytes": 744411
+    }
+  },
+  "caseCount": 790,
+  "output": {
+    "path": "truthfulqa-mc/exports/mc1.jsonl",
+    "format": "jsonl",
+    "sha256": "3a77892f54243b4c8167dcfa5a6081082e8ffd54e0478279e752b2e44d901b5a"
+  }
+}

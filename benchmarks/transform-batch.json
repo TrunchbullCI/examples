@@ -47,6 +47,19 @@
         "validation": "a73f46cb5d72b2cc399522a79f27728a429d9b89d9a236243fcfda8c02588d54",
         "labels": "b4192dc3a2a0363d9d60ccf79800cbbe2f32ebb17726efdde6970e0b8131bceb"
       }
+    },
+    {
+      "id": "truthfulqa-mc1",
+      "transformer": "truthfulqa-mc/transformers/index.ts",
+      "sources": {
+        "mc1": "truthfulqa-mc/data/mc_task.json"
+      },
+      "output": "truthfulqa-mc/exports/mc1.jsonl",
+      "format": "jsonl",
+      "expectedCaseCount": 790,
+      "expectedSourceSha256": {
+        "mc1": "c90d853454fd48c676accb33e16923ac438dbb6fb37ecc7c6a70e33c9e556e87"
+      }
     }
   ]
 }

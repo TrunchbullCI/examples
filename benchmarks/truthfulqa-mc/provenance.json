@@ -1,0 +1,16 @@
+{
+  "upstreamRepository": "https://github.com/sylinrl/TruthfulQA",
+  "upstreamRevision": "d71c110897f5d31c5d7f309e7bc316c152f6f031",
+  "paper": "https://arxiv.org/abs/2109.07958",
+  "license": "Apache-2.0",
+  "subset": "MC1 (single-true multiple choice)",
+  "sourceFormat": "upstream data/mc_task.json, selecting mc1_targets for every record",
+  "sources": {
+    "mc1": {
+      "cases": 790,
+      "sha256": "c90d853454fd48c676accb33e16923ac438dbb6fb37ecc7c6a70e33c9e556e87"
+    }
+  },
+  "portedRepository": "https://github.com/TrunchbullCI/examples",
+  "portedCommit": null
+}
