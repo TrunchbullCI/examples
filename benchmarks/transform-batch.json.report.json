@@ -1,8 +1,8 @@
 {
   "protocolVersion": 1,
   "manifest": "transform-batch.json",
-  "jobCount": 2,
-  "caseCount": 11382,
+  "jobCount": 3,
+  "caseCount": 14652,
   "results": [
     {
       "id": "arc-challenge",
@@ -17,6 +17,13 @@
       "caseCount": 8792,
       "output": "gsm8k/exports/arithmetic-reasoning.jsonl",
       "receipt": "gsm8k/exports/arithmetic-reasoning.jsonl.manifest.json"
+    },
+    {
+      "id": "boolq",
+      "transformerName": "BoolQ validation transformer",
+      "caseCount": 3270,
+      "output": "boolq/exports/validation.jsonl",
+      "receipt": "boolq/exports/validation.jsonl.manifest.json"
     }
   ]
 }

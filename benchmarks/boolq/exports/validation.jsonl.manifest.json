@@ -1,0 +1,21 @@
+{
+  "protocolVersion": 1,
+  "transformer": {
+    "name": "BoolQ validation transformer",
+    "path": "boolq/transformers/index.ts",
+    "sha256": "bc59eaf5b06d0c642ca91b28ca563d6cc4e6a7a605f1c2bc8e12fd5ddca0c3e0"
+  },
+  "sources": {
+    "validation": {
+      "path": "boolq/data/validation.jsonl",
+      "sha256": "0477ed7c7519c25ad2633c53581ed370f3bd1857dfac177af559b658969b0577",
+      "bytes": 2113499
+    }
+  },
+  "caseCount": 3270,
+  "output": {
+    "path": "boolq/exports/validation.jsonl",
+    "format": "jsonl",
+    "sha256": "4bd95f4f288cc03e2063e2f1bd63150764b1fcd2d14e91e02a72c1dfa6f0b98b"
+  }
+}

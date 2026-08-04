@@ -32,6 +32,19 @@
         "train": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
         "test": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14"
       }
+    },
+    {
+      "id": "boolq",
+      "transformer": "boolq/transformers/index.ts",
+      "sources": {
+        "validation": "boolq/data/validation.jsonl"
+      },
+      "output": "boolq/exports/validation.jsonl",
+      "format": "jsonl",
+      "expectedCaseCount": 3270,
+      "expectedSourceSha256": {
+        "validation": "0477ed7c7519c25ad2633c53581ed370f3bd1857dfac177af559b658969b0577"
+      }
     }
   ]
 }
