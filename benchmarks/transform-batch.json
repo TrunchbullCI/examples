@@ -32,6 +32,19 @@
         "train": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
         "test": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14"
       }
+    },
+    {
+      "id": "truthfulqa-mc1",
+      "transformer": "truthfulqa-mc/transformers/index.ts",
+      "sources": {
+        "mc1": "truthfulqa-mc/data/mc_task.json"
+      },
+      "output": "truthfulqa-mc/exports/mc1.jsonl",
+      "format": "jsonl",
+      "expectedCaseCount": 790,
+      "expectedSourceSha256": {
+        "mc1": "c90d853454fd48c676accb33e16923ac438dbb6fb37ecc7c6a70e33c9e556e87"
+      }
     }
   ]
 }
