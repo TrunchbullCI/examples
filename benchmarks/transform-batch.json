@@ -45,6 +45,19 @@
       "expectedSourceSha256": {
         "validation": "0477ed7c7519c25ad2633c53581ed370f3bd1857dfac177af559b658969b0577"
       }
+    },
+    {
+      "id": "truthfulqa-mc1",
+      "transformer": "truthfulqa-mc/transformers/index.ts",
+      "sources": {
+        "mc1": "truthfulqa-mc/data/mc_task.json"
+      },
+      "output": "truthfulqa-mc/exports/mc1.jsonl",
+      "format": "jsonl",
+      "expectedCaseCount": 790,
+      "expectedSourceSha256": {
+        "mc1": "c90d853454fd48c676accb33e16923ac438dbb6fb37ecc7c6a70e33c9e556e87"
+      }
     }
   ]
 }
