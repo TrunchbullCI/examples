@@ -1,8 +1,6 @@
 {
   "upstreamRepository": "https://github.com/t3-content/skatebench",
   "upstreamCommit": "a4d54c25390fb5d62775e18f75a898332447ae0b",
-  "portedRepository": "https://github.com/TrunchbullCI/examples",
-  "portedCommit": "e3075394da9fdabfb49ed82a092e1f4aa36651c1",
   "license": "MIT",
   "sources": [
     {

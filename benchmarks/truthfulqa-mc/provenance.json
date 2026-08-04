@@ -5,12 +5,18 @@
   "license": "Apache-2.0",
   "subset": "MC1 (single-true multiple choice)",
   "sourceFormat": "upstream data/mc_task.json, selecting mc1_targets for every record",
-  "sources": {
-    "mc1": {
-      "cases": 790,
+  "sources": [
+    {
+      "path": "benchmarks/truthfulqa-mc/data/mc_task.json",
+      "caseCount": 790,
       "sha256": "c90d853454fd48c676accb33e16923ac438dbb6fb37ecc7c6a70e33c9e556e87"
     }
-  },
-  "portedRepository": "https://github.com/TrunchbullCI/examples",
-  "portedCommit": null
+  ],
+  "generatedFiles": [
+    {
+      "path": "exports/mc1.jsonl",
+      "caseCount": 790,
+      "sha256": "3a77892f54243b4c8167dcfa5a6081082e8ffd54e0478279e752b2e44d901b5a"
+    }
+  ]
 }

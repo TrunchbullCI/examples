@@ -1,9 +1,9 @@
 # GSM8K Trunchbull port
 
 This zero-dependency port contains all 8,792 cases from the official GSM8K
-train and test splits. The upstream source is pinned in `provenance.json`; the
-future organization repository and commit are intentionally left unset until
-that repository exists.
+train and test splits. The upstream source is pinned in `provenance.json`.
+Publication records the exact `TrunchbullCI/examples` commit separately as the
+immutable port revision.
 
 The transformer namespaces cases by split, extracts the official answer after
 the upstream `####` marker, and creates an immutable `answer_bank` evaluator.

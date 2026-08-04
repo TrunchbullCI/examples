@@ -2,8 +2,8 @@
 
 This zero-dependency port contains all 2,590 labeled ARC-Challenge cases from
 the train, validation, and test splits. The source snapshot is pinned in
-`provenance.json`; the future organization repository and commit are
-intentionally left unset until that repository exists.
+`provenance.json`. Publication records the exact `TrunchbullCI/examples`
+commit separately as the immutable port revision.
 
 The transformer namespaces every case ID by split and converts the upstream
 multiple-choice rows into Trunchbull `answer_bank` evaluators. Models must end

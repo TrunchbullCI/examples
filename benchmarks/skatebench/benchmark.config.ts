@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "SkateBench",
-  version: "1.0.0",
+  version: "1.0.1",
   description:
     "A Trunchbull port of SkateBench's skateboard terminology and UploadThing awareness suites.",
   license: "MIT",
