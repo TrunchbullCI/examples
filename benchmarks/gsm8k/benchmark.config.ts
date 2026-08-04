@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "GSM8K",
-  version: "1.0.1",
+  version: "1.0.2",
   description:
     "The complete official GSM8K train and test splits for multi-step grade-school mathematics reasoning.",
   license: "MIT",
