@@ -34,6 +34,19 @@
       }
     },
     {
+      "id": "boolq",
+      "transformer": "boolq/transformers/index.ts",
+      "sources": {
+        "validation": "boolq/data/validation.jsonl"
+      },
+      "output": "boolq/exports/validation.jsonl",
+      "format": "jsonl",
+      "expectedCaseCount": 3270,
+      "expectedSourceSha256": {
+        "validation": "0477ed7c7519c25ad2633c53581ed370f3bd1857dfac177af559b658969b0577"
+      }
+    },
+    {
       "id": "truthfulqa-mc1",
       "transformer": "truthfulqa-mc/transformers/index.ts",
       "sources": {

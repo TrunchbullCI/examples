@@ -1,0 +1,18 @@
+{
+  "upstreamRepository": "https://github.com/google-research-datasets/boolean-questions",
+  "upstreamRevision": "90af34107399cc7a446b373dc4ee35b8001da7c2",
+  "datasetMirror": "https://huggingface.co/datasets/google/boolq",
+  "datasetMirrorRevision": "8ab2d3e9ff5449d3957950129cea176fe214d884",
+  "paper": "https://arxiv.org/abs/1905.10044",
+  "license": "CC-BY-SA-3.0",
+  "subset": "labeled validation split",
+  "sourceFormat": "official dev.jsonl content normalized from the pinned Hugging Face validation Parquet mirror to canonical JSONL",
+  "splits": {
+    "validation": {
+      "cases": 3270,
+      "sha256": "0477ed7c7519c25ad2633c53581ed370f3bd1857dfac177af559b658969b0577"
+    }
+  },
+  "portedRepository": "https://github.com/TrunchbullCI/examples",
+  "portedCommit": null
+}
