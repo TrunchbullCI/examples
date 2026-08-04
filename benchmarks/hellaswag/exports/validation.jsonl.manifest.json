@@ -1,0 +1,21 @@
+{
+  "protocolVersion": 1,
+  "transformer": {
+    "name": "HellaSwag validation transformer",
+    "path": "hellaswag/transformers/index.ts",
+    "sha256": "85087e47556b3867eb94f8356e5fed77af83cc212d126a774a34386203a5c9ad"
+  },
+  "sources": {
+    "validation": {
+      "path": "hellaswag/data/validation.jsonl",
+      "sha256": "0aa3b88843990f3f10a97b9575c94d7b71fb2205240ba04ae4884d9e9c992588",
+      "bytes": 12246618
+    }
+  },
+  "caseCount": 10042,
+  "output": {
+    "path": "hellaswag/exports/validation.jsonl",
+    "format": "jsonl",
+    "sha256": "60a51138cfb021a1c151c00b069e5cb630602afdc60a0bc90c07e55d22afdb09"
+  }
+}

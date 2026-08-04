@@ -1,8 +1,8 @@
 {
   "protocolVersion": 1,
   "manifest": "transform-batch.json",
-  "jobCount": 5,
-  "caseCount": 17280,
+  "jobCount": 6,
+  "caseCount": 27322,
   "results": [
     {
       "id": "arc-challenge",
@@ -38,6 +38,13 @@
       "caseCount": 1838,
       "output": "piqa/exports/validation.jsonl",
       "receipt": "piqa/exports/validation.jsonl.manifest.json"
+    },
+    {
+      "id": "hellaswag",
+      "transformerName": "HellaSwag validation transformer",
+      "caseCount": 10042,
+      "output": "hellaswag/exports/validation.jsonl",
+      "receipt": "hellaswag/exports/validation.jsonl.manifest.json"
     }
   ]
 }

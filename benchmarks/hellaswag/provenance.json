@@ -1,0 +1,16 @@
+{
+  "upstreamRepository": "https://github.com/rowanz/hellaswag",
+  "upstreamRevision": "a29ff8e9a04bba4bd6588223785ce105328adc57",
+  "paper": "https://arxiv.org/abs/1905.07830",
+  "license": "MIT",
+  "subset": "labeled validation split",
+  "sourceFormat": "upstream data/hellaswag_val.jsonl",
+  "splits": {
+    "validation": {
+      "cases": 10042,
+      "sha256": "0aa3b88843990f3f10a97b9575c94d7b71fb2205240ba04ae4884d9e9c992588"
+    }
+  },
+  "portedRepository": "https://github.com/TrunchbullCI/examples",
+  "portedCommit": null
+}

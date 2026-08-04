@@ -73,6 +73,19 @@
         "validation": "a73f46cb5d72b2cc399522a79f27728a429d9b89d9a236243fcfda8c02588d54",
         "labels": "b4192dc3a2a0363d9d60ccf79800cbbe2f32ebb17726efdde6970e0b8131bceb"
       }
+    },
+    {
+      "id": "hellaswag",
+      "transformer": "hellaswag/transformers/index.ts",
+      "sources": {
+        "validation": "hellaswag/data/validation.jsonl"
+      },
+      "output": "hellaswag/exports/validation.jsonl",
+      "format": "jsonl",
+      "expectedCaseCount": 10042,
+      "expectedSourceSha256": {
+        "validation": "0aa3b88843990f3f10a97b9575c94d7b71fb2205240ba04ae4884d9e9c992588"
+      }
     }
   ]
 }
