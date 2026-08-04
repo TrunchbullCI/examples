@@ -1,0 +1,26 @@
+{
+  "protocolVersion": 1,
+  "transformer": {
+    "name": "PIQA validation transformer",
+    "path": "piqa/transformers/index.ts",
+    "sha256": "fc91bd9d6c5bb3b2e36f53ced9391d5ef6002f7258662ca418a8d689d2931525"
+  },
+  "sources": {
+    "labels": {
+      "path": "piqa/data/validation-labels.lst",
+      "sha256": "b4192dc3a2a0363d9d60ccf79800cbbe2f32ebb17726efdde6970e0b8131bceb",
+      "bytes": 3676
+    },
+    "validation": {
+      "path": "piqa/data/validation.jsonl",
+      "sha256": "a73f46cb5d72b2cc399522a79f27728a429d9b89d9a236243fcfda8c02588d54",
+      "bytes": 580477
+    }
+  },
+  "caseCount": 1838,
+  "output": {
+    "path": "piqa/exports/validation.jsonl",
+    "format": "jsonl",
+    "sha256": "07dd88ce890ab319b54a149cee315d8cdf40d45081c7ab639a4a78c57b814f89"
+  }
+}

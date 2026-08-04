@@ -1,0 +1,23 @@
+{
+  "upstreamRepository": "https://yonatanbisk.com/piqa/",
+  "upstreamRevision": "physicaliqa-train-dev.zip sha256:54d32a04f59a7e354396f321723c8d7ec35cc6b08506563d8d1ffcc15ce98ddd",
+  "sourceArchive": "https://storage.googleapis.com/ai2-mosaic/public/physicaliqa/physicaliqa-train-dev.zip",
+  "paper": "https://arxiv.org/abs/1911.11641",
+  "license": "AFL-3.0",
+  "subset": "labeled development split",
+  "sourceFormat": "physicaliqa-train-dev/dev.jsonl with its aligned dev-labels.lst",
+  "splits": {
+    "validation": {
+      "cases": 1838,
+      "sha256": "a73f46cb5d72b2cc399522a79f27728a429d9b89d9a236243fcfda8c02588d54"
+    }
+  },
+  "sources": [
+    {
+      "path": "data/validation-labels.lst",
+      "sha256": "b4192dc3a2a0363d9d60ccf79800cbbe2f32ebb17726efdde6970e0b8131bceb"
+    }
+  ],
+  "portedRepository": "https://github.com/TrunchbullCI/examples",
+  "portedCommit": null
+}
