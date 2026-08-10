@@ -1,9 +1,11 @@
 # Medical AI Failure Atlas port
 
 This package ports the upstream project's defined v0.2.1 public boundary:
-44 clinician-reviewed, synthetic Turkish medical-AI safety cases. It does not
-contain patient records, private model outputs, clinical deployment evidence,
-or a claim of clinical validation.
+44 clinician-reviewed, synthetic Turkish medical-AI safety cases. We retain the
+approved public rows, compile the prompts into self-contained cases, and ship a
+deterministic custom evaluator. This is an evaluation port; it does not contain
+patient records, private model outputs, clinical deployment evidence, or a claim
+of clinical validation.
 
 ## Evaluation semantics
 
