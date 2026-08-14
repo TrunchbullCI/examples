@@ -86,6 +86,19 @@
       "expectedSourceSha256": {
         "validation": "0aa3b88843990f3f10a97b9575c94d7b71fb2205240ba04ae4884d9e9c992588"
       }
+    },
+    {
+      "id": "medical-ai-failure-atlas",
+      "transformer": "medical-ai-failure-atlas/transformers/index.ts",
+      "sources": {
+        "public-release": "medical-ai-failure-atlas/data/public-v0.2.1.jsonl"
+      },
+      "output": "medical-ai-failure-atlas/exports/medical-ai-safety.jsonl",
+      "format": "jsonl",
+      "expectedCaseCount": 44,
+      "expectedSourceSha256": {
+        "public-release": "23f69c913b6ff38ccde23e526b4b0f72785ccfc3fa76478c980a879a499ef331"
+      }
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "protocolVersion": 1,
+  "transformer": {
+    "name": "Medical AI Failure Atlas v0.2.1 transformer",
+    "path": "medical-ai-failure-atlas/transformers/index.ts",
+    "sha256": "2eb0082dbc0aa7d59540da5c3874949f01bc1cbc39f9d12529f97f758a6d341a"
+  },
+  "sources": {
+    "public-release": {
+      "path": "medical-ai-failure-atlas/data/public-v0.2.1.jsonl",
+      "sha256": "23f69c913b6ff38ccde23e526b4b0f72785ccfc3fa76478c980a879a499ef331",
+      "bytes": 74152
+    }
+  },
+  "caseCount": 44,
+  "output": {
+    "path": "medical-ai-failure-atlas/exports/medical-ai-safety.jsonl",
+    "format": "jsonl",
+    "sha256": "f7c8dc261730e6f69196d8af0b8c1dc6071ca8bce56e39d553e7406ce67ae97f"
+  }
+}

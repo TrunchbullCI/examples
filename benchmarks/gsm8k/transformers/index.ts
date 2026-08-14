@@ -8,6 +8,7 @@ interface TransformerInput {
 }
 
 const splits = ["train", "test"] as const
+const answerPattern = /#### (-?[0-9.,]+)/
 
 export default {
   name: "GSM8K complete-splits transformer",
@@ -22,7 +23,10 @@ export default {
         .filter(Boolean)
         .map((line, index) => {
           const row = JSON.parse(line) as Gsm8kSourceRow
-          const expected = row.answer.match(/####\s*([^\n]+)/)?.[1]?.trim()
+          const expected = row.answer
+            .match(answerPattern)?.[1]
+            ?.trim()
+            .replaceAll(",", "")
           if (!row.question?.trim() || !expected) {
             throw new Error(`GSM8K ${split} row ${index + 1} is malformed.`)
           }
@@ -30,11 +34,7 @@ export default {
             id: `${split}-row-${index + 1}`,
             prompt: row.question,
             description: `GSM8K ${split} split mathematics problem.`,
-            evaluate: {
-              kind: "answer_bank" as const,
-              answers: [`FINAL ANSWER: ${expected}`],
-              forbiddenAnswers: [],
-            },
+            evaluate: { kind: "gsm8k" as const, expected },
           }
         })
     })

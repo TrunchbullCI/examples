@@ -5,8 +5,9 @@ train and test splits. The upstream source is pinned in `provenance.json`.
 Publication records the exact `TrunchbullCI/examples` commit separately as the
 immutable port revision.
 
-The transformer namespaces cases by split, extracts the official answer after
-the upstream `####` marker, and creates an immutable `answer_bank` evaluator.
+The transformer namespaces cases by split and extracts the official answer
+using the upstream `#### (-?[0-9.,]+)` rule. Runtime evaluation preserves the
+upstream behavior: it removes commas and compares the extracted strings.
 
 Generate the immutable JSONL export and hash receipt with:
 
