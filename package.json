@@ -1,8 +1,0 @@
-{
-  "name": "trunchbull-benchmark-ports",
-  "private": true,
-  "type": "module",
-  "dependencies": {
-    "ai": "6.0.116"
-  }
-}
