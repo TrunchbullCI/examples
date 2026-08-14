@@ -1,0 +1,13 @@
+{
+  "upstreamDataset": "https://huggingface.co/datasets/gorkemergune/mihenk-benchmark",
+  "upstreamRevision": "8341ae010c60fdb30607b1718c072bf9d05ddc0a",
+  "license": "CC-BY-4.0",
+  "subset": "public development split",
+  "sourceFormat": "upstream Hugging Face JSONL",
+  "splits": {
+    "public": {
+      "cases": 80,
+      "sha256": "fe496a7faea9848c381be7c7174975191702e59d1bf24b81d666eeacdf614a4b"
+    }
+  }
+}

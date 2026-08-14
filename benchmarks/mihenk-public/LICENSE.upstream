@@ -1,0 +1,18 @@
+MIHENK public sample data
+
+The upstream Hugging Face dataset declares the public MIHENK data under the
+Creative Commons Attribution 4.0 International license (CC BY 4.0).
+
+Upstream dataset:
+https://huggingface.co/datasets/gorkemergune/mihenk-benchmark
+
+Pinned dataset revision:
+8341ae010c60fdb30607b1718c072bf9d05ddc0a
+
+License deed and legal code:
+https://creativecommons.org/licenses/by/4.0/
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+This Trunchbull port is derived from the upstream public development split.
+MIHENK remains the work of its upstream authors; TrunchbullCI does not claim
+ownership or upstream-maintainer status.
