@@ -1,0 +1,22 @@
+{
+  "name": "@trunchbull-examples/pkmnshowdown",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:simulation": "esbuild src/pokemon-driver.ts --bundle --platform=node --format=esm --target=node20 --outfile=dist/pokemon-driver.js",
+    "test": "tsx --test src/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@pkmn/randoms": "0.10.11",
+    "@pkmn/sim": "0.10.11",
+    "@trunchbull/simulation": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "esbuild": "^0.25.12",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
