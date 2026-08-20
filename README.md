@@ -28,3 +28,12 @@ benchmark example changes from this repository, not from the parent repository.
 
 Each port retains its own upstream provenance and licensing information. Do not
 assume a single repository-wide license applies to upstream benchmark content.
+
+## Included simulations
+
+Simulation repositories use the typed Trunchbull simulation SDK because they
+define long-running environments, model roles, ordered stages, and a simulator
+driver. Unlike benchmark authoring packages, they declare the SDK as an
+ordinary pinned package dependency.
+
+- [`pkmnshowdown`](./sims/pkmnshowdown)

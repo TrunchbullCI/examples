@@ -1,0 +1,19 @@
+{
+  "name": "Pokémon Showdown simulation adapter",
+  "upstream": {
+    "name": "pkmn/ps",
+    "url": "https://github.com/pkmn/ps",
+    "packages": {
+      "@pkmn/sim": {
+        "version": "0.10.11",
+        "integrity": "sha512-v45jqIgFnEB3hc7e97QlWDnfkIef6mfZ0WjWHWw+f21cYyksGVLzxIEulR9xuOazeszA+ycDx6O6B3JOJAS5Xg=="
+      },
+      "@pkmn/randoms": {
+        "version": "0.10.11",
+        "integrity": "sha512-uXZJ5HFDuIHKnc5VgPib9HQy6fOyRTMrCuaCAbQKLkbaH6lURvZmldcUZI0o7TKxRzTmQZpJrRc6hXecDoqf1w=="
+      }
+    },
+    "revision": "4fec8877c83d102528929100b9c45a3a1cc160d3",
+    "license": "MIT"
+  }
+}
