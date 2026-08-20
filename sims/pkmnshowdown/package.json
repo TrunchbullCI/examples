@@ -11,7 +11,7 @@
   "dependencies": {
     "@pkmn/randoms": "0.10.11",
     "@pkmn/sim": "0.10.11",
-    "@trunchbull/simulation": "^0.1.0"
+    "@trunchbull/simulation": "^0.2.0"
   },
   "devDependencies": {
     "@types/node": "^25.3.0",
