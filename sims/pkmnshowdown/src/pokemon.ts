@@ -22,6 +22,7 @@ interface PlayerView {
 }
 
 interface PokemonRequest {
+  wait?: boolean
   teamPreview?: boolean
   forceSwitch?: boolean[]
   active?: Array<{
@@ -49,6 +50,7 @@ interface PokemonBattleDecision {
   phase: "action" | "forced-switch" | "team-preview"
   selection: ArtifactChoiceView
   alternatives: ArtifactChoiceView[]
+  reason: string
 }
 
 interface PokemonBattleRuntime {
@@ -74,13 +76,55 @@ export interface PokemonBattleConfiguration {
 
 export interface PokemonBattleAction {
   choice: string
+  choiceLabel?: string
+  reason?: string
+}
+
+interface PokemonActionOption extends ArtifactChoiceView {
+  value: string
+  label: string
+  effectiveness?: "immune" | "resisted" | "neutral" | "super-effective"
+  details?: string
 }
 
 export interface PokemonBattleObservation {
   revision: number
   player: PlayerSlot
+  phase: "action" | "forced-switch" | "team-preview" | "waiting" | "ended"
+  battleStarted: boolean
+  battleEnded: boolean
+  turn: number
+  summary: string
+  team: Array<{
+    name: string
+    species: string
+    level: number
+    types: string[]
+    hp: number
+    maxHp: number
+    status: string | null
+    active: boolean
+    fainted: boolean
+    stats: Record<string, number>
+    ability: string
+    item: string
+    moves: Array<{
+      name: string
+      pp: number
+      maxPp: number
+      disabled: boolean
+    }>
+  }>
+  opponentActive: {
+    name: string
+    species: string
+    level: number
+    types: string[]
+    status: string | null
+  } | null
   request: unknown
   legalActions: string[]
+  actionOptions: PokemonActionOption[]
   lastError: string | null
   recentLog: string[]
 }
@@ -98,6 +142,8 @@ export interface PokemonBattleDispatchResult {
   revision: number
   message?: string
   choice?: string
+  choiceLabel?: string
+  reason?: string
 }
 
 let randomTeamFactoryInstalled = false
@@ -130,6 +176,7 @@ export function createPokemonDriverHandlers(): SimulationDriverHandlers<
                 formatId: runtime.formatId,
                 participants: runtime.participants,
                 chunks: [...runtime.contractStream],
+                decisions: [...runtime.decisions],
                 presentation: pokemonTurnView(runtime),
               },
             },
@@ -304,6 +351,7 @@ async function dispatchChoice({
     alternatives: legalActions(runtime, slot).map((candidate) =>
       describeChoice(request, candidate)
     ),
+    reason: action.reason?.trim() || "No tactical reason was supplied.",
   } satisfies PokemonBattleDecision
   runtime.views[slot].lastError = null
   await runtime.streams[slot].write(choice)
@@ -322,7 +370,13 @@ async function dispatchChoice({
   if (runtime.battleStream.battle?.ended) {
     void runEval()
   }
-  return { status: "committed", revision: runtime.revision, choice }
+  return {
+    status: "committed",
+    revision: runtime.revision,
+    choice,
+    choiceLabel: action.choiceLabel ?? decision.selection.label,
+    reason: decision.reason,
+  }
 }
 
 function observeBattle(
@@ -332,14 +386,111 @@ function observeBattle(
   refreshRevision(runtime)
   const slot = requirePlayerSlot(runtime, participantId)
   const view = runtime.views[slot]
+  const battle = runtime.battleStream.battle
+  const side = battle?.getSide(slot)
+  const request = side?.activeRequest as PokemonRequest | null | undefined
+  const actions = request ? legalActions(runtime, slot) : []
+  const options = request
+    ? actions.map((choice) => actionOption(runtime, slot, request, choice))
+    : []
+  const phase = battle?.ended
+    ? "ended"
+    : !request || request.wait || side?.isChoiceDone()
+      ? "waiting"
+      : request.teamPreview
+        ? "team-preview"
+        : request.forceSwitch?.some(Boolean)
+          ? "forced-switch"
+          : "action"
+  const opponent = side?.foe.active[0]
   return {
     revision: runtime.revision,
     player: slot,
-    request: runtime.battleStream.battle?.getSide(slot).activeRequest ?? null,
-    legalActions: legalActions(runtime, slot),
+    phase,
+    battleStarted: Boolean(battle),
+    battleEnded: battle?.ended ?? false,
+    turn: battle?.turn ?? 0,
+    summary: battle?.ended
+      ? `The battle ended on turn ${battle.turn}.`
+      : phase === "waiting"
+        ? `Turn ${battle?.turn ?? 0}: your action is committed; wait for the opponent.`
+        : `Turn ${battle?.turn ?? 0}: choose one of ${options.length} legal ${phase.replace("-", " ")} actions.`,
+    team: (side?.pokemon ?? []).map((pokemon) => ({
+      name: pokemon.name,
+      species: pokemon.species.name,
+      level: pokemon.level,
+      types: [...pokemon.types],
+      hp: pokemon.hp,
+      maxHp: pokemon.maxhp,
+      status: pokemon.status || null,
+      active: pokemon.isActive,
+      fainted: pokemon.fainted,
+      stats: { ...pokemon.storedStats },
+      ability: pokemon.ability,
+      item: pokemon.item,
+      moves: pokemon.moveSlots.map((move) => ({
+        name: move.move,
+        pp: move.pp,
+        maxPp: move.maxpp,
+        disabled: Boolean(move.disabled),
+      })),
+    })),
+    opponentActive: opponent
+      ? {
+          name: opponent.name,
+          species: opponent.species.name,
+          level: opponent.level,
+          types: [...opponent.types],
+          status: opponent.status || null,
+        }
+      : null,
+    request: request ?? null,
+    legalActions: actions,
+    actionOptions: options,
     lastError:
       runtime.battleStream.battle?.getSide(slot).choice.error ?? view.lastError,
     recentLog: view.log.slice(-120),
+  }
+}
+
+function actionOption(
+  runtime: PokemonBattleRuntime,
+  slot: PlayerSlot,
+  request: PokemonRequest,
+  choice: string
+): PokemonActionOption {
+  const described = describeChoice(request, choice)
+  const [command, rawIndex] = choice.split(" ")
+  const index = Number(rawIndex) - 1
+  if (command !== "move" || !Number.isInteger(index) || index < 0) {
+    return { ...described, value: choice, label: described.label }
+  }
+  const moveRequest = request.active?.[0]?.moves[index]
+  const move = runtime.battleStream.battle?.dex.moves.get(
+    moveRequest?.id ?? moveRequest?.move ?? ""
+  )
+  const opponent = runtime.battleStream.battle?.getSide(slot).foe.active[0]
+  const multiplier =
+    move?.exists && opponent
+      ? runtime.battleStream.battle!.dex.getImmunity(move, opponent)
+        ? 2 ** runtime.battleStream.battle!.dex.getEffectiveness(move, opponent)
+        : 0
+      : 1
+  return {
+    ...described,
+    value: choice,
+    label: move?.name ?? described.label,
+    effectiveness:
+      multiplier === 0
+        ? "immune"
+        : multiplier > 1
+          ? "super-effective"
+          : multiplier < 1
+            ? "resisted"
+            : "neutral",
+    details: move?.exists
+      ? `${move.type} ${move.category}; power ${move.basePower || "status"}; ${multiplier}x into ${opponent?.name ?? "the opponent"}.`
+      : undefined,
   }
 }
 
