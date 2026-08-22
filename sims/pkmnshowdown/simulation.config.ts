@@ -3,13 +3,14 @@ import {
   defineEvals,
   modelParticipant,
   resolveSimulation,
+  retryActivation,
   simulationDriver,
 } from "@trunchbull/simulation"
 import type { PokemonBattleSnapshot } from "./src/pokemon.ts"
 
 export default createSim({
   name: "pkmnshowdown",
-  version: "1.0.0",
+  version: "1.0.1",
   systemPrompt:
     "You are competing in a Pokémon Showdown battle. Use your private observations and submit only legal choices.",
   build: {
@@ -45,6 +46,13 @@ export default createSim({
     },
   ]),
   onModelFailure: (event) => {
+    if (
+      event.code === "invalid_response" &&
+      event.retryable &&
+      event.attempt < 3
+    ) {
+      return retryActivation()
+    }
     const winner = event.participantId === "player1" ? "player2" : "player1"
     return resolveSimulation({
       winner,

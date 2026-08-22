@@ -6,6 +6,23 @@ import type {
   PokemonBattleSnapshot,
 } from "./pokemon.ts"
 import { createPokemonDriverHandlers } from "./pokemon.ts"
+import simulation from "../simulation.config.ts"
+
+test("retries a model that stops before acting before declaring a forfeit", () => {
+  const disposition = simulation.onModelFailure?.({
+    sessionId: "11111111-1111-4111-8111-111111111111",
+    evalId: "complete-battle",
+    participantId: "player1",
+    activationId: "22222222-2222-4222-8222-222222222222",
+    simulatorRevision: 1,
+    attempt: 1,
+    retryable: true,
+    code: "invalid_response",
+    message: "The model stopped before committing an action.",
+  })
+
+  assert.deepEqual(disposition, { action: "retry_activation" })
+})
 
 test("two scripted participants complete a deterministic Pokémon battle", async () => {
   const lifecycleEvents: Array<{ type: string; evalId: string | null }> = []
@@ -34,6 +51,7 @@ test("two scripted participants complete a deterministic Pokémon battle", async
   )
 
   let snapshot = await readSnapshot(protocol)
+  let sawNamedMove = false
   for (let step = 0; step < 2_000 && !snapshot.ended; step += 1) {
     const status = await readStatus(protocol, step)
     assert.notEqual(status.state, "failed")
@@ -41,12 +59,27 @@ test("two scripted participants complete a deterministic Pokémon battle", async
       const observation = await observe(protocol, participantId, step)
       const choice = legalChoice(observation.request)
       assert.ok(observation.legalActions.includes(choice))
+      assert.ok(observation.team.length === 6)
+      const option = observation.actionOptions.find(
+        (candidate) => candidate.value === choice
+      )
+      assert.ok(option)
+      if (option.kind === "move") {
+        sawNamedMove = true
+        assert.doesNotMatch(option.label, /^move \d+$/u)
+        assert.ok(option.effectiveness)
+        assert.ok(option.details)
+      }
       const response = await protocol.handle({
         id: `action-${participantId}-${step}`,
         method: "dispatch",
         params: {
           participantId,
-          action: { choice },
+          action: {
+            choice,
+            choiceLabel: option.label,
+            reason: `Selected ${option.label} from the current legal actions.`,
+          },
         },
       })
       assert.equal(response.ok, true)
@@ -61,6 +94,7 @@ test("two scripted participants complete a deterministic Pokémon battle", async
   }
 
   assert.equal(snapshot.ended, true)
+  assert.equal(sawNamedMove, true)
   assert.ok(snapshot.turn > 0)
   assert.ok(
     snapshot.winnerParticipantId === "alice" ||
@@ -85,6 +119,7 @@ test("two scripted participants complete a deterministic Pokémon battle", async
     source: {
       json: {
         chunks: string[]
+        decisions: Array<{ reason: string }>
         presentation: {
           kind: string
           turns: Array<{
@@ -121,6 +156,9 @@ test("two scripted participants complete a deterministic Pokémon battle", async
         decision.selection.value.length > 0 &&
         decision.selection.label.length > 0
     )
+  )
+  assert.ok(
+    replay?.source.json.decisions.every((decision) => Boolean(decision.reason))
   )
   assert.ok(decisions?.some((decision) => decision.selection.kind === "move"))
   assert.ok(decisions?.some((decision) => decision.selection.kind === "switch"))
