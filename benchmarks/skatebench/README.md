@@ -13,6 +13,11 @@ The optional `forbiddenAnswers` field extends the existing declarative
 `answer_bank` evaluator; no custom evaluator function runs at publication or
 trial time.
 
+Version `1.0.2` carries the normalized provenance inside
+`benchmark.config.ts`, so repository builds preserve the same immutable source
+identity as the official importer. All eight cases are marked as public samples,
+matching their existing catalog visibility.
+
 ## Provenance
 
 - Upstream: <https://github.com/t3-content/skatebench>
