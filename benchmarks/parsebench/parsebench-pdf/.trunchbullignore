@@ -1,0 +1,5 @@
+# Dataset files: stored as protected Trunchbull objects in R2; Git holds only
+# pointers. Source documents and renders (attachments) and the upstream rule
+# files baked into the grader image.
+documents/
+grader/rules/

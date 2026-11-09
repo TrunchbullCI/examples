@@ -1,0 +1,5823 @@
+{
+ "averages": [
+  {
+   "agrees": true,
+   "category": "chart",
+   "graderMean": 1.0,
+   "style": "reference",
+   "upstreamAverage": 1.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "layout",
+   "graderMean": 0.9288366701124138,
+   "style": "reference",
+   "upstreamAverage": 0.9288366701124138,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "table",
+   "graderMean": 1.0,
+   "style": "reference",
+   "upstreamAverage": 1.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "text_content",
+   "graderMean": 0.9079444002573993,
+   "style": "reference",
+   "upstreamAverage": 0.9079444002573993,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "text_formatting",
+   "graderMean": 0.9521161078446951,
+   "style": "reference",
+   "upstreamAverage": 0.9521161078446951,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "chart",
+   "graderMean": 1.0,
+   "style": "degraded",
+   "upstreamAverage": 1.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "layout",
+   "graderMean": 0.11745126065573924,
+   "style": "degraded",
+   "upstreamAverage": 0.11745126065573924,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "table",
+   "graderMean": 1.0,
+   "style": "degraded",
+   "upstreamAverage": 1.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "text_content",
+   "graderMean": 0.6622207135470924,
+   "style": "degraded",
+   "upstreamAverage": 0.6622207135470924,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "text_formatting",
+   "graderMean": 0.802320653519676,
+   "style": "degraded",
+   "upstreamAverage": 0.802320653519676,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "chart",
+   "graderMean": 0.0,
+   "style": "plain",
+   "upstreamAverage": 0.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "layout",
+   "graderMean": null,
+   "style": "plain",
+   "upstreamAverage": null,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "table",
+   "graderMean": 0.0,
+   "style": "plain",
+   "upstreamAverage": 0.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "text_content",
+   "graderMean": 0.0,
+   "style": "plain",
+   "upstreamAverage": 0.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "text_formatting",
+   "graderMean": 0.0,
+   "style": "plain",
+   "upstreamAverage": 0.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "chart",
+   "graderMean": 0.0,
+   "style": "empty",
+   "upstreamAverage": 0.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "layout",
+   "graderMean": null,
+   "style": "empty",
+   "upstreamAverage": null,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "table",
+   "graderMean": 0.0,
+   "style": "empty",
+   "upstreamAverage": 0.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "text_content",
+   "graderMean": 0.0,
+   "style": "empty",
+   "upstreamAverage": 0.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "text_formatting",
+   "graderMean": 0.0,
+   "style": "empty",
+   "upstreamAverage": 0.0,
+   "variant": "pdf"
+  },
+  {
+   "agrees": true,
+   "category": "chart",
+   "graderMean": 1.0,
+   "style": "reference",
+   "upstreamAverage": 1.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "layout",
+   "graderMean": 0.9288366701124138,
+   "style": "reference",
+   "upstreamAverage": 0.9288366701124138,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "table",
+   "graderMean": 1.0,
+   "style": "reference",
+   "upstreamAverage": 1.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "text_content",
+   "graderMean": 0.9079444002573993,
+   "style": "reference",
+   "upstreamAverage": 0.9079444002573993,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "text_formatting",
+   "graderMean": 0.9521161078446951,
+   "style": "reference",
+   "upstreamAverage": 0.9521161078446951,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "chart",
+   "graderMean": 1.0,
+   "style": "degraded",
+   "upstreamAverage": 1.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "layout",
+   "graderMean": 0.11745126065573924,
+   "style": "degraded",
+   "upstreamAverage": 0.11745126065573924,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "table",
+   "graderMean": 1.0,
+   "style": "degraded",
+   "upstreamAverage": 1.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "text_content",
+   "graderMean": 0.6622207135470924,
+   "style": "degraded",
+   "upstreamAverage": 0.6622207135470924,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "text_formatting",
+   "graderMean": 0.802320653519676,
+   "style": "degraded",
+   "upstreamAverage": 0.802320653519676,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "chart",
+   "graderMean": 0.0,
+   "style": "plain",
+   "upstreamAverage": 0.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "layout",
+   "graderMean": null,
+   "style": "plain",
+   "upstreamAverage": null,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "table",
+   "graderMean": 0.0,
+   "style": "plain",
+   "upstreamAverage": 0.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "text_content",
+   "graderMean": 0.0,
+   "style": "plain",
+   "upstreamAverage": 0.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "text_formatting",
+   "graderMean": 0.0,
+   "style": "plain",
+   "upstreamAverage": 0.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "chart",
+   "graderMean": 0.0,
+   "style": "empty",
+   "upstreamAverage": 0.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "layout",
+   "graderMean": null,
+   "style": "empty",
+   "upstreamAverage": null,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "table",
+   "graderMean": 0.0,
+   "style": "empty",
+   "upstreamAverage": 0.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "text_content",
+   "graderMean": 0.0,
+   "style": "empty",
+   "upstreamAverage": 0.0,
+   "variant": "image"
+  },
+  {
+   "agrees": true,
+   "category": "text_formatting",
+   "graderMean": 0.0,
+   "style": "empty",
+   "upstreamAverage": 0.0,
+   "variant": "image"
+  }
+ ],
+ "datasetRevision": "2805a1d940f95a203e0ae4b88be9934f7765b3fc",
+ "generatedAt": "2026-11-09T17:09:54",
+ "mismatches": 0,
+ "requests": 320,
+ "runs": [
+  {
+   "category": "chart",
+   "document": "docs/chart/TSLA-Q4-2024-Update_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Renewables2025_1_p30.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/World_Inequality_Report_2026_p71.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/CleanEnergyMarketMonitorMarch2024_p9.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/pdf_f270146f8ca7_p17.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Whatnextfortheglobalcarindustry_p22.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/ADL_Future_of_automotive_mobility_2024_1_p10.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Digital_News-Report_2022_p13.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/16804.png",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6666666666666666
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6666666666666666
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/agcm.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9473684210526315
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9473684210526315
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Automated-Invoice__p3.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.972972972972973
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.972972972972973
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/1-Integrated_Annual_Report_2019-Bursa_Malaysia_Berhad_p12.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.8913043478260869
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.8913043478260869
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/chapter_10_p2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/ar2024_p8.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2023-05-sigma-01-english_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Micron-2025-Sustainability-Report_p80.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9523809523809523
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9523809523809523
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page115.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/JNPR.2011.page_114.pdf_110685_page1.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Low-Back-Guideline (1)_page2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page2326.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page461.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Coca Cola 10-k_page68.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/1634690602_page6.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page905.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9587246468451109
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9587246468451109
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9641041601825916
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9641041601825916
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6478111602711941
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6478111602711941
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9643339117023327
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9643339117023327
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__skewGazette.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.8039215686274509
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.8039215686274509
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9336256241627087
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9336256241627087
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9910341302678054
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9910341302678054
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.8362068965517242
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.8362068965517242
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9166666666666666
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9166666666666666
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9285714285714286
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9285714285714286
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multilang__russian.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.935483870967742
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.935483870967742
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/TSLA-Q4-2024-Update_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Renewables2025_1_p30.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/World_Inequality_Report_2026_p71.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/CleanEnergyMarketMonitorMarch2024_p9.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/pdf_f270146f8ca7_p17.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Whatnextfortheglobalcarindustry_p22.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/ADL_Future_of_automotive_mobility_2024_1_p10.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Digital_News-Report_2022_p13.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/16804.png",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.3333333333333333
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.3333333333333333
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/agcm.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.13157894736842105
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.13157894736842105
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Automated-Invoice__p3.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.02702702702702703
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.02702702702702703
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/1-Integrated_Annual_Report_2019-Bursa_Malaysia_Berhad_p12.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.06521739130434782
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.06521739130434782
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/chapter_10_p2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.07894736842105263
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.07894736842105263
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/ar2024_p8.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.10204081632653061
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.10204081632653061
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2023-05-sigma-01-english_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.15384615384615385
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.15384615384615385
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Micron-2025-Sustainability-Report_p80.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.047619047619047616
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.047619047619047616
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page115.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/JNPR.2011.page_114.pdf_110685_page1.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Low-Back-Guideline (1)_page2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page2326.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page461.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Coca Cola 10-k_page68.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/1634690602_page6.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page905.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6941635749209768
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6941635749209768
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6885383666992863
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6885383666992863
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.5155427528943639
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.5155427528943639
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6789647067480234
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6789647067480234
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__skewGazette.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6471437059672354
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6471437059672354
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6579008475560201
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6579008475560201
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6939149803249526
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6939149803249526
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.7215967732658813
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.7215967732658813
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.4985007496251874
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.4985007496251874
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.7820512820512819
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.7820512820512819
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.7878787878787878
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.7878787878787878
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.5833333333333333
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.5833333333333333
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9375
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9375
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multilang__russian.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.8293010752688172
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.8293010752688172
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/TSLA-Q4-2024-Update_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Renewables2025_1_p30.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/World_Inequality_Report_2026_p71.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/CleanEnergyMarketMonitorMarch2024_p9.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/pdf_f270146f8ca7_p17.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Whatnextfortheglobalcarindustry_p22.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/ADL_Future_of_automotive_mobility_2024_1_p10.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Digital_News-Report_2022_p13.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/16804.png",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/agcm.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Automated-Invoice__p3.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/1-Integrated_Annual_Report_2019-Bursa_Malaysia_Berhad_p12.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/chapter_10_p2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/ar2024_p8.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2023-05-sigma-01-english_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Micron-2025-Sustainability-Report_p80.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page115.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/JNPR.2011.page_114.pdf_110685_page1.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Low-Back-Guideline (1)_page2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page2326.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page461.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Coca Cola 10-k_page68.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/1634690602_page6.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page905.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__skewGazette.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multilang__russian.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/TSLA-Q4-2024-Update_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Renewables2025_1_p30.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/World_Inequality_Report_2026_p71.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/CleanEnergyMarketMonitorMarch2024_p9.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/pdf_f270146f8ca7_p17.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Whatnextfortheglobalcarindustry_p22.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/ADL_Future_of_automotive_mobility_2024_1_p10.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Digital_News-Report_2022_p13.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/16804.png",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/agcm.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Automated-Invoice__p3.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/1-Integrated_Annual_Report_2019-Bursa_Malaysia_Berhad_p12.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/chapter_10_p2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/ar2024_p8.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2023-05-sigma-01-english_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Micron-2025-Sustainability-Report_p80.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page115.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/JNPR.2011.page_114.pdf_110685_page1.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Low-Back-Guideline (1)_page2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page2326.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page461.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Coca Cola 10-k_page68.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/1634690602_page6.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page905.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__skewGazette.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multilang__russian.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "pdf"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/TSLA-Q4-2024-Update_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Renewables2025_1_p30.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/World_Inequality_Report_2026_p71.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/CleanEnergyMarketMonitorMarch2024_p9.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/pdf_f270146f8ca7_p17.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Whatnextfortheglobalcarindustry_p22.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/ADL_Future_of_automotive_mobility_2024_1_p10.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Digital_News-Report_2022_p13.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/16804.png",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6666666666666666
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6666666666666666
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/agcm.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9473684210526315
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9473684210526315
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Automated-Invoice__p3.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.972972972972973
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.972972972972973
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/1-Integrated_Annual_Report_2019-Bursa_Malaysia_Berhad_p12.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.8913043478260869
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.8913043478260869
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/chapter_10_p2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/ar2024_p8.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2023-05-sigma-01-english_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Micron-2025-Sustainability-Report_p80.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9523809523809523
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9523809523809523
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page115.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/JNPR.2011.page_114.pdf_110685_page1.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Low-Back-Guideline (1)_page2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page2326.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page461.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Coca Cola 10-k_page68.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/1634690602_page6.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page905.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9587246468451109
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9587246468451109
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9641041601825916
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9641041601825916
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6478111602711941
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6478111602711941
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9643339117023327
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9643339117023327
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__skewGazette.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.8039215686274509
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.8039215686274509
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9336256241627087
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9336256241627087
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9910341302678054
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9910341302678054
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.8362068965517242
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.8362068965517242
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9166666666666666
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9166666666666666
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9285714285714286
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9285714285714286
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multilang__russian.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.935483870967742
+   },
+   "style": "reference",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.935483870967742
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/TSLA-Q4-2024-Update_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Renewables2025_1_p30.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/World_Inequality_Report_2026_p71.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/CleanEnergyMarketMonitorMarch2024_p9.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/pdf_f270146f8ca7_p17.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Whatnextfortheglobalcarindustry_p22.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/ADL_Future_of_automotive_mobility_2024_1_p10.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Digital_News-Report_2022_p13.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/16804.png",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.3333333333333333
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.3333333333333333
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/agcm.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.13157894736842105
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.13157894736842105
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Automated-Invoice__p3.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.02702702702702703
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.02702702702702703
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/1-Integrated_Annual_Report_2019-Bursa_Malaysia_Berhad_p12.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.06521739130434782
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.06521739130434782
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/chapter_10_p2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.07894736842105263
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.07894736842105263
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/ar2024_p8.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.10204081632653061
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.10204081632653061
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2023-05-sigma-01-english_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.15384615384615385
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.15384615384615385
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Micron-2025-Sustainability-Report_p80.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.047619047619047616
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.047619047619047616
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page115.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/JNPR.2011.page_114.pdf_110685_page1.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Low-Back-Guideline (1)_page2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page2326.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page461.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Coca Cola 10-k_page68.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/1634690602_page6.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page905.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6941635749209768
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6941635749209768
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6885383666992863
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6885383666992863
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.5155427528943639
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.5155427528943639
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6789647067480234
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6789647067480234
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__skewGazette.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6471437059672354
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6471437059672354
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6579008475560201
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6579008475560201
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.6939149803249526
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.6939149803249526
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.7215967732658813
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.7215967732658813
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.4985007496251874
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.4985007496251874
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.7820512820512819
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.7820512820512819
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.7878787878787878
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.7878787878787878
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.5833333333333333
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.5833333333333333
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.9375
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.9375
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 1.0
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 1.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multilang__russian.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.8293010752688172
+   },
+   "style": "degraded",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.8293010752688172
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/TSLA-Q4-2024-Update_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Renewables2025_1_p30.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/World_Inequality_Report_2026_p71.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/CleanEnergyMarketMonitorMarch2024_p9.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/pdf_f270146f8ca7_p17.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Whatnextfortheglobalcarindustry_p22.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/ADL_Future_of_automotive_mobility_2024_1_p10.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Digital_News-Report_2022_p13.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/16804.png",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/agcm.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Automated-Invoice__p3.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/1-Integrated_Annual_Report_2019-Bursa_Malaysia_Berhad_p12.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/chapter_10_p2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/ar2024_p8.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2023-05-sigma-01-english_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Micron-2025-Sustainability-Report_p80.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page115.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/JNPR.2011.page_114.pdf_110685_page1.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Low-Back-Guideline (1)_page2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page2326.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page461.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Coca Cola 10-k_page68.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/1634690602_page6.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page905.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__skewGazette.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multilang__russian.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "plain",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/TSLA-Q4-2024-Update_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Renewables2025_1_p30.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/World_Inequality_Report_2026_p71.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/CleanEnergyMarketMonitorMarch2024_p9.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/pdf_f270146f8ca7_p17.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Whatnextfortheglobalcarindustry_p22.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/ADL_Future_of_automotive_mobility_2024_1_p10.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Digital_News-Report_2022_p13.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/16804.png",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/agcm.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Automated-Invoice__p3.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/1-Integrated_Annual_Report_2019-Bursa_Malaysia_Berhad_p12.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/chapter_10_p2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/ar2024_p8.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2023-05-sigma-01-english_p27.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/Micron-2025-Sustainability-Report_p80.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "excluded",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": "Worker error: parse_with_layout adapter requires non-empty layout_pages",
+    "success": false,
+    "value": null
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page115.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/JNPR.2011.page_114.pdf_110685_page1.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Low-Back-Guideline (1)_page2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_CA_random_pages 1_page2326.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page461.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/Coca Cola 10-k_page68.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/1634690602_page6.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "table",
+   "document": "docs/table/SERFF_TX_random_pages 1_page905.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__skewGazette.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__4c.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__minutes2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__hydro.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__inr.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__sub.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_simple__templated.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__letter2.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multilang__russian.pdf",
+   "exactMatch": true,
+   "grader": {
+    "aggregation": "scored",
+    "error": null,
+    "score": 0.0
+   },
+   "style": "empty",
+   "upstream": {
+    "error": null,
+    "success": true,
+    "value": 0.0
+   },
+   "variant": "image"
+  }
+ ],
+ "sample": {
+  "chart": [
+   "docs/chart/TSLA-Q4-2024-Update_p27.pdf",
+   "docs/chart/Renewables2025_1_p30.pdf",
+   "docs/chart/World_Inequality_Report_2026_p71.pdf",
+   "docs/chart/CleanEnergyMarketMonitorMarch2024_p9.pdf",
+   "docs/chart/pdf_f270146f8ca7_p17.pdf",
+   "docs/chart/Whatnextfortheglobalcarindustry_p22.pdf",
+   "docs/chart/ADL_Future_of_automotive_mobility_2024_1_p10.pdf",
+   "docs/chart/Digital_News-Report_2022_p13.pdf"
+  ],
+  "layout": [
+   "docs/layout/16804.png",
+   "docs/layout/agcm.pdf",
+   "docs/layout/Automated-Invoice__p3.pdf",
+   "docs/layout/1-Integrated_Annual_Report_2019-Bursa_Malaysia_Berhad_p12.pdf",
+   "docs/layout/chapter_10_p2.pdf",
+   "docs/layout/ar2024_p8.pdf",
+   "docs/layout/2023-05-sigma-01-english_p27.pdf",
+   "docs/layout/Micron-2025-Sustainability-Report_p80.pdf"
+  ],
+  "table": [
+   "docs/table/SERFF_CA_random_pages 1_page115.pdf",
+   "docs/table/JNPR.2011.page_114.pdf_110685_page1.pdf",
+   "docs/table/Low-Back-Guideline (1)_page2.pdf",
+   "docs/table/SERFF_CA_random_pages 1_page2326.pdf",
+   "docs/table/SERFF_TX_random_pages 1_page461.pdf",
+   "docs/table/Coca Cola 10-k_page68.pdf",
+   "docs/table/1634690602_page6.pdf",
+   "docs/table/SERFF_TX_random_pages 1_page905.pdf"
+  ],
+  "text_content": [
+   "docs/text/text_multicolumns__4c.pdf",
+   "docs/text/text_simple__minutes2.pdf",
+   "docs/text/text_multicolumns__hydro.pdf",
+   "docs/text/text_ocr__inr.pdf",
+   "docs/text/text_ocr__skewGazette.pdf",
+   "docs/text/text_simple__sub.pdf",
+   "docs/text/text_simple__templated.pdf",
+   "docs/text/text_ocr__letter2.pdf"
+  ],
+  "text_formatting": [
+   "docs/text/text_multicolumns__4c.pdf",
+   "docs/text/text_simple__minutes2.pdf",
+   "docs/text/text_multicolumns__hydro.pdf",
+   "docs/text/text_ocr__inr.pdf",
+   "docs/text/text_simple__sub.pdf",
+   "docs/text/text_simple__templated.pdf",
+   "docs/text/text_ocr__letter2.pdf",
+   "docs/text/text_multilang__russian.pdf"
+  ]
+ },
+ "upstreamCommit": "cb4c20d61c9156fdeb6fb63308349000bbd8536e"
+}

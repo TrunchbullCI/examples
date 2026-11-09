@@ -1,0 +1,186 @@
+{
+  "port": {
+    "repository": "https://github.com/TrunchbullCI/examples",
+    "path": "benchmarks/parsebench",
+    "statement": "Unofficial Trunchbull port of ParseBench. Not maintained by or affiliated with LlamaIndex, and not a replacement for the upstream project."
+  },
+  "upstream": {
+    "code": {
+      "url": "https://github.com/run-llama/ParseBench",
+      "commit": "cb4c20d61c9156fdeb6fb63308349000bbd8536e",
+      "version": "1.0.5",
+      "license": "Apache-2.0",
+      "vendoredPath": "grader/upstream",
+      "vendoredFiles": 248,
+      "vendoredTreeSha256": "aa8aa1fb1fff57fcc7e1034ceaf082f6806a9b35479120eee3ffe67431af3aec",
+      "modified": false
+    },
+    "dataset": {
+      "url": "https://huggingface.co/datasets/llamaindex/ParseBench",
+      "revision": "2805a1d940f95a203e0ae4b88be9934f7765b3fc",
+      "declaredLicense": "Apache-2.0",
+      "storage": "Dataset files (documents, renders, rule files) are never committed: tools/prepare.sh regenerates them; in a Trunchbull Repository they are protected objects in R2 with pointers in Git (.trunchbullignore).",
+      "ruleFiles": {
+        "chart": {
+          "path": "grader/rules/chart.jsonl.gz",
+          "uncompressedSha256": "82eb2d660b286a5e1b8bd57f3f159a722b13849834561211dc1ccd5c5a39582b",
+          "sha256": "198d90ef154aaf6a5efda10c42fce1025ade0409bc18028896776be86c43d80f"
+        },
+        "layout": {
+          "path": "grader/rules/layout.jsonl.gz",
+          "uncompressedSha256": "97ddd0aa9b194a3082fcaa9172b562e32f4e6d1beeaa707a0fb3bf11731e68ef",
+          "sha256": "ce23702db7f973db024c538795d42b2fab1ffc4fbeb873250050a821ca5c88c1"
+        },
+        "table": {
+          "path": "grader/rules/table.jsonl.gz",
+          "uncompressedSha256": "66129fcc9e68ae0bf40e7d41f540002ceff9bedf46d6dafff2321ba2b7ab5231",
+          "sha256": "eb6086c1fc9bea7f9c7c2dcb458f992e6d4f80fefdbb2968b4f020c6e873fca1"
+        },
+        "text_content": {
+          "path": "grader/rules/text_content.jsonl.gz",
+          "uncompressedSha256": "cb16f70704fce569ee6f9ddff471735b17e3337d56e3958deaa4ebd6f93b5b37",
+          "sha256": "e9b2d552b5e1e4da3e738aacf5a83d61f6606f732ceb36cc33c9d59092415b49"
+        },
+        "text_formatting": {
+          "path": "grader/rules/text_formatting.jsonl.gz",
+          "uncompressedSha256": "4f00200322cfe0bb7199f7a0a85e04e9df3964e06882e3703faf40bb1103098d",
+          "sha256": "e0e377f44806f5951ec64c895cd3c611e46bf9f3cb6090f7193448c94000150a"
+        }
+      }
+    },
+    "paper": "https://arxiv.org/abs/2604.08538",
+    "attribution": "Boyang Zhang, Sebastián G. Acosta, Preston Carlson, Sacha Bron, Pierre-Loïc Doulcet, Daniel B. Ospina, and Simon Suo. ParseBench: A Document Parsing Benchmark for AI Agents. arXiv:2604.08538, 2026. Copyright LlamaIndex."
+  },
+  "licensing": {
+    "code": "Apache-2.0 (LICENSE.upstream)",
+    "rules": "Apache-2.0 as declared by the dataset card; generated into grader/rules (protected), never committed",
+    "documents": "Third-party documents collected by the dataset authors from public online channels; no per-document license is recorded. Redistribution is not established, so documents and renders are not committed here and are protected files in a Trunchbull Repository.",
+    "publicMirror": false
+  },
+  "cases": {
+    "upstream": 2553,
+    "documents": 2078,
+    "rule": "one case per (category, document), as parse_bench.test_cases.loader._load_jsonl_dataset"
+  },
+  "packages": {
+    "parsebench-image": {
+      "cases": 2553,
+      "documents": 2078,
+      "excludedDocuments": [],
+      "config": "parsebench-image/benchmark.config.ts",
+      "manifest": {
+        "path": "parsebench-image/data/documents.jsonl",
+        "sha256": "7868c5b6bc019aba0859d45bfc1cad9b0fbcfd5356d9b44423f6d7c3fbf95de1"
+      }
+    },
+    "parsebench-pdf": {
+      "cases": 2544,
+      "documents": 2070,
+      "excludedDocuments": [
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p10.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10208829
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p12.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10208838
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p15.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10209235
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p16.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10209236
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p19.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10209280
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/aviva-plc-annual-report-and-accounts-2024_p143.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 12767914
+        },
+        {
+          "categories": [
+            "layout"
+          ],
+          "document": "docs/layout/Consultancy-in-Spain.-The-industry-in-figures-2024_p15.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10209235
+        },
+        {
+          "categories": [
+            "text_content",
+            "text_formatting"
+          ],
+          "document": "docs/text/text_ocr__MS201File81.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 12980073
+        }
+      ],
+      "config": "parsebench-pdf/benchmark.config.ts",
+      "manifest": {
+        "path": "parsebench-pdf/data/documents.jsonl",
+        "sha256": "93824b72c0cbe5594eed23298a093047bc164e4c90ab3ea7db123bbca41fa505"
+      }
+    }
+  },
+  "multiPageDocuments": [
+    {
+      "categories": [
+        "text_content",
+        "text_formatting"
+      ],
+      "document": "docs/text/text_ocr__012-25.pdf",
+      "pages": 3
+    }
+  ],
+  "rendering": {
+    "tool": "tools/prepare.sh",
+    "image": "python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df",
+    "platform": "linux/amd64",
+    "renderer": "PyMuPDF 1.28.2, Pillow 11.1.0 (tools/requirements.lock, hashes from upstream uv.lock)",
+    "pdf": "150 DPI, long edge capped at 2,000 px, RGB, no alpha",
+    "images": "converted to RGB PNG, long edge capped at 2,000 px with Lanczos",
+    "hashes": "grader/documents.json records each source sha256 and every page PNG sha256"
+  },
+  "grader": {
+    "context": "grader",
+    "copies": [
+      "parsebench-pdf/grader",
+      "parsebench-image/grader"
+    ],
+    "treeSha256": "a6aee910460fbc295e391313e46f1d4efb18913f3fb9e2c4e697ed420762e5fb",
+    "files": 258,
+    "documentsJsonSha256": "dce199755b2fd884974cec986ba1a0de2efcc9c6cc1959145312f8cf1fbedabe",
+    "pipelines": {
+      "pdf": "anthropic_opus_5_5_parse_with_layout_file",
+      "image": "anthropic_sonnet_5_parse_with_layout"
+    }
+  }
+}

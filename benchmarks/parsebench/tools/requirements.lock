@@ -1,0 +1,11 @@
+# Pinned renderer for tools/prepare.py. Versions and hashes are copied from
+# the upstream ParseBench uv.lock at cb4c20d61c9156fdeb6fb63308349000bbd8536e
+# (CPython 3.12 manylinux wheels). Install with --require-hashes.
+pymupdf==1.28.2 \
+    --hash=sha256:3050a233dde1211efe89ada74e2add6238436434159f46097a1423aad2842545 \
+    --hash=sha256:397d6715c1f0df7548a92d0afd8ce370fc48fa47aeefac16be2bc04a16a8227f
+pillow==11.1.0 \
+    --hash=sha256:9409c080586d1f683df3f184f20e36fb647f2e0bc3988094d4fd8c9f4eb1b3b3 \
+    --hash=sha256:7fdadc077553621911f27ce206ffcbec7d3f8d7b50e0da39f10997e8e2bb7f6a \
+    --hash=sha256:93a18841d09bcdd774dcdc308e4537e1f867b3dec059c131fde0327899734aa1 \
+    --hash=sha256:9aa9aeddeed452b2f616ff5507459e7bab436916ccb10961c4a382cd3e03f47f
