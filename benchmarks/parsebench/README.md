@@ -35,6 +35,7 @@ parsebench/                  shared tooling and documentation (this repo only)
 │   ├── evals/parse-with-layout.ts
 │   ├── transformers/index.ts
 │   ├── data/documents.jsonl
+│   ├── trunchbull.data.json dataset manifest (path, sha256, size of every data file)
 │   ├── documents/           dataset: generated, never committed (protected)
 │   ├── grader/              byte-identical copy of ../grader
 │   └── README.md, NOTICE, LICENSE.upstream, .trunchbullignore
@@ -118,7 +119,15 @@ and the parity check runs it with networking disabled.
 ```sh
 benchmarks/parsebench/tools/prepare.sh [cache-dir]
 benchmarks/parsebench/tools/sync-grader.sh
+python3 -I benchmarks/parsebench/tools/write_data_manifests.py
 ```
+
+`write_data_manifests.py` writes each package's committed
+`trunchbull.data.json`. It lists every dataset file (documents, renders and
+rules) with its sha256 and size. Trunchbull's official-Repository tooling
+(`pnpm benchmarks:repository:prepare` / `…:migrate`) verifies the regenerated
+files against it, commits protected-object pointers in their place, and
+uploads the bytes to R2 before it pushes.
 
 `prepare.sh` runs `tools/prepare.py` in a digest-pinned `linux/amd64` Python
 image with hash-locked PyMuPDF 1.28.2 and Pillow 11.1.0 (the versions in
