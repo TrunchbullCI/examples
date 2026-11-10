@@ -5,6 +5,7 @@ export default {
     "Checks whether a model can reason through challenging grade-school science questions and select the correct answer choice.",
   systemPrompt:
     "Answer the multiple-choice science question with concise reasoning, then end with exactly `FINAL ANSWER: <choice label>`.",
+  disclosure: "public_sample",
   cases: {
     transformer: "../transformers/index.ts",
     sources: {

@@ -5,6 +5,7 @@ export default {
     "Checks multi-step grade-school mathematics reasoning against the official numeric answer.",
   systemPrompt:
     "Solve the mathematics problem with concise reasoning, then end with exactly `#### <answer>`.",
+  disclosure: "public_sample",
   cases: {
     transformer: "../transformers/index.ts",
     sources: {

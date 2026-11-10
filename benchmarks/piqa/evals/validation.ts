@@ -5,6 +5,7 @@ export default {
     "Checks whether a model selects the physically plausible solution for an everyday goal.",
   systemPrompt:
     "Choose the more physically plausible solution. End with exactly `FINAL ANSWER: A` or `FINAL ANSWER: B`.",
+  disclosure: "public_sample",
   cases: {
     transformer: "../transformers/index.ts",
     sources: {

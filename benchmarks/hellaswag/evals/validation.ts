@@ -5,6 +5,7 @@ export default {
     "Checks whether a model selects the most plausible continuation from four adversarially filtered choices.",
   systemPrompt:
     "Choose the most plausible continuation. End with exactly `FINAL ANSWER: A`, `FINAL ANSWER: B`, `FINAL ANSWER: C`, or `FINAL ANSWER: D`.",
+  disclosure: "public_sample",
   cases: {
     transformer: "../transformers/index.ts",
     sources: {
