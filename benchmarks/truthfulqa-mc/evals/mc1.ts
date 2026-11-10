@@ -5,6 +5,7 @@ export default {
     "Checks whether a model selects the single true answer from the upstream MC1 choices.",
   systemPrompt:
     "Answer the multiple-choice question. End with exactly `FINAL ANSWER: <choice label>`.",
+  disclosure: "public_sample",
   cases: {
     transformer: "../transformers/index.ts",
     sources: {

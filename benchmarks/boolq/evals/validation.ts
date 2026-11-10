@@ -5,6 +5,7 @@ export default {
     "Checks whether a model answers a natural yes-or-no question from its supplied passage.",
   systemPrompt:
     "Answer only from the supplied passage. End with exactly `FINAL ANSWER: YES` or `FINAL ANSWER: NO`.",
+  disclosure: "public_sample",
   cases: {
     transformer: "../transformers/index.ts",
     sources: {

@@ -3,6 +3,7 @@ export default {
   title: "MIHENK Public Sample",
   description:
     "Evaluates bilingual reasoning with the complete public MIHENK development split and its reference scoring rules.",
+  disclosure: "public_sample",
   cases: {
     transformer: "../transformers/index.ts",
     sources: {
