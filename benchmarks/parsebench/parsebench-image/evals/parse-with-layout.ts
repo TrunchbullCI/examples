@@ -3,6 +3,7 @@ export default {
   title: "ParseBench parse with layout (PNG)",
   description:
     "Parses each ParseBench page, rendered to PNG, into layout-annotated markdown and scores it with upstream ParseBench's evaluation.",
+  disclosure: "public_sample",
   cases: {
     transformer: "../transformers/index.ts",
     sources: { documents: "../data/documents.jsonl" },
