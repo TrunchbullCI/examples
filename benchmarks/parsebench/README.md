@@ -206,8 +206,16 @@ close to the platform's 60 s grader request timeout.
   document in its own request; Trunchbull sends the whole document once. The
   grader records the single response as page 0, which affects only the
   multi-page documents listed in `provenance.json`.
-- **Output cap.** Trunchbull caps output at 16,384 tokens; upstream's Anthropic
-  pipelines allow 32,768.
+- **Model settings.** The `default` profile runs each model on its provider's
+  defaults with Trunchbull's 16,384-token output cap. The `published`
+  profile ("ParseBench published settings") reproduces how upstream called
+  each Anthropic, OpenAI and Google model on its leaderboard: reasoning effort
+  or thinking budget, temperature, and output cap (32,768 or 65,536 tokens,
+  64,000 for Haiku 4.5 with thinking), mapped onto OpenRouter. Leaderboard
+  variants of one model, such as Opus 5.5 at low, medium and high effort, are
+  separate presets. Where upstream left reasoning unset, the preset leaves it
+  to the provider's default, which OpenRouter may set differently from the
+  lab's own API. Results on the two profiles are ranked separately.
 - **Attachment limits.** Documents over Trunchbull's 10 MB-per-attachment
   limit are left out of the PDF package (listed in `provenance.json`), so its
   case count is below 2,553.
