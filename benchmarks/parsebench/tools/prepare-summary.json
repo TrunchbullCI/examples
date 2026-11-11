@@ -1,0 +1,105 @@
+{
+  "datasetRevision": "2805a1d940f95a203e0ae4b88be9934f7765b3fc",
+  "documents": 2078,
+  "documentsManifestSha256": {
+    "grader/documents.json": "dce199755b2fd884974cec986ba1a0de2efcc9c6cc1959145312f8cf1fbedabe",
+    "parsebench-image/data/documents.jsonl": "7868c5b6bc019aba0859d45bfc1cad9b0fbcfd5356d9b44423f6d7c3fbf95de1",
+    "parsebench-pdf/data/documents.jsonl": "93824b72c0cbe5594eed23298a093047bc164e4c90ab3ea7db123bbca41fa505"
+  },
+  "multiPageDocuments": [
+    {
+      "categories": [
+        "text_content",
+        "text_formatting"
+      ],
+      "document": "docs/text/text_ocr__012-25.pdf",
+      "pages": 3
+    }
+  ],
+  "packages": {
+    "parsebench-image": {
+      "cases": 2553,
+      "documents": 2078,
+      "excludedDocuments": []
+    },
+    "parsebench-pdf": {
+      "cases": 2544,
+      "documents": 2070,
+      "excludedDocuments": [
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p10.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10208829
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p12.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10208838
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p15.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10209235
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p16.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10209236
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/Consultancy-in-Spain.-The-industry-in-figures-2024_p19.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10209280
+        },
+        {
+          "categories": [
+            "chart"
+          ],
+          "document": "docs/chart/aviva-plc-annual-report-and-accounts-2024_p143.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 12767914
+        },
+        {
+          "categories": [
+            "layout"
+          ],
+          "document": "docs/layout/Consultancy-in-Spain.-The-industry-in-figures-2024_p15.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 10209235
+        },
+        {
+          "categories": [
+            "text_content",
+            "text_formatting"
+          ],
+          "document": "docs/text/text_ocr__MS201File81.pdf",
+          "reason": "exceeds the 10,000,000-byte attachment limit",
+          "sizeBytes": 12980073
+        }
+      ]
+    }
+  },
+  "ruleFiles": {
+    "chart": "82eb2d660b286a5e1b8bd57f3f159a722b13849834561211dc1ccd5c5a39582b",
+    "layout": "97ddd0aa9b194a3082fcaa9172b562e32f4e6d1beeaa707a0fb3bf11731e68ef",
+    "table": "66129fcc9e68ae0bf40e7d41f540002ceff9bedf46d6dafff2321ba2b7ab5231",
+    "text_content": "cb16f70704fce569ee6f9ddff471735b17e3337d56e3958deaa4ebd6f93b5b37",
+    "text_formatting": "4f00200322cfe0bb7199f7a0a85e04e9df3964e06882e3703faf40bb1103098d"
+  },
+  "upstreamCases": 2553
+}

@@ -1,0 +1,19 @@
+{
+  "dataset": "llamaindex/ParseBench",
+  "datasetRevision": "2805a1d940f95a203e0ae4b88be9934f7765b3fc",
+  "upstreamRepository": "https://github.com/run-llama/ParseBench",
+  "upstreamCommit": "cb4c20d61c9156fdeb6fb63308349000bbd8536e",
+  "upstreamVersion": "1.0.5",
+  "expectedCases": 2553,
+  "rules": {
+    "chart": "82eb2d660b286a5e1b8bd57f3f159a722b13849834561211dc1ccd5c5a39582b",
+    "layout": "97ddd0aa9b194a3082fcaa9172b562e32f4e6d1beeaa707a0fb3bf11731e68ef",
+    "table": "66129fcc9e68ae0bf40e7d41f540002ceff9bedf46d6dafff2321ba2b7ab5231",
+    "text_content": "cb16f70704fce569ee6f9ddff471735b17e3337d56e3958deaa4ebd6f93b5b37",
+    "text_formatting": "4f00200322cfe0bb7199f7a0a85e04e9df3964e06882e3703faf40bb1103098d"
+  },
+  "pipelines": {
+    "pdf": "anthropic_opus_5_5_parse_with_layout_file",
+    "image": "anthropic_sonnet_5_parse_with_layout"
+  }
+}

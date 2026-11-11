@@ -1,0 +1,188 @@
+{
+ "readySeconds": 1.54,
+ "graderTimeoutSeconds": 60,
+ "maxSeconds": 49.599,
+ "overTimeout": [],
+ "results": [
+  {
+   "category": "chart",
+   "document": "docs/chart/2024_healthatglance_rep_en_p119.pdf",
+   "rules": 11,
+   "outputChars": 543,
+   "seconds": 0.05,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/Renewables2025_1_p36.pdf",
+   "rules": 11,
+   "outputChars": 707,
+   "seconds": 0.034,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/tdr2023ch1_en_p19.pdf",
+   "rules": 11,
+   "outputChars": 557,
+   "seconds": 0.03,
+   "score": 0.2727272727272727,
+   "error": null
+  },
+  {
+   "category": "chart",
+   "document": "docs/chart/tdr2023ch1_en_p5.pdf",
+   "rules": 11,
+   "outputChars": 686,
+   "seconds": 0.029,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/076523s007lbl_p2.pdf",
+   "rules": 198,
+   "outputChars": 44815,
+   "seconds": 0.179,
+   "score": 0.9848484848484849,
+   "error": null
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/ar2025e_11_p5.pdf",
+   "rules": 137,
+   "outputChars": 13480,
+   "seconds": 0.096,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2024-Ford-Integrated-Sustainability-and-Financial-Report_Final_p21.pdf",
+   "rules": 116,
+   "outputChars": 12776,
+   "seconds": 0.089,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "layout",
+   "document": "docs/layout/2024-SSI-Report_p40.pdf",
+   "rules": 115,
+   "outputChars": 12133,
+   "seconds": 0.066,
+   "score": 0.9043478260869565,
+   "error": null
+  },
+  {
+   "category": "table",
+   "document": "docs/table/llong_page1.pdf",
+   "rules": 1,
+   "outputChars": 78379,
+   "seconds": 6.874,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "table",
+   "document": "docs/table/p29_page1.pdf",
+   "rules": 1,
+   "outputChars": 77603,
+   "seconds": 5.27,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "table",
+   "document": "docs/table/sample_page_16_page1.pdf",
+   "rules": 1,
+   "outputChars": 60165,
+   "seconds": 2.257,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "table",
+   "document": "docs/table/BRWS-134565917_page841.pdf",
+   "rules": 1,
+   "outputChars": 53084,
+   "seconds": 5.08,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__paper8col.pdf",
+   "rules": 3302,
+   "outputChars": 85780,
+   "seconds": 49.599,
+   "score": 0.9531766872373687,
+   "error": null
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_ocr__zaposlitve.pdf",
+   "rules": 1497,
+   "outputChars": 31688,
+   "seconds": 7.279,
+   "score": 0.9891709508979418,
+   "error": null
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_multicolumns__bluecol.pdf",
+   "rules": 1321,
+   "outputChars": 39786,
+   "seconds": 7.157,
+   "score": 0.7754879777622596,
+   "error": null
+  },
+  {
+   "category": "text_content",
+   "document": "docs/text/text_misc__reverRo.pdf",
+   "rules": 1167,
+   "outputChars": 22671,
+   "seconds": 4.799,
+   "score": 0.9670179003473541,
+   "error": null
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_ocr__paper8col.pdf",
+   "rules": 109,
+   "outputChars": 9520,
+   "seconds": 0.138,
+   "score": 0.9374999999999999,
+   "error": null
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_dense__legalnotices.pdf",
+   "rules": 98,
+   "outputChars": 9556,
+   "seconds": 0.177,
+   "score": 0.9242424242424241,
+   "error": null
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_multicolumns__3cools.pdf",
+   "rules": 97,
+   "outputChars": 8252,
+   "seconds": 0.134,
+   "score": 1.0,
+   "error": null
+  },
+  {
+   "category": "text_formatting",
+   "document": "docs/text/text_misc__marks.pdf",
+   "rules": 81,
+   "outputChars": 8862,
+   "seconds": 0.093,
+   "score": 0.9411764705882353,
+   "error": null
+  }
+ ]
+}

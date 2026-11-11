@@ -1,0 +1,10 @@
+# Dataset files are never committed. tools/prepare.sh regenerates them from
+# the pinned Hugging Face revision; in a Trunchbull Repository they are
+# protected objects (R2-backed pointers, see .trunchbullignore).
+.cache/
+grader/rules/
+parsebench-pdf/documents/
+parsebench-pdf/grader/rules/
+parsebench-image/documents/
+parsebench-image/grader/rules/
+__pycache__/
