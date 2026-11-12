@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "PIQA",
-  version: "1.0.0",
+  version: "1.0.1",
   description:
     "The complete labeled PIQA development split for two-choice physical commonsense reasoning.",
   license: "AFL-3.0",

@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "BoolQ",
-  version: "1.0.0",
+  version: "1.0.1",
   description:
     "The complete labeled BoolQ validation split for passage-grounded yes-or-no question answering.",
   license: "CC-BY-SA-3.0",
