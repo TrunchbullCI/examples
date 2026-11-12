@@ -3,13 +3,23 @@
   "transformer": {
     "name": "HellaSwag validation transformer",
     "path": "hellaswag/transformers/index.ts",
-    "sha256": "85087e47556b3867eb94f8356e5fed77af83cc212d126a774a34386203a5c9ad"
+    "sha256": "92da02fac839872a0221c287e8dbe1396af5566aeec4fb2f21ef383282862301"
   },
   "sources": {
-    "validation": {
-      "path": "hellaswag/data/validation.jsonl",
-      "sha256": "0aa3b88843990f3f10a97b9575c94d7b71fb2205240ba04ae4884d9e9c992588",
-      "bytes": 12246618
+    "validation_1": {
+      "path": "hellaswag/data/validation-1.jsonl",
+      "sha256": "c08fdf6dd94f30c2961107d35904e060b346b909f6d76251ec8b84ba36a417cf",
+      "bytes": 4071736
+    },
+    "validation_2": {
+      "path": "hellaswag/data/validation-2.jsonl",
+      "sha256": "a9bf58f281d9bead9f8b012bafad5ca6592173a29eab85745e112db087a464c3",
+      "bytes": 4133135
+    },
+    "validation_3": {
+      "path": "hellaswag/data/validation-3.jsonl",
+      "sha256": "911a5b5062916d35b512a290405dcece50cc6a43d037c8e938e1c36b76eb2a62",
+      "bytes": 4041747
     }
   },
   "caseCount": 10042,

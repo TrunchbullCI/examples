@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "HellaSwag",
-  version: "1.0.0",
+  version: "1.0.1",
   description:
     "The complete labeled HellaSwag validation split for adversarially filtered commonsense continuation.",
   license: "MIT",
