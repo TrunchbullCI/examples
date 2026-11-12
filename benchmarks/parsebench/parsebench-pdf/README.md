@@ -5,7 +5,9 @@ Unofficial Trunchbull port of [ParseBench](https://github.com/run-llama/ParseBen
 project. Each case attaches the original single-page document (PDF, or the
 source image for the few image-sourced pages) and asks the model to parse it
 into layout-annotated markdown. `grader/` scores the output with upstream
-ParseBench's own evaluation.
+ParseBench's own evaluation. The grader can also score a LlamaParse parse of
+the same PDF with upstream's own LlamaParse normalization (see "Document
+parsers" in the port's `README.md`).
 
 This directory is one self-contained Repository. Its sibling
 `parsebench-image` is a separate Repository with the same grader context.

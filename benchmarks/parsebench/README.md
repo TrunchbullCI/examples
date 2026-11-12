@@ -17,6 +17,7 @@ grader scores it with upstream ParseBench's own Python evaluation.
 | Dataset          | `llamaindex/ParseBench` @ `2805a1d940f95a203e0ae4b88be9934f7765b3fc`       |
 | Prompt           | Upstream `SYSTEM_PROMPT_LAYOUT` / `USER_PROMPT_LAYOUT` (Core11, 0–1000 boxes) |
 | Grader pipelines | `anthropic_opus_5_5_parse_with_layout_file` (PDF), `anthropic_sonnet_5_parse_with_layout` (PNG) |
+| Parser pipelines | `llamaparse_cost_effective`, `llamaparse_agentic`, `llamaparse_agentic_plus` (PDF only) |
 
 Exact hashes for every generated and vendored file are in
 [`provenance.json`](./provenance.json).
@@ -92,7 +93,8 @@ Package case counts after the platform's attachment limits are applied are in
 
 `grader/` builds a Python 3.12 image (base images pinned by digest). It
 installs the vendored, unmodified upstream source from its own `uv.lock`
-(core dependencies plus the `anthropic` extra). It serves the Trunchbull grader
+(core dependencies plus the `anthropic` and `llamaparse` extras). It serves
+the Trunchbull grader
 protocol on port 8080 (`GET /health`, `POST /evaluate`). For each request the
 grader:
 
@@ -113,6 +115,65 @@ The rules for all 2,553 cases are baked into the image at build time
 (`build_index.py`). The build also checks every per-case shard against
 upstream's full-dataset loader. The running grader makes no network calls,
 and the parity check runs it with networking disabled.
+
+## Document parsers
+
+The grader can score a document parser's result instead of a model's text.
+Only LlamaParse is supported, and only on the PDF package. The grader request
+then carries an extra field:
+
+```json
+"documentParser": {
+  "provider": "llamaparse",
+  "pipeline": "llamaparse_agentic",
+  "result": { "job": {}, "items": {}, "text": {}, "metadata": {}, "result_content_metadata": {} }
+}
+```
+
+`result` is the JSON body of
+`GET /api/v2/parse/{job_id}?expand=items&expand=text&expand=metadata&expand=debug_logs`
+for a `COMPLETED` job, from LlamaParse called by Trunchbull with the user's
+stored LlamaCloud key. The pipelines are upstream's own
+(`inference/pipelines/parse.py` at `cb4c20d`), and Trunchbull's catalog ids
+`parser/llamaparse/cost-effective`, `parser/llamaparse/agentic` and
+`parser/llamaparse/agentic-plus` map to them:
+
+| Pipeline                    | Upstream config                                               |
+| --------------------------- | ------------------------------------------------------------- |
+| `llamaparse_cost_effective` | `tier: "cost_effective"`, `version: "latest"`, `disable_cache: true` |
+| `llamaparse_agentic`        | `tier: "agentic"`, `version: "latest"`, `disable_cache: true`        |
+| `llamaparse_agentic_plus`   | `tier: "agentic_plus"`, `version: "latest"`, `disable_cache: true`   |
+
+With the field present, the grader:
+
+1. Rejects the request with HTTP 400 unless the provider is `llamaparse`,
+   the pipeline is one of the three above and registered upstream for the
+   `llamaparse` provider, `result` is an object for a `COMPLETED` job
+   (upstream's provider never reads an unfinished job), and the attachment is
+   the pinned source PDF. A malformed `result` is also a 400.
+2. Builds the raw result upstream's `LlamaParseProvider.run_inference`
+   records, with the same `job_logs_url` default `_parse_pdf` adds, and
+   normalizes it with upstream's own `LlamaParseProvider.normalize()`. The
+   provider is created without `__init__`, which only sets up an API
+   client; `normalize()` reads two attributes, `_sdk_config` (the pipeline
+   config) and `_credit_rate_usd`, which are set as `__init__` would.
+3. Scores the result as in [Grader](#grader) steps 3 and 4, under the
+   LlamaParse pipeline's name, and adds
+   `details.system = {"provider": "llamaparse", "pipeline": …}`.
+
+The trial's `output` text is not scored on this path. Without the field, or
+with it set to `null`, the grader behaves exactly as before. LlamaParse
+parses the whole PDF in one job, as upstream does, so multi-page documents
+are scored on every page.
+
+Upstream gets the same response through the `llama_cloud` SDK and stores
+`model_dump(mode="json", by_alias=True)`; `normalize()` re-validates what
+it stores with `ParsingGetResponse.model_validate`. The REST JSON and the
+SDK dump are therefore equivalent. This was checked on all 2,079 raw
+LlamaParse agentic payloads upstream publishes
+([ParseBench-results](https://huggingface.co/datasets/llamaindex/ParseBench-results)
+@ `e0de8b2`, `raw/llamaparse_agentic`): for every payload, validating the
+JSON and validating its SDK dump give equal models and identical pages.
 
 ## Preparing the documents
 
@@ -172,6 +233,21 @@ the same document in more than one category, so the reference run uses one
 inference output directory per category. Upstream shares a single `text/`
 result between `text_content` and `text_formatting`.
 
+`parity/document-parser.sh [per-category]` checks the
+[document-parser path](#document-parsers) the same way. It builds LlamaParse
+results from the ground truth in the same four styles, one pipeline per
+style. The upstream path runs `LlamaParseProvider.run_inference` with a
+stub `LlamaCloud` client whose `parsing.get` returns the SDK model
+validated from the JSON, then `normalize()` and the multi-case evaluation.
+The grader path sends the JSON in `documentParser.result`. The check also
+sends malformed `documentParser` requests, which must be rejected with
+HTTP 400. The last report is
+[`parity/report-document-parser.json`](./parity/report-document-parser.json):
+4 documents per category × 4 styles, plus 13 request checks, 93 requests with
+0 mismatches. The same check on a `linux/amd64` build (2 documents per
+category, 53 requests, 0 mismatches) is in
+[`parity/report-document-parser-amd64.json`](./parity/report-document-parser-amd64.json).
+
 The same check on a `linux/amd64` build, the architecture Cloudflare runs, is
 in [`parity/report-amd64.json`](./parity/report-amd64.json). It covers 3
 documents per category, 120 requests, with 0 mismatches. Its scores are
@@ -221,6 +297,19 @@ close to the platform's 60 s grader request timeout.
   case count is below 2,553.
 - **Image encoding.** The PNG package sends lossless PNG renders; upstream's
   Anthropic image mode re-encodes pages as JPEG.
+- **LlamaParse leaderboard records.** Upstream's published LlamaParse
+  results (ParseBench-results @ `e0de8b2`) were not normalized by the
+  public `LlamaParseProvider` at `cb4c20d`, which this grader uses. Their
+  chart, layout and text markdown is LlamaParse's `markdown` expansion,
+  which the public provider never requests: it builds markdown from the
+  items and so writes header and footer text twice, once from the header or
+  footer container and once from its children. Their raw payloads also lack
+  `job`, which makes upstream's layout adapter read the normalized layout
+  instead of the raw items. Rescoring the same 2,079 LlamaParse agentic jobs
+  with `cb4c20d`'s evaluator, the grader's normalization moves the averages
+  from the published outputs' as follows: text content 0.8717 → 0.8843, text
+  formatting 0.8403 → 0.8516, chart 0.8147 → 0.8149, layout 0.6170 → 0.7314
+  (equal on all 500 once `job` is restored), and table unchanged.
 - **Excluded results.** Run-level means include the zeros described in
   [Grader](#grader) step 4, so they can differ slightly from upstream's
   averages, which drop those cases.

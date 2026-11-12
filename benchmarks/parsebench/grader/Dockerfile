@@ -2,8 +2,9 @@
 #
 # Upstream ParseBench is vendored unmodified in upstream/ at commit
 # cb4c20d61c9156fdeb6fb63308349000bbd8536e and installed from its own uv.lock
-# (core dependencies plus the `anthropic` extra, whose provider module holds
-# the normalize() step the grader reuses). The base images are pinned by
+# (core dependencies plus the `anthropic` and `llamaparse` extras, whose
+# provider modules hold the normalize() steps the grader reuses for model
+# trials and for self-hosted LlamaParse trials). The base images are pinned by
 # digest. The network is used only while building; the running grader makes
 # no network calls.
 FROM ghcr.io/astral-sh/uv:0.9.7@sha256:ba4857bf2a068e9bc0e64eed8563b065908a4cd6bfb66b531a9c424c8e25e142 AS uv
@@ -24,7 +25,7 @@ COPY --from=uv /uv /usr/local/bin/uv
 
 WORKDIR /opt/upstream
 COPY upstream/ /opt/upstream/
-RUN uv sync --frozen --no-dev --no-editable --extra anthropic \
+RUN uv sync --frozen --no-dev --no-editable --extra anthropic --extra llamaparse \
  && rm -rf /root/.cache
 
 WORKDIR /opt/parsebench

@@ -122,6 +122,18 @@ def main() -> None:
             "files": grader_files,
             "documentsJsonSha256": sha256(PORT / "grader" / "documents.json"),
             "pipelines": pins["pipelines"],
+            "documentParsers": {
+                "llamaparse": {
+                    "pipelines": pins["parserPipelines"]["llamaparse"],
+                    "packages": ["parsebench-pdf"],
+                    "result": (
+                        "GET /api/v2/parse/{job_id}?expand=items&expand=text&expand=metadata&expand=debug_logs "
+                        "for a COMPLETED job, from LlamaParse called by Trunchbull with the user's stored "
+                        "LlamaCloud key"
+                    ),
+                    "normalize": "upstream LlamaParseProvider.normalize at the pinned commit",
+                }
+            },
         },
     }
     (PORT / "provenance.json").write_text(json.dumps(provenance, indent=2, ensure_ascii=False) + "\n")

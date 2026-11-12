@@ -15,5 +15,12 @@
   "pipelines": {
     "pdf": "anthropic_opus_5_5_parse_with_layout_file",
     "image": "anthropic_sonnet_5_parse_with_layout"
+  },
+  "parserPipelines": {
+    "llamaparse": [
+      "llamaparse_cost_effective",
+      "llamaparse_agentic",
+      "llamaparse_agentic_plus"
+    ]
   }
 }

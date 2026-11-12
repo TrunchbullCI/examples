@@ -175,12 +175,26 @@
       "parsebench-pdf/grader",
       "parsebench-image/grader"
     ],
-    "treeSha256": "a6aee910460fbc295e391313e46f1d4efb18913f3fb9e2c4e697ed420762e5fb",
+    "treeSha256": "18273f48973a560b093d3f9dbdc1ce417958f93320f725d935327a816085cf1b",
     "files": 258,
     "documentsJsonSha256": "dce199755b2fd884974cec986ba1a0de2efcc9c6cc1959145312f8cf1fbedabe",
     "pipelines": {
       "pdf": "anthropic_opus_5_5_parse_with_layout_file",
       "image": "anthropic_sonnet_5_parse_with_layout"
+    },
+    "documentParsers": {
+      "llamaparse": {
+        "pipelines": [
+          "llamaparse_cost_effective",
+          "llamaparse_agentic",
+          "llamaparse_agentic_plus"
+        ],
+        "packages": [
+          "parsebench-pdf"
+        ],
+        "result": "GET /api/v2/parse/{job_id}?expand=items&expand=text&expand=metadata&expand=debug_logs for a COMPLETED job, from LlamaParse called by Trunchbull with the user's stored LlamaCloud key",
+        "normalize": "upstream LlamaParseProvider.normalize at the pinned commit"
+      }
     }
   }
 }

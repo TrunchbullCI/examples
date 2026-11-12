@@ -6,15 +6,24 @@ Implements the grader protocol (protocolVersion 1) on port 8080:
 - POST /evaluate scores one trial with upstream ParseBench's own code.
 
 For each request the server reproduces what `parse-bench run` does for one
-document of an Anthropic parse-with-layout pipeline at upstream commit
-cb4c20d:
+document at upstream commit cb4c20d:
 
-1. Builds the provider's raw output from the model's text exactly as
-   AnthropicProvider.run_inference does (parse_layout_blocks over the text,
-   with the page geometry upstream records), then calls the provider's own
-   normalize() to produce the InferenceResult.
+1. Builds the normalized InferenceResult with the pipeline's own provider:
+   - Without `documentParser` (a model trial), the pipeline is the package's
+     Anthropic parse-with-layout pipeline. The provider's raw output is built
+     from the model's text exactly as AnthropicProvider.run_inference does
+     (parse_layout_blocks over the text, with the page geometry upstream
+     records), then AnthropicProvider.normalize() produces the result.
+   - With `documentParser` (a LlamaParse trial, PDF only), the pipeline is
+     the named llamaparse_* pipeline and the raw output is the parse job's
+     expanded GET response as REST JSON, from LlamaParse called by Trunchbull
+     with the user's stored LlamaCloud key. It gets the job_logs_url default
+     LlamaParseProvider._parse_pdf adds, then LlamaParseProvider.normalize()
+     produces the result. The `output` text is a rendering for people and is
+     not scored.
 2. Writes that result and the case's baked rule shard into a scratch
-   directory laid out like upstream's output and dataset directories.
+   directory laid out like upstream's output and dataset directories, under
+   the pipeline's name.
 3. Runs EvaluationRunner.run_evaluation with the CLI defaults for that case's
    group, and returns the group's headline metric as the score.
 
@@ -54,6 +63,7 @@ INFERENCE_GROUP = {"text_content": "text", "text_formatting": "text"}
 PINS = json.loads((ROOT / "pins.json").read_text())
 INDEX: dict[str, dict[str, str]] = json.loads((ROOT / "index.json").read_text())
 DOCUMENTS: dict[str, dict[str, Any]] = json.loads((ROOT / "documents.json").read_text())
+LLAMAPARSE_PIPELINES: list[str] = PINS["parserPipelines"]["llamaparse"]
 
 # Upstream imports. They are loaded once at startup so requests stay fast.
 from parse_bench.analysis.aggregation_report import _DEFAULT_METRICS  # noqa: E402
@@ -63,8 +73,10 @@ from parse_bench.evaluation.runner import (  # noqa: E402
     _is_skipped_result,
 )
 from parse_bench.inference.pipelines import get_pipeline  # noqa: E402
+from parse_bench.inference.providers.base import ProviderPermanentError  # noqa: E402
 from parse_bench.inference.providers.parse._layout_utils import parse_layout_blocks  # noqa: E402
 from parse_bench.inference.providers.parse.anthropic import AnthropicProvider  # noqa: E402
+from parse_bench.inference.providers.parse.llamaparse import LlamaParseProvider  # noqa: E402
 from parse_bench.schemas.pipeline_io import InferenceRequest, RawInferenceResult  # noqa: E402
 from parse_bench.schemas.product import ProductType  # noqa: E402
 
@@ -115,7 +127,7 @@ def resolve_case(request: dict[str, Any]) -> dict[str, Any]:
         output = ""
     if not isinstance(output, str):
         raise GradeError("output must be a string.")
-    return {
+    case = {
         "category": category,
         "document": document,
         "shard": ROOT / "cases" / category / shard,
@@ -125,7 +137,33 @@ def resolve_case(request: dict[str, Any]) -> dict[str, Any]:
         "height": geometry["height"],
         "pipeline": PINS["pipelines"][variant],
         "output": output,
+        "parserResult": None,
     }
+    parser = request.get("documentParser")
+    if parser is not None:
+        case.update(resolve_document_parser(parser, variant))
+    return case
+
+
+def resolve_document_parser(parser: Any, variant: str) -> dict[str, Any]:
+    if not isinstance(parser, dict):
+        raise GradeError("documentParser must be an object.")
+    if parser.get("provider") != "llamaparse":
+        raise GradeError('documentParser.provider must be "llamaparse".')
+    name = parser.get("pipeline")
+    if name not in LLAMAPARSE_PIPELINES or get_pipeline(name).provider_name != "llamaparse":
+        raise GradeError(f"documentParser.pipeline must be one of {', '.join(LLAMAPARSE_PIPELINES)}.")
+    result = parser.get("result")
+    if not isinstance(result, dict):
+        raise GradeError("documentParser.result must be an object.")
+    # LlamaParseProvider only reads a result after wait_for_completion, which
+    # raises for any other status, so upstream never scores an unfinished job.
+    job = result.get("job")
+    if not isinstance(job, dict) or job.get("status") != "COMPLETED":
+        raise GradeError("documentParser.result must be the result of a COMPLETED LlamaParse job.")
+    if variant != "pdf":
+        raise GradeError("Document parsers are scored only on the PDF variant.")
+    return {"pipeline": name, "parserResult": result}
 
 
 def inference_result_json(case: dict[str, Any], test_id: str, source_path: Path) -> str:
@@ -174,6 +212,53 @@ def inference_result_json(case: dict[str, Any], test_id: str, source_path: Path)
     return provider.normalize(raw_result).model_dump_json(indent=2)
 
 
+def parser_result_json(case: dict[str, Any], test_id: str, source_path: Path) -> str:
+    """Rebuild the normalized result `parse-bench run <llamaparse pipeline>` would save.
+
+    LlamaParseProvider.run_inference parses the whole PDF in one job and keeps
+    the job's expanded GET response, dumped from the SDK model. Trunchbull
+    sends the same response as REST JSON; normalize() re-validates either form
+    with ParsingGetResponse, so both produce the same result.
+    """
+    pipeline = get_pipeline(case["pipeline"])
+    raw_output = dict(case["parserResult"])
+    # The job_logs_url default LlamaParseProvider._parse_pdf adds.
+    content_meta = raw_output.get("result_content_metadata")
+    if isinstance(content_meta, dict):
+        debug_meta = content_meta.get("debug_logs")
+        if isinstance(debug_meta, dict) and debug_meta.get("exists"):
+            presigned_url = debug_meta.get("presigned_url")
+            if isinstance(presigned_url, str) and presigned_url:
+                raw_output.setdefault("job_logs_url", presigned_url)
+    now = datetime.now()
+    raw_result = RawInferenceResult(
+        request=InferenceRequest(
+            example_id=test_id,
+            source_file_path=str(source_path),
+            product_type=ProductType.PARSE,
+        ),
+        pipeline=pipeline,
+        pipeline_name=pipeline.pipeline_name,
+        product_type=ProductType.PARSE,
+        raw_output=raw_output,
+        started_at=now,
+        completed_at=now,
+        latency_in_ms=0,
+    )
+    # As for AnthropicProvider, __init__ is skipped because it creates an API
+    # client. normalize() reads only these two attributes __init__ sets.
+    provider = LlamaParseProvider.__new__(LlamaParseProvider)
+    provider._sdk_config = {
+        key: value for key, value in pipeline.config.items() if key not in LlamaParseProvider._PROVIDER_ONLY_PARAMS
+    }
+    provider._credit_rate_usd = LlamaParseProvider.CREDIT_RATE_USD
+    try:
+        normalized = provider.normalize(raw_result)
+    except ProviderPermanentError as error:
+        raise GradeError(f"documentParser.result is not a LlamaParse parse result: {error}"[:2000]) from error
+    return normalized.model_dump_json(indent=2)
+
+
 def evaluate(case: dict[str, Any]) -> dict[str, Any]:
     category = case["category"]
     with tempfile.TemporaryDirectory(prefix="parsebench-") as scratch:
@@ -188,7 +273,8 @@ def evaluate(case: dict[str, Any]) -> dict[str, Any]:
         test_id = f"{INFERENCE_GROUP.get(category, category)}/{stem}"
         result_path = output_dir / f"{test_id}.result.json"
         result_path.parent.mkdir(parents=True)
-        result_path.write_text(inference_result_json(case, test_id, data_dir / case["document"]))
+        build_result = inference_result_json if case["parserResult"] is None else parser_result_json
+        result_path.write_text(build_result(case, test_id, data_dir / case["document"]))
 
         # Same arguments EvaluationCLI.run passes for `parse-bench run`.
         runner = EvaluationRunner(
@@ -209,10 +295,11 @@ def evaluate(case: dict[str, Any]) -> dict[str, Any]:
                 use_rich=False,
                 max_workers=1,
             )
-    return score_summary(category, summary)
+    system = None if case["parserResult"] is None else {"provider": "llamaparse", "pipeline": case["pipeline"]}
+    return score_summary(category, summary, system)
 
 
-def score_summary(category: str, summary: Any) -> dict[str, Any]:
+def score_summary(category: str, summary: Any, system: dict[str, str] | None = None) -> dict[str, Any]:
     metric_name = headline_metric(category)
     results = summary.per_example_results
     if len(results) != 1:
@@ -254,6 +341,8 @@ def score_summary(category: str, summary: Any) -> dict[str, Any]:
         "upstreamError": (result.error or None) and result.error[:500],
         "metrics": {k: v for k, v in sorted(metrics.items()) if isinstance(v, (int, float))},
     }
+    if system is not None:
+        details["system"] = system
     if len(json.dumps(details)) > MAX_DETAILS_BYTES:
         details["metrics"] = {metric_name: metrics.get(metric_name)}
     message = f"{metric_name}={score:.6f}" if aggregation == "scored" else f"{metric_name}: {aggregation}"
@@ -303,6 +392,8 @@ def handle_evaluate(body: bytes) -> tuple[HTTPStatus, dict[str, Any]]:
     try:
         with EVALUATION_LOCK:
             return HTTPStatus.OK, evaluate(case)
+    except GradeError as error:
+        return HTTPStatus.BAD_REQUEST, {"error": str(error)}
     except Exception as error:  # surfaced to the platform as a grading error
         return HTTPStatus.INTERNAL_SERVER_ERROR, {"error": f"{type(error).__name__}: {error}"[:2000]}
 

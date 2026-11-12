@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "ParseBench (PNG)",
-  version: "1.0.0",
+  version: "1.0.1",
   description:
     "Unofficial Trunchbull port of ParseBench. Each case attaches the page rendered to PNG at 150 DPI (long edge capped at 2,000 px) and asks the model to parse it into layout-annotated markdown. Scores come from upstream ParseBench's own evaluation code.",
   license: "Apache-2.0",
