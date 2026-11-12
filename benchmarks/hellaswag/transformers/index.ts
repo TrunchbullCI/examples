@@ -15,12 +15,14 @@ export default {
   name: "HellaSwag validation transformer",
 
   transform({ sources }: TransformerInput) {
-    const source = sources.validation
-    if (!source) throw new Error("HellaSwag requires the validation source.")
+    const parts = ["validation_1", "validation_2", "validation_3"].map((name) => {
+      const source = sources[name]
+      if (!source) throw new Error(`HellaSwag requires the ${name} source.`)
+      return source.content
+    })
 
-    return source.content
-      .split(/\r?\n/)
-      .filter(Boolean)
+    return parts
+      .flatMap((content) => content.split(/\r?\n/).filter(Boolean))
       .map((line, index) => {
         const row = JSON.parse(line) as HellaSwagSourceRow
         if (

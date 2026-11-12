@@ -9,7 +9,9 @@ export default {
   cases: {
     transformer: "../transformers/index.ts",
     sources: {
-      validation: "../data/validation.jsonl",
+      validation_1: "../data/validation-1.jsonl",
+      validation_2: "../data/validation-2.jsonl",
+      validation_3: "../data/validation-3.jsonl",
     },
   },
   evaluate: { kind: "non_empty" },

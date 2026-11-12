@@ -4,11 +4,19 @@
   "paper": "https://arxiv.org/abs/1905.07830",
   "license": "MIT",
   "subset": "labeled validation split",
-  "sourceFormat": "upstream data/hellaswag_val.jsonl",
+  "sourceFormat": "upstream data/hellaswag_val.jsonl (sha256 0aa3b88843990f3f10a97b9575c94d7b71fb2205240ba04ae4884d9e9c992588), split in order into rows 1-4500, 4501-7300 and 7301-10042",
   "splits": {
-    "validation": {
-      "cases": 10042,
-      "sha256": "0aa3b88843990f3f10a97b9575c94d7b71fb2205240ba04ae4884d9e9c992588"
+    "validation_1": {
+      "cases": 4500,
+      "sha256": "c08fdf6dd94f30c2961107d35904e060b346b909f6d76251ec8b84ba36a417cf"
+    },
+    "validation_2": {
+      "cases": 2800,
+      "sha256": "a9bf58f281d9bead9f8b012bafad5ca6592173a29eab85745e112db087a464c3"
+    },
+    "validation_3": {
+      "cases": 2742,
+      "sha256": "911a5b5062916d35b512a290405dcece50cc6a43d037c8e938e1c36b76eb2a62"
     }
   },
   "portedRepository": "https://github.com/TrunchbullCI/examples",
