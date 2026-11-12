@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "MIHENK Public Sample",
-  version: "1.0.0",
+  version: "1.0.1",
   description:
     "The complete 80-case public development split of the bilingual Turkish-English MIHENK reasoning benchmark.",
   license: "CC-BY-4.0",

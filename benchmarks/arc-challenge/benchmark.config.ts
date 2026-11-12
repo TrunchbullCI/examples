@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "ARC-Challenge",
-  version: "1.0.1",
+  version: "1.0.2",
   description:
     "The complete labeled ARC-Challenge train, validation, and test splits for grade-school science reasoning.",
   license: "CC-BY-SA-4.0",

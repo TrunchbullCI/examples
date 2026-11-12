@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "ParseBench (PDF)",
-  version: "1.1.0",
+  version: "1.1.1",
   description:
     "Unofficial Trunchbull port of ParseBench. Each case attaches the original single-page PDF (or source image) and asks the model to parse it into layout-annotated markdown. Scores come from upstream ParseBench's own evaluation code.",
   license: "Apache-2.0",

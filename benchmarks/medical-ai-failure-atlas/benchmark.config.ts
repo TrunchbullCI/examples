@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "Medical AI Failure Atlas",
-  version: "0.2.1",
+  version: "0.2.2",
   description:
     "A clinician-built, synthetic safety benchmark for evaluating escalation, uncertainty, and safety boundaries in medical AI responses.",
   license: "CC-BY-4.0",

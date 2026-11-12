@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "TruthfulQA MC1",
-  version: "1.0.0",
+  version: "1.0.1",
   description:
     "The TruthfulQA MC1 multiple-choice benchmark, with one correct answer and fixed, deterministic choice order.",
   license: "Apache-2.0",
