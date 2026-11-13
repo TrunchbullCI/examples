@@ -1,0 +1,466 @@
+{
+ "datasetRevision": "2805a1d940f95a203e0ae4b88be9934f7765b3fc",
+ "failures": 0,
+ "generatedAt": "2026-11-13T01:47:21",
+ "graderRequests": 7676,
+ "leaderboard": "run-llama/ParseBench@31a9ff1dec96f900869b785d8504d18f5035ebf8 leaderboard.csv",
+ "leaderboardCells": [
+  {
+   "column": "Tables",
+   "dropped": 0,
+   "graderEvaluator": "86.72",
+   "group": "table",
+   "leaderboardCsv": "86.72",
+   "pipeline": "llamaparse_cost_effective"
+  },
+  {
+   "column": "Charts",
+   "dropped": 0,
+   "graderEvaluator": "73.98",
+   "group": "chart",
+   "leaderboardCsv": "73.98",
+   "pipeline": "llamaparse_cost_effective"
+  },
+  {
+   "column": "Content_Faithfulness",
+   "dropped": 0,
+   "graderEvaluator": "87.32",
+   "group": "text_content",
+   "leaderboardCsv": "87.32",
+   "pipeline": "llamaparse_cost_effective"
+  },
+  {
+   "column": "Semantic_Formatting",
+   "dropped": 0,
+   "graderEvaluator": "78.14",
+   "group": "text_formatting",
+   "leaderboardCsv": "78.14",
+   "pipeline": "llamaparse_cost_effective"
+  },
+  {
+   "column": "Visual_Grounding",
+   "dropped": 0,
+   "graderEvaluator": "62.22",
+   "group": "layout",
+   "leaderboardCsv": "62.22",
+   "pipeline": "llamaparse_cost_effective"
+  },
+  {
+   "column": "Tables",
+   "dropped": 0,
+   "graderEvaluator": "90.90",
+   "group": "table",
+   "leaderboardCsv": "90.90",
+   "pipeline": "llamaparse_agentic"
+  },
+  {
+   "column": "Charts",
+   "dropped": 0,
+   "graderEvaluator": "81.20",
+   "group": "chart",
+   "leaderboardCsv": "81.20",
+   "pipeline": "llamaparse_agentic"
+  },
+  {
+   "column": "Content_Faithfulness",
+   "dropped": 0,
+   "graderEvaluator": "87.84",
+   "group": "text_content",
+   "leaderboardCsv": "87.84",
+   "pipeline": "llamaparse_agentic"
+  },
+  {
+   "column": "Semantic_Formatting",
+   "dropped": 0,
+   "graderEvaluator": "84.81",
+   "group": "text_formatting",
+   "leaderboardCsv": "84.81",
+   "pipeline": "llamaparse_agentic"
+  },
+  {
+   "column": "Visual_Grounding",
+   "dropped": 0,
+   "graderEvaluator": "69.42",
+   "group": "layout",
+   "leaderboardCsv": "69.42",
+   "pipeline": "llamaparse_agentic"
+  },
+  {
+   "column": "Tables",
+   "dropped": 0,
+   "graderEvaluator": "93.27",
+   "group": "table",
+   "leaderboardCsv": "93.27",
+   "pipeline": "llamaparse_agentic_plus"
+  },
+  {
+   "column": "Charts",
+   "dropped": 0,
+   "graderEvaluator": "92.19",
+   "group": "chart",
+   "leaderboardCsv": "92.19",
+   "pipeline": "llamaparse_agentic_plus"
+  },
+  {
+   "column": "Content_Faithfulness",
+   "dropped": 0,
+   "graderEvaluator": "89.74",
+   "group": "text_content",
+   "leaderboardCsv": "89.74",
+   "pipeline": "llamaparse_agentic_plus"
+  },
+  {
+   "column": "Semantic_Formatting",
+   "dropped": 0,
+   "graderEvaluator": "82.84",
+   "group": "text_formatting",
+   "leaderboardCsv": "82.84",
+   "pipeline": "llamaparse_agentic_plus"
+  },
+  {
+   "column": "Visual_Grounding",
+   "dropped": 0,
+   "graderEvaluator": "75.43",
+   "group": "layout",
+   "leaderboardCsv": "75.43",
+   "pipeline": "llamaparse_agentic_plus"
+  }
+ ],
+ "publishedResults": "llamaindex/ParseBench-results@e0de8b2eb340e78e6ae692e40d94d06b7fa64aaa",
+ "requestChecks": [
+  {
+   "error": "documentParser must be an object.",
+   "name": "not an object",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.provider must be \"llamaparse\".",
+   "name": "other provider",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.pipeline must be one of llamaparse_cost_effective, llamaparse_agentic, llamaparse_agentic_plus.",
+   "name": "unknown pipeline",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.pipeline must be one of llamaparse_cost_effective, llamaparse_agentic, llamaparse_agentic_plus.",
+   "name": "non-llamaparse pipeline",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.pipeline must be one of llamaparse_cost_effective, llamaparse_agentic, llamaparse_agentic_plus.",
+   "name": "missing pipeline",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.result must be an object.",
+   "name": "result not an object",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.result must be the result of a COMPLETED LlamaParse job.",
+   "name": "result without job",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.result must be the result of a COMPLETED LlamaParse job.",
+   "name": "failed job",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.result.markdown.pages must be objects with a page_number and markdown.",
+   "name": "malformed markdown expansion",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.result.markdown has no page 1.",
+   "name": "markdown expansion without the page",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "documentParser.result is not a LlamaParse parse result: Failed to normalize LlamaParse SDK payload for parse output: 31 validation errors for ParsingGetResponse\nitems.pages.0.ItemsPageStructuredResult",
+   "name": "schema-invalid item",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "error": "Document parsers are scored only on the PDF variant.",
+   "name": "png variant",
+   "ok": true,
+   "status": 400
+  },
+  {
+   "name": "no markdown expansion scores from items",
+   "ok": true,
+   "status": 200
+  },
+  {
+   "name": "null markdown expansion scores from items",
+   "ok": true,
+   "status": 200
+  },
+  {
+   "name": "absent",
+   "ok": true,
+   "status": 200
+  },
+  {
+   "name": "absent png",
+   "ok": true,
+   "status": 200
+  },
+  {
+   "name": "null is absent",
+   "ok": true,
+   "status": 200
+  }
+ ],
+ "sameJob": [
+  {
+   "compared": 503,
+   "differences": [],
+   "exact": 503,
+   "graderMean": 0.8519526160175281,
+   "group": "table",
+   "maxAbsDiff": 0.0,
+   "metric": "grits_trm_composite",
+   "pipeline": "llamaparse_cost_effective",
+   "records": 503,
+   "rejected": {},
+   "upstreamAverage": 0.8519526160175281,
+   "upstreamMean": 0.8519526160175281
+  },
+  {
+   "compared": 568,
+   "differences": [],
+   "exact": 568,
+   "graderMean": 0.729880164827348,
+   "group": "chart",
+   "maxAbsDiff": 0.0,
+   "metric": "rule_pass_rate",
+   "pipeline": "llamaparse_cost_effective",
+   "records": 568,
+   "rejected": {},
+   "upstreamAverage": 0.729880164827348,
+   "upstreamMean": 0.729880164827348
+  },
+  {
+   "compared": 506,
+   "differences": [
+    {
+     "cause": "page markdown: published output is not the job's markdown expansion (chars per page, grader vs published: 0 vs 86)",
+     "diff": -1.0,
+     "grader": 0.0,
+     "testId": "text/text_sparse__blank",
+     "upstream": 1.0
+    }
+   ],
+   "exact": 505,
+   "graderMean": 0.8675661254688505,
+   "group": "text_content",
+   "maxAbsDiff": 1.0,
+   "metric": "content_faithfulness",
+   "pipeline": "llamaparse_cost_effective",
+   "records": 506,
+   "rejected": {},
+   "upstreamAverage": 0.8695424100538307,
+   "upstreamMean": 0.8695424100538307
+  },
+  {
+   "compared": 476,
+   "differences": [],
+   "exact": 476,
+   "graderMean": 0.7479157900898075,
+   "group": "text_formatting",
+   "maxAbsDiff": 0.0,
+   "metric": "semantic_formatting",
+   "pipeline": "llamaparse_cost_effective",
+   "records": 476,
+   "rejected": {},
+   "upstreamAverage": 0.7807191142165534,
+   "upstreamMean": 0.7479157900898075
+  },
+  {
+   "compared": 500,
+   "differences": [],
+   "exact": 500,
+   "graderMean": 0.6584199674665709,
+   "group": "layout",
+   "maxAbsDiff": 0.0,
+   "metric": "layout_element_rule_pass_rate",
+   "pipeline": "llamaparse_cost_effective",
+   "records": 500,
+   "rejected": {},
+   "upstreamAverage": 0.6584199674665709,
+   "upstreamMean": 0.6584199674665709
+  },
+  {
+   "compared": 503,
+   "differences": [],
+   "exact": 503,
+   "graderMean": 0.8888708662029491,
+   "group": "table",
+   "maxAbsDiff": 0.0,
+   "metric": "grits_trm_composite",
+   "pipeline": "llamaparse_agentic",
+   "records": 503,
+   "rejected": {},
+   "upstreamAverage": 0.8888708662029491,
+   "upstreamMean": 0.8888708662029491
+  },
+  {
+   "compared": 568,
+   "differences": [],
+   "exact": 568,
+   "graderMean": 0.8147206471150134,
+   "group": "chart",
+   "maxAbsDiff": 0.0,
+   "metric": "rule_pass_rate",
+   "pipeline": "llamaparse_agentic",
+   "records": 568,
+   "rejected": {},
+   "upstreamAverage": 0.8147206471150134,
+   "upstreamMean": 0.8147206471150134
+  },
+  {
+   "compared": 506,
+   "differences": [
+    {
+     "cause": "page markdown: published output is not the job's markdown expansion (chars per page, grader vs published: 0 vs 76)",
+     "diff": -1.0,
+     "grader": 0.0,
+     "testId": "text/text_sparse__blank",
+     "upstream": 1.0
+    }
+   ],
+   "exact": 505,
+   "graderMean": 0.8696884050023659,
+   "group": "text_content",
+   "maxAbsDiff": 1.0,
+   "metric": "content_faithfulness",
+   "pipeline": "llamaparse_agentic",
+   "records": 506,
+   "rejected": {},
+   "upstreamAverage": 0.8716646895873461,
+   "upstreamMean": 0.8716646895873461
+  },
+  {
+   "compared": 476,
+   "differences": [],
+   "exact": 476,
+   "graderMean": 0.8050010970049981,
+   "group": "text_formatting",
+   "maxAbsDiff": 0.0,
+   "metric": "semantic_formatting",
+   "pipeline": "llamaparse_agentic",
+   "records": 476,
+   "rejected": {},
+   "upstreamAverage": 0.8403081626631121,
+   "upstreamMean": 0.8050010970049981
+  },
+  {
+   "compared": 500,
+   "differences": [],
+   "exact": 500,
+   "graderMean": 0.7283513133297405,
+   "group": "layout",
+   "maxAbsDiff": 0.0,
+   "metric": "layout_element_rule_pass_rate",
+   "pipeline": "llamaparse_agentic",
+   "records": 500,
+   "rejected": {},
+   "upstreamAverage": 0.7283513133297405,
+   "upstreamMean": 0.7283513133297405
+  },
+  {
+   "compared": 503,
+   "differences": [],
+   "exact": 503,
+   "graderMean": 0.9339150411212248,
+   "group": "table",
+   "maxAbsDiff": 0.0,
+   "metric": "grits_trm_composite",
+   "pipeline": "llamaparse_agentic_plus",
+   "records": 503,
+   "rejected": {},
+   "upstreamAverage": 0.9339150411212248,
+   "upstreamMean": 0.9339150411212248
+  },
+  {
+   "compared": 568,
+   "differences": [],
+   "exact": 568,
+   "graderMean": 0.9018524022925432,
+   "group": "chart",
+   "maxAbsDiff": 0.0,
+   "metric": "rule_pass_rate",
+   "pipeline": "llamaparse_agentic_plus",
+   "records": 568,
+   "rejected": {},
+   "upstreamAverage": 0.9018524022925432,
+   "upstreamMean": 0.9018524022925432
+  },
+  {
+   "compared": 506,
+   "differences": [
+    {
+     "cause": "page markdown: published output is not the job's markdown expansion (chars per page, grader vs published: 0 vs 76)",
+     "diff": -1.0,
+     "grader": 0.0,
+     "testId": "text/text_sparse__blank",
+     "upstream": 1.0
+    }
+   ],
+   "exact": 505,
+   "graderMean": 0.8789146500121447,
+   "group": "text_content",
+   "maxAbsDiff": 1.0,
+   "metric": "content_faithfulness",
+   "pipeline": "llamaparse_agentic_plus",
+   "records": 506,
+   "rejected": {},
+   "upstreamAverage": 0.880890934597125,
+   "upstreamMean": 0.880890934597125
+  },
+  {
+   "compared": 476,
+   "differences": [],
+   "exact": 476,
+   "graderMean": 0.826937405651286,
+   "group": "text_formatting",
+   "maxAbsDiff": 0.0,
+   "metric": "semantic_formatting",
+   "pipeline": "llamaparse_agentic_plus",
+   "records": 476,
+   "rejected": {},
+   "upstreamAverage": 0.8632065901096757,
+   "upstreamMean": 0.826937405651286
+  },
+  {
+   "compared": 500,
+   "differences": [],
+   "exact": 500,
+   "graderMean": 0.7316325463238946,
+   "group": "layout",
+   "maxAbsDiff": 0.0,
+   "metric": "layout_element_rule_pass_rate",
+   "pipeline": "llamaparse_agentic_plus",
+   "records": 500,
+   "rejected": {},
+   "upstreamAverage": 0.7316325463238946,
+   "upstreamMean": 0.7316325463238946
+  }
+ ],
+ "upstreamCommit": "c38085d2ccd7f717900037e361806d22c51bc33b"
+}

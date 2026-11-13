@@ -432,8 +432,14 @@ def main() -> int:
                 # are compared exactly.
                 mean = sum(included) / len(included) if included else None
                 upstream_average = averages[category]
-                agrees = (mean is None and upstream_average is None) or (
-                    mean is not None and upstream_average is not None and abs(mean - upstream_average) <= 1e-12
+                # Upstream pads genuine failures as zeros only into metrics some
+                # example produced, so a category where no example succeeded
+                # has no upstream average; the grader's mean is then all zeros.
+                none_succeeded = not any(upstream[(category, d)]["success"] for d in sample[category])
+                agrees = (
+                    (mean is None and upstream_average is None)
+                    or (upstream_average is None and none_succeeded and all(score == 0.0 for score in included))
+                    or (mean is not None and upstream_average is not None and abs(mean - upstream_average) <= 1e-12)
                 )
                 report.setdefault("averages", []).append(
                     {

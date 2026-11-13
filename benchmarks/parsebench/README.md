@@ -13,10 +13,11 @@ grader scores it with upstream ParseBench's own Python evaluation.
 
 | Pin              | Value                                                                    |
 | ---------------- | ------------------------------------------------------------------------ |
-| Upstream code    | `run-llama/ParseBench` @ `cb4c20d61c9156fdeb6fb63308349000bbd8536e` (1.0.5) |
+| Upstream code    | `run-llama/ParseBench` @ `c38085d2ccd7f717900037e361806d22c51bc33b` (1.0.7), the commit its leaderboard is scored with |
 | Dataset          | `llamaindex/ParseBench` @ `2805a1d940f95a203e0ae4b88be9934f7765b3fc`       |
 | Prompt           | Upstream `SYSTEM_PROMPT_LAYOUT` / `USER_PROMPT_LAYOUT` (Core11, 0–1000 boxes) |
 | Grader pipelines | `anthropic_opus_5_5_parse_with_layout_file` (PDF), `anthropic_sonnet_5_parse_with_layout` (PNG) |
+| Parser pipelines | `llamaparse_cost_effective`, `llamaparse_agentic`, `llamaparse_agentic_plus` (PDF only) |
 
 Exact hashes for every generated and vendored file are in
 [`provenance.json`](./provenance.json).
@@ -92,7 +93,8 @@ Package case counts after the platform's attachment limits are applied are in
 
 `grader/` builds a Python 3.12 image (base images pinned by digest). It
 installs the vendored, unmodified upstream source from its own `uv.lock`
-(core dependencies plus the `anthropic` extra). It serves the Trunchbull grader
+(core dependencies plus the `anthropic` and `llamaparse` extras). It serves
+the Trunchbull grader
 protocol on port 8080 (`GET /health`, `POST /evaluate`). For each request the
 grader:
 
@@ -113,6 +115,86 @@ The rules for all 2,553 cases are baked into the image at build time
 (`build_index.py`). The build also checks every per-case shard against
 upstream's full-dataset loader. The running grader makes no network calls,
 and the parity check runs it with networking disabled.
+
+## Document parsers
+
+The grader can score a document parser's result instead of a model's text.
+Only LlamaParse is supported, and only on the PDF package. The grader request
+then carries an extra field:
+
+```json
+"documentParser": {
+  "provider": "llamaparse",
+  "pipeline": "llamaparse_agentic",
+  "result": { "job": {}, "items": {}, "text": {}, "markdown": {}, "metadata": {}, "result_content_metadata": {} }
+}
+```
+
+`result` is the JSON body of
+`GET /api/v2/parse/{job_id}?expand=items&expand=text&expand=markdown&expand=metadata&expand=debug_logs`
+for a `COMPLETED` job, from LlamaParse called by Trunchbull with the user's
+stored LlamaCloud key. The pipelines are upstream's own
+(`inference/pipelines/parse.py` at `c38085d`), and Trunchbull's catalog ids
+`parser/llamaparse/cost-effective`, `parser/llamaparse/agentic` and
+`parser/llamaparse/agentic-plus` map to them:
+
+| Pipeline                    | Upstream config                                               |
+| --------------------------- | ------------------------------------------------------------- |
+| `llamaparse_cost_effective` | `tier: "cost_effective"`, `version: "latest"`, `disable_cache: true` |
+| `llamaparse_agentic`        | `tier: "agentic"`, `version: "latest"`, `disable_cache: true`        |
+| `llamaparse_agentic_plus`   | `tier: "agentic_plus"`, `version: "latest"`, `disable_cache: true`   |
+
+With the field present, the grader:
+
+1. Rejects the request with HTTP 400 unless the provider is `llamaparse`,
+   the pipeline is one of the three above and registered upstream for the
+   `llamaparse` provider, `result` is an object for a `COMPLETED` job
+   (upstream's provider never reads an unfinished job), and the attachment is
+   the pinned source PDF. A malformed `result` is also a 400, including a
+   `markdown` expansion that is not a list of pages or lacks one of the
+   job's pages.
+2. Builds the raw result upstream's `LlamaParseProvider.run_inference`
+   records, with the same `job_logs_url` default `_parse_pdf` adds, and
+   normalizes it with upstream's own `LlamaParseProvider.normalize()`. The
+   provider is created without `__init__`, which only sets up an API
+   client; `normalize()` reads two attributes, `_sdk_config` (the pipeline
+   config) and `_credit_rate_usd`, which are set as `__init__` would.
+3. Makes the result match the LlamaParse results upstream publishes and
+   scores its leaderboard from. The public provider differs from them in
+   three ways, and each one changes scores for the same job (see
+   [Parity](#parity)):
+   - **Page markdown.** Published page markdown is the job's own `markdown`
+     expansion. The public provider rebuilds it from the items, which writes
+     header and footer text twice. The grader uses the expansion when the
+     result has one and keeps the items-based markdown when it does not, as
+     upstream's published agentic and agentic-plus table results do.
+     Trunchbull always requests `expand=markdown`, so its trials take the
+     expansion path; the fallback exists for results fetched without it.
+   - **Split items.** LlamaParse returns a block that spans several layout
+     regions as adjacent items that share the block's markdown, one region
+     each. Published layout items keep only their region's slice of it
+     (upstream's `_slice_segment_markdown`); an item whose markdown no
+     neighbour shares keeps all of it.
+   - **No `job`.** The saved raw output has no `job`. With `job` present,
+     upstream's layout adapter re-normalizes the raw items instead of reading
+     the normalized layout pages.
+4. Scores the result as in [Grader](#grader) steps 3 and 4, under the
+   LlamaParse pipeline's name, and adds
+   `details.system = {"provider": "llamaparse", "pipeline": …}`.
+
+The trial's `output` text is not scored on this path. Without the field, or
+with it set to `null`, the grader behaves exactly as before. LlamaParse
+parses the whole PDF in one job, as upstream does, so multi-page documents
+are scored on every page.
+
+Upstream gets the same response through the `llama_cloud` SDK and stores
+`model_dump(mode="json", by_alias=True)`; `normalize()` re-validates what
+it stores with `ParsingGetResponse.model_validate`. The REST JSON and the
+SDK dump are therefore equivalent. This was checked on all 2,079 raw
+LlamaParse agentic payloads upstream publishes
+([ParseBench-results](https://huggingface.co/datasets/llamaindex/ParseBench-results)
+@ `e0de8b2`, `raw/llamaparse_agentic`): for every payload, validating the
+JSON and validating its SDK dump give equal models and identical pages.
 
 ## Preparing the documents
 
@@ -163,19 +245,114 @@ two ways:
   `POST /evaluate`.
 
 Scores must match exactly, case by case. The last report is
-[`parity/report.json`](./parity/report.json). It covers 8 documents per
-category × 4 output styles × 2 packages, which is 320 grader requests. The
-grader matched upstream exactly on every request: 288 scored, 76 of them
-fractional, and 32 that upstream drops from its average. Each category's
-run-level mean also equalled upstream's `avg_<metric>`. A sample can include
-the same document in more than one category, so the reference run uses one
-inference output directory per category. Upstream shares a single `text/`
-result between `text_content` and `text_formatting`.
+[`parity/report-amd64.json`](./parity/report-amd64.json), from a
+`linux/amd64` build, the architecture Cloudflare runs. It covers 8 documents
+per category × 4 output styles × 2 packages, which is 320 grader requests.
+The grader matched upstream exactly on every request: 288 scored, 76 of them
+fractional, and 32 genuine failures that score 0. Each category's run-level
+mean also equalled upstream's `avg_<metric>`, except that upstream reports
+no average for a category in which no example succeeded (the plain and empty
+layout styles); every grader score there is a genuine failure's 0. A sample
+can include the same document in more than one category, so the reference
+run uses one inference output directory per category. Upstream shares a
+single `text/` result between `text_content` and `text_formatting`.
 
-The same check on a `linux/amd64` build, the architecture Cloudflare runs, is
-in [`parity/report-amd64.json`](./parity/report-amd64.json). It covers 3
-documents per category, 120 requests, with 0 mismatches. Its scores are
-bit-identical to the arm64 run for every shared case.
+```sh
+benchmarks/parsebench/parity/fetch-published.sh [directory]
+benchmarks/parsebench/parity/document-parser.sh [directory] [servers]
+```
+
+`document-parser.sh` checks the [document-parser path](#document-parsers)
+against upstream's own published LlamaParse runs, which
+`fetch-published.sh` downloads and verifies by sha256
+([ParseBench-results](https://huggingface.co/datasets/llamaindex/ParseBench-results)
+@ `e0de8b2`, whose LlamaParse files are identical to `0b3c833`, the
+revision upstream's leaderboard scores; `leaderboard.csv` from
+`run-llama/ParseBench` @ `31a9ff1`). It runs `parity/document_parser.py`
+in the grader image, with several grader servers, and checks three things:
+
+- **Same job.** Each `raw/<pipeline>` record holds one LlamaParse job's
+  response and upstream's own normalized output for that job. The response
+  goes to `POST /evaluate` as `documentParser.result`, and its score is
+  compared with the vendored evaluator (`parse-bench evaluation run`, as
+  upstream's `scripts/leaderboard/rescore.py` runs it) scoring the published
+  output. Every difference is explained by comparing the two normalized
+  results.
+- **Leaderboard.** The vendored evaluator scores the `results/<pipeline>`
+  run, the one the leaderboard is built from, and each dimension's average
+  must equal `leaderboard.csv`.
+- **Requests.** Malformed `documentParser` requests must be rejected with
+  HTTP 400, results without the `markdown` expansion score through the items
+  fallback, and absent or `null` fields are model trials.
+
+The last report is
+[`parity/report-document-parser-amd64.json`](./parity/report-document-parser-amd64.json),
+from a native `linux/amd64` build: 7,676 grader requests, 0 unexplained
+differences, all 15 leaderboard cells reproduced, all 18 request checks
+passed. Same job, grader against upstream:
+
+| Pipeline       | Group           | Docs | Exact | Max abs diff | Upstream mean | Grader mean |
+| -------------- | --------------- | ---: | ----: | -----------: | ------------: | ----------: |
+| cost_effective | table           |  503 |   503 |            0 |         85.20 |       85.20 |
+| cost_effective | chart           |  568 |   568 |            0 |         72.99 |       72.99 |
+| cost_effective | text_content    |  506 |   505 |            1 |         86.95 |       86.76 |
+| cost_effective | text_formatting |  476 |   476 |            0 |         74.79 |       74.79 |
+| cost_effective | layout          |  500 |   500 |            0 |         65.84 |       65.84 |
+| agentic        | table           |  503 |   503 |            0 |         88.89 |       88.89 |
+| agentic        | chart           |  568 |   568 |            0 |         81.47 |       81.47 |
+| agentic        | text_content    |  506 |   505 |            1 |         87.17 |       86.97 |
+| agentic        | text_formatting |  476 |   476 |            0 |         80.50 |       80.50 |
+| agentic        | layout          |  500 |   500 |            0 |         72.84 |       72.84 |
+| agentic_plus   | table           |  503 |   503 |            0 |         93.39 |       93.39 |
+| agentic_plus   | chart           |  568 |   568 |            0 |         90.19 |       90.19 |
+| agentic_plus   | text_content    |  506 |   505 |            1 |         88.09 |       87.89 |
+| agentic_plus   | text_formatting |  476 |   476 |            0 |         82.69 |       82.69 |
+| agentic_plus   | layout          |  500 |   500 |            0 |         73.16 |       73.16 |
+
+The agentic and agentic_plus table records were fetched without the
+`markdown` expansion, so they exercise the items fallback. The one
+difference per pipeline is `text/text_sparse__blank`, a blank page whose
+markdown expansion is empty while the published output holds text (76 to 86
+characters) the expansion does not contain; see
+[Known differences](#known-differences-from-upstream). Leaderboard, the
+results run scored with the image's evaluator against `leaderboard.csv`:
+
+| Pipeline       | Tables | Charts | Content Faithfulness | Semantic Formatting | Visual Grounding |
+| -------------- | -----: | -----: | -------------------: | ------------------: | ---------------: |
+| cost_effective |  86.72 |  73.98 |                87.32 |               78.14 |            62.22 |
+| agentic        |  90.90 |  81.20 |                87.84 |               84.81 |            69.42 |
+| agentic_plus   |  93.27 |  92.19 |                89.74 |               82.84 |            75.43 |
+
+Every cell equals `leaderboard.csv`. The report was produced on a Linux
+x86_64 host whose Docker cannot create network namespaces, so the container
+ran with `--network host` instead of `--network none`; the grader makes no
+network calls either way.
+
+### Score changes in 2.0.0
+
+Both packages moved from upstream `cb4c20d` to `c38085d`, the commit
+upstream's leaderboard is scored with, so existing ParseBench scores move.
+Rescoring upstream's published Opus 5.5 run (the PDF package's grader
+pipeline, 2,079 documents) with both evaluators:
+
+| Group           | cb4c20d | c38085d | Change | Documents changed |
+| --------------- | ------: | ------: | -----: | ----------------: |
+| table           |   93.86 |   93.88 |  +0.02 | 9 (max 0.038)     |
+| chart           |   64.12 |   64.12 |      0 | 0                 |
+| text_content    |   91.35 |   91.35 |      0 | 0                 |
+| text_formatting |   77.05 |   77.05 |      0 | 0                 |
+| layout          |   58.56 |   58.44 |  −0.12 | 0                 |
+
+The c38085d column equals upstream's leaderboard row for Opus 5.5. Layout
+moves because c38085d counts an output with no layout blocks as a genuine
+failure in its average instead of dropping it; the grader already scored
+such a trial 0, now with `details.aggregation` `failed` instead of
+`excluded`. LlamaParse-style outputs move much more, through c38085d's
+layout adapter: on the published LlamaParse results, Visual Grounding goes
+from 52.10 to 62.22 (cost_effective), 57.77 to 69.42 (agentic) and 70.45 to
+75.43 (agentic_plus), while every other dimension moves by at most 0.15.
+The synthetic model-output sample in `report-amd64.json` has no score
+changes, only those 32 layout failures changing classification.
 
 `parity/latency.sh` times the heaviest cases at the declared instance size
 (1 vCPU, 6 GiB); results are in
@@ -221,6 +398,15 @@ close to the platform's 60 s grader request timeout.
   case count is below 2,553.
 - **Image encoding.** The PNG package sends lossless PNG renders; upstream's
   Anthropic image mode re-encodes pages as JPEG.
+- **LlamaParse page markdown on blank pages.** On `text_sparse__blank` the
+  job's `markdown` expansion is empty, while upstream's published output for
+  the same job has text, so the grader scores Content Faithfulness 0 where
+  upstream scores 1. It is the only same-job score difference.
+- **LlamaParse layout metadata.** Upstream's published layout pages also
+  carry link lists, link text as the `value` of link items, a few different
+  `picture_type` attributes, and empty `granular_layers`. The public
+  normalizer produces none of them, and none changes a score under
+  `c38085d` (layout is exact on all 1,500 same-job documents).
 - **Excluded results.** Run-level means include the zeros described in
   [Grader](#grader) step 4, so they can differ slightly from upstream's
   averages, which drop those cases.
