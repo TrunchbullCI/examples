@@ -2,8 +2,8 @@
   "dataset": "llamaindex/ParseBench",
   "datasetRevision": "2805a1d940f95a203e0ae4b88be9934f7765b3fc",
   "upstreamRepository": "https://github.com/run-llama/ParseBench",
-  "upstreamCommit": "cb4c20d61c9156fdeb6fb63308349000bbd8536e",
-  "upstreamVersion": "1.0.5",
+  "upstreamCommit": "c38085d2ccd7f717900037e361806d22c51bc33b",
+  "upstreamVersion": "1.0.7",
   "expectedCases": 2553,
   "rules": {
     "chart": "82eb2d660b286a5e1b8bd57f3f159a722b13849834561211dc1ccd5c5a39582b",

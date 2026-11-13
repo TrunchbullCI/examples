@@ -1,16 +1,17 @@
 #!/bin/sh
 # Build the grader image and check the document-parser (LlamaParse) path
-# against upstream ParseBench.
+# against upstream's published LlamaParse runs and leaderboard.
 #
-#   benchmarks/parsebench/parity/document-parser.sh [per-category]
+#   benchmarks/parsebench/parity/document-parser.sh [published-directory] [servers]
 #
-# Requires tools/prepare.sh to have populated grader/rules. The check runs
-# inside the grader image with networking disabled; it needs no documents,
-# because LlamaParse results are built from the ground truth.
+# Requires tools/prepare.sh to have populated grader/rules and
+# parity/fetch-published.sh to have downloaded the published runs. The check
+# runs inside the grader image with networking disabled.
 set -eu
 
 PORT_DIR=$(cd "$(dirname "$0")/.." && pwd)
-PER_CATEGORY=${1:-4}
+PUBLISHED_DIR=$(cd "${1:-"$PORT_DIR/.cache/published"}" && pwd)
+SERVERS=${2:-4}
 PLATFORM=${PARITY_PLATFORM:-}
 TAG=parsebench-grader:parity
 
@@ -28,12 +29,12 @@ else
 fi
 
 docker run --rm --network none ${PLATFORM:+--platform "$PLATFORM"} \
-  -v "$PORT_DIR:/port:ro" -v "$PORT_DIR/parity:/report" \
+  -v "$PORT_DIR:/port:ro" -v "$PUBLISHED_DIR:/published:ro" -v "$PORT_DIR/parity:/report" \
   "$TAG" sh -euc '
     mkdir -p /tmp/rules
     for f in /port/grader/rules/*.jsonl.gz; do
       gzip -dc "$f" > "/tmp/rules/$(basename "$f" .gz)"
     done
-    python -I /port/parity/document_parser.py --rules /tmp/rules --port /port \
-      --per-category "$0" --report "/report/report-document-parser${1:+-$1}.json"
-  ' "$PER_CATEGORY" "${PARITY_REPORT_SUFFIX:-}"
+    python -I /port/parity/document_parser.py --rules /tmp/rules --published /published \
+      --servers "$0" --report "/report/report-document-parser${1:+-$1}.json"
+  ' "$SERVERS" "${PARITY_REPORT_SUFFIX:-}"

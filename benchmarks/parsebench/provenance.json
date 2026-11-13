@@ -7,12 +7,12 @@
   "upstream": {
     "code": {
       "url": "https://github.com/run-llama/ParseBench",
-      "commit": "cb4c20d61c9156fdeb6fb63308349000bbd8536e",
-      "version": "1.0.5",
+      "commit": "c38085d2ccd7f717900037e361806d22c51bc33b",
+      "version": "1.0.7",
       "license": "Apache-2.0",
       "vendoredPath": "grader/upstream",
-      "vendoredFiles": 248,
-      "vendoredTreeSha256": "aa8aa1fb1fff57fcc7e1034ceaf082f6806a9b35479120eee3ffe67431af3aec",
+      "vendoredFiles": 257,
+      "vendoredTreeSha256": "13fe80350f2ddf72af562e3623dc589a0681a5705b46e6d534c6071dea51f204",
       "modified": false
     },
     "dataset": {
@@ -175,8 +175,8 @@
       "parsebench-pdf/grader",
       "parsebench-image/grader"
     ],
-    "treeSha256": "18273f48973a560b093d3f9dbdc1ce417958f93320f725d935327a816085cf1b",
-    "files": 258,
+    "treeSha256": "0c9c915ee483ddf5475c1c19932b2201a5b7204ebb38f59c73b191062bde8a94",
+    "files": 267,
     "documentsJsonSha256": "dce199755b2fd884974cec986ba1a0de2efcc9c6cc1959145312f8cf1fbedabe",
     "pipelines": {
       "pdf": "anthropic_opus_5_5_parse_with_layout_file",
@@ -192,8 +192,8 @@
         "packages": [
           "parsebench-pdf"
         ],
-        "result": "GET /api/v2/parse/{job_id}?expand=items&expand=text&expand=metadata&expand=debug_logs for a COMPLETED job, from LlamaParse called by Trunchbull with the user's stored LlamaCloud key",
-        "normalize": "upstream LlamaParseProvider.normalize at the pinned commit"
+        "result": "GET /api/v2/parse/{job_id}?expand=items&expand=text&expand=markdown&expand=metadata&expand=debug_logs for a COMPLETED job, from LlamaParse called by Trunchbull with the user's stored LlamaCloud key",
+        "normalize": "upstream LlamaParseProvider.normalize at the pinned commit, with each page's markdown from the job's markdown expansion and the raw output saved without job, as in upstream's published LlamaParse results"
       }
     }
   }

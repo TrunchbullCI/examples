@@ -2,7 +2,7 @@
 // and parsebench-image; each package's data/documents.jsonl decides which
 // attachment a case carries.
 //
-// Upstream (run-llama/ParseBench cb4c20d, test_cases/loader.py) builds one
+// Upstream (run-llama/ParseBench c38085d, test_cases/loader.py) builds one
 // test case per (category, document). Text documents are graded twice, once
 // with text_content rules and once with text_formatting rules, so they yield
 // two cases here as well. The prompts are upstream's Core11

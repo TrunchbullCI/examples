@@ -1,7 +1,7 @@
 export default {
   protocolVersion: 1,
   title: "ParseBench (PDF)",
-  version: "1.2.0",
+  version: "2.0.0",
   description:
     "Unofficial Trunchbull port of ParseBench. Each case attaches the original single-page PDF (or source image) and asks the model to parse it into layout-annotated markdown. Scores come from upstream ParseBench's own evaluation code.",
   license: "Apache-2.0",
@@ -9,7 +9,7 @@ export default {
   provenance: {
     upstream: {
       url: "https://github.com/run-llama/ParseBench",
-      revision: "cb4c20d61c9156fdeb6fb63308349000bbd8536e",
+      revision: "c38085d2ccd7f717900037e361806d22c51bc33b",
       license: "Apache-2.0",
       paperUrl: "https://arxiv.org/abs/2604.08538",
     },

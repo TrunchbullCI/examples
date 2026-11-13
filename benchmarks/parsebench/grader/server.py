@@ -6,7 +6,7 @@ Implements the grader protocol (protocolVersion 1) on port 8080:
 - POST /evaluate scores one trial with upstream ParseBench's own code.
 
 For each request the server reproduces what `parse-bench run` does for one
-document at upstream commit cb4c20d:
+document at upstream commit c38085d:
 
 1. Builds the normalized InferenceResult with the pipeline's own provider:
    - Without `documentParser` (a model trial), the pipeline is the package's
@@ -19,8 +19,12 @@ document at upstream commit cb4c20d:
      expanded GET response as REST JSON, from LlamaParse called by Trunchbull
      with the user's stored LlamaCloud key. It gets the job_logs_url default
      LlamaParseProvider._parse_pdf adds, then LlamaParseProvider.normalize()
-     produces the result. The `output` text is a rendering for people and is
-     not scored.
+     produces the result, adjusted to match the LlamaParse results upstream
+     publishes and scores its leaderboard from: page markdown is the job's
+     markdown expansion when the result has one, each single-segment layout
+     item keeps only its segment's markdown, and the saved raw output has no
+     `job`, so layout is scored from the normalized layout pages. The
+     `output` text is a rendering for people and is not scored.
 2. Writes that result and the case's baked rule shard into a scratch
    directory laid out like upstream's output and dataset directories, under
    the pipeline's name.
@@ -77,6 +81,7 @@ from parse_bench.inference.providers.base import ProviderPermanentError  # noqa:
 from parse_bench.inference.providers.parse._layout_utils import parse_layout_blocks  # noqa: E402
 from parse_bench.inference.providers.parse.anthropic import AnthropicProvider  # noqa: E402
 from parse_bench.inference.providers.parse.llamaparse import LlamaParseProvider  # noqa: E402
+from parse_bench.inference.providers.parse.llamaparse_v2_normalization import _slice_segment_markdown  # noqa: E402
 from parse_bench.schemas.pipeline_io import InferenceRequest, RawInferenceResult  # noqa: E402
 from parse_bench.schemas.product import ProductType  # noqa: E402
 
@@ -163,6 +168,18 @@ def resolve_document_parser(parser: Any, variant: str) -> dict[str, Any]:
         raise GradeError("documentParser.result must be the result of a COMPLETED LlamaParse job.")
     if variant != "pdf":
         raise GradeError("Document parsers are scored only on the PDF variant.")
+    markdown = result.get("markdown")
+    if markdown is not None and not (
+        isinstance(markdown, dict)
+        and isinstance(markdown.get("pages"), list)
+        and all(
+            isinstance(page, dict)
+            and isinstance(page.get("page_number"), int)
+            and isinstance(page.get("markdown") or "", str)
+            for page in markdown["pages"]
+        )
+    ):
+        raise GradeError("documentParser.result.markdown.pages must be objects with a page_number and markdown.")
     return {"pipeline": name, "parserResult": result}
 
 
@@ -219,6 +236,15 @@ def parser_result_json(case: dict[str, Any], test_id: str, source_path: Path) ->
     the job's expanded GET response, dumped from the SDK model. Trunchbull
     sends the same response as REST JSON; normalize() re-validates either form
     with ParsingGetResponse, so both produce the same result.
+
+    Upstream's published LlamaParse outputs differ from the public
+    normalize() in three ways, all applied here. Page markdown is the job's
+    markdown expansion when it was fetched (expand=markdown), rather than
+    markdown rebuilt from items; without the expansion the items-based
+    markdown stays. A layout item with a single layout segment keeps only that
+    segment's slice of the item markdown, as _slice_segment_markdown cuts it.
+    The raw output carries no `job`, which makes the layout adapter read the
+    normalized layout pages instead of re-normalizing the raw items.
     """
     pipeline = get_pipeline(case["pipeline"])
     raw_output = dict(case["parserResult"])
@@ -256,7 +282,43 @@ def parser_result_json(case: dict[str, Any], test_id: str, source_path: Path) ->
         normalized = provider.normalize(raw_result)
     except ProviderPermanentError as error:
         raise GradeError(f"documentParser.result is not a LlamaParse parse result: {error}"[:2000]) from error
+
+    output = normalized.output
+    markdown_pages = (case["parserResult"].get("markdown") or {}).get("pages")
+    if markdown_pages:
+        page_markdown = {page["page_number"] - 1: page.get("markdown") or "" for page in markdown_pages}
+        missing = [page.page_index + 1 for page in output.pages if page.page_index not in page_markdown]
+        if missing:
+            raise GradeError(f"documentParser.result.markdown has no page {missing[0]}.")
+        output.pages = [page.model_copy(update={"markdown": page_markdown[page.page_index]}) for page in output.pages]
+        output.markdown = "\n\n---\n\n".join(page.markdown for page in output.pages)
+        output.layout_pages = [
+            page.model_copy(update={"md": page_markdown.get(page.page_number - 1, page.md)})
+            for page in output.layout_pages
+        ]
+    output.layout_pages = [page.model_copy(update={"items": segment_items(page.items)}) for page in output.layout_pages]
+    normalized.raw_output = {key: value for key, value in normalized.raw_output.items() if key != "job"}
     return normalized.model_dump_json(indent=2)
+
+
+def segment_items(items: list[Any]) -> list[Any]:
+    """Cut the markdown of items LlamaParse split from one block down to each item's segment.
+
+    LlamaParse returns a block that spans several layout regions as adjacent
+    items with the block's whole markdown and one region each. Upstream's
+    published results keep only the region's slice of that markdown in each
+    item; an item whose markdown no neighbour shares keeps all of it.
+    """
+    sliced = []
+    for index, item in enumerate(items):
+        shared = any(
+            0 <= other < len(items) and items[other].md == item.md for other in (index - 1, index + 1)
+        )
+        markdown = None
+        if item.md and shared and len(item.layout_segments) == 1:
+            markdown = _slice_segment_markdown(item.md, item.layout_segments[0])
+        sliced.append(item if markdown is None else item.model_copy(update={"md": markdown}))
+    return sliced
 
 
 def evaluate(case: dict[str, Any]) -> dict[str, Any]:

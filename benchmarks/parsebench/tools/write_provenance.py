@@ -127,11 +127,15 @@ def main() -> None:
                     "pipelines": pins["parserPipelines"]["llamaparse"],
                     "packages": ["parsebench-pdf"],
                     "result": (
-                        "GET /api/v2/parse/{job_id}?expand=items&expand=text&expand=metadata&expand=debug_logs "
-                        "for a COMPLETED job, from LlamaParse called by Trunchbull with the user's stored "
-                        "LlamaCloud key"
+                        "GET /api/v2/parse/{job_id}?expand=items&expand=text&expand=markdown&expand=metadata"
+                        "&expand=debug_logs for a COMPLETED job, from LlamaParse called by Trunchbull with the "
+                        "user's stored LlamaCloud key"
                     ),
-                    "normalize": "upstream LlamaParseProvider.normalize at the pinned commit",
+                    "normalize": (
+                        "upstream LlamaParseProvider.normalize at the pinned commit, with each page's markdown "
+                        "from the job's markdown expansion and the raw output saved without job, as in "
+                        "upstream's published LlamaParse results"
+                    ),
                 }
             },
         },
