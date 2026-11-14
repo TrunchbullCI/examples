@@ -1,0 +1,9 @@
+{
+  "name": "hand-rolled-is-number",
+  "private": true,
+  "dependencies": {
+    "is-number": "7.0.0",
+    "@types/is-number": "7.0.5",
+    "mocha": "10.8.2"
+  }
+}

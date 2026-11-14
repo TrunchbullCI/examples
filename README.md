@@ -23,6 +23,9 @@ benchmark example changes from this repository, not from the parent repository.
 
 - [`arc-challenge`](./benchmarks/arc-challenge)
 - [`gsm8k`](./benchmarks/gsm8k)
+- [`hand-rolled`](./benchmarks/hand-rolled) (original: reproduce convenience
+  libraries from a description; graded by their own upstream tests and
+  differential fuzzing)
 - [`parsebench`](./benchmarks/parsebench) (two packages, PDF and PNG; source documents are
   not redistributed and are fetched with `tools/prepare.sh`)
 - [`skatebench`](./benchmarks/skatebench)

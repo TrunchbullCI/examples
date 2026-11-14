@@ -1,0 +1,20 @@
+{
+  "name": "hand-rolled-qs",
+  "private": true,
+  "dependencies": {
+    "qs": "6.17.1",
+    "@types/qs": "6.15.1",
+    "tape": "5.10.3",
+    "for-each": "0.3.5",
+    "has-property-descriptors": "1.0.2",
+    "iconv-lite": "0.5.2",
+    "mock-property": "1.1.2",
+    "has-override-mistake": "1.0.1",
+    "safer-buffer": "2.1.2",
+    "es-value-fixtures": "1.7.1",
+    "object-inspect": "1.13.4",
+    "has-proto": "1.2.0",
+    "has-symbols": "1.1.0",
+    "has-bigints": "1.1.0"
+  }
+}

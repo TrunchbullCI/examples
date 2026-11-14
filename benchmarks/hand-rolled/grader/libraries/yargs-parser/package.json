@@ -1,0 +1,10 @@
+{
+  "name": "hand-rolled-yargs-parser",
+  "private": true,
+  "dependencies": {
+    "yargs-parser": "22.0.0",
+    "@types/yargs-parser": "21.0.3",
+    "mocha": "11.8.0",
+    "chai": "5.3.3"
+  }
+}

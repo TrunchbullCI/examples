@@ -1,0 +1,93 @@
+{
+  "id": "is-number",
+  "title": "is-number",
+  "tier": "tiny",
+  "package": {
+    "name": "is-number",
+    "version": "7.0.0"
+  },
+  "upstream": {
+    "repository": "https://github.com/jonschlinkert/is-number",
+    "commit": "98e8ff1da1a89f93d1397a24d7413ed15421c139",
+    "tag": "7.0.0",
+    "license": "MIT",
+    "licenseFile": "upstream/LICENSE"
+  },
+  "standardAlternative": "A typeof check plus Number.isFinite, with Number() and a trim() for strings.",
+  "vendor": [
+    {
+      "from": "test.js",
+      "to": "suite/test.js",
+      "sha256": "242b26bb2b9203945c6e869460a8a8289ddac859ed710b9e103f19a4a39829b6"
+    },
+    {
+      "from": "LICENSE",
+      "to": "upstream/LICENSE",
+      "sha256": "35bdd8a44339719441900fb50fbefc5e2dca1ca662cbaed7a687de842c8b70f2"
+    }
+  ],
+  "reference": "reference.ts",
+  "suites": [
+    {
+      "id": "upstream",
+      "runner": "mocha",
+      "files": [
+        "test.js"
+      ],
+      "nodeArgs": [
+        "--require",
+        "../fixed-clock.cjs"
+      ]
+    }
+  ],
+  "aliases": {
+    ".": "shims/default.cjs"
+  },
+  "create": {
+    "conformance": "conformance/create.ts",
+    "tests": [
+      {
+        "suite": "upstream"
+      }
+    ],
+    "fuzz": [
+      "values",
+      "strings"
+    ]
+  },
+  "features": {
+    "numeric-strings": {
+      "title": "Numeric strings",
+      "conformance": "conformance/numeric-strings.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test\\.js › is (a|not a) number \"",
+          "exclude": "number \"2023-11-14T22:13:20\\.000Z\""
+        }
+      ],
+      "fuzz": [
+        "strings"
+      ]
+    },
+    "other-values": {
+      "title": "Numbers and other values",
+      "conformance": "conformance/other-values.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test\\.js › is (a|not a) number ",
+          "exclude": "number \"(?!2023-11-14T22:13:20\\.000Z\")"
+        }
+      ],
+      "fuzz": [
+        "values"
+      ]
+    }
+  },
+  "excluded": [],
+  "notes": [
+    "Upstream's devDependency is mocha ^3.5.3, which has no bin/mocha.js; the grader's mocha runner invokes bin/mocha.js with --no-config/--no-package, so 10.8.2 (the first major that ships bin/mocha.js) is the closest version that runs.",
+    "test.js names three fixtures after Math.random(), +new Date() and new Date(). fixed-clock.cjs (preloaded with --require) pins Math.random() to 0.5 and argument-less new Date() to 2023-11-14T22:13:20.000Z so the recorded test names are deterministic; the test file itself is unchanged."
+  ]
+}

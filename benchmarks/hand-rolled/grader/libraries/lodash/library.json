@@ -1,0 +1,210 @@
+{
+  "id": "lodash",
+  "title": "lodash (debounce, throttle, cloneDeep)",
+  "tier": "hard",
+  "package": {
+    "name": "lodash",
+    "version": "4.18.1"
+  },
+  "upstream": {
+    "repository": "https://github.com/lodash/lodash",
+    "commit": "cb0b9b9212521c08e3eafe7c8cb0af1b42b6649e",
+    "tag": "4.18.1",
+    "license": "MIT",
+    "licenseFile": "upstream/LICENSE"
+  },
+  "standardAlternative": "structuredClone covers most deep copies, and a debounce or throttle is a closure over setTimeout, clearTimeout and Date.now.",
+  "notes": [
+    "test/test.js is QUnit (qunitjs 2.4.1 with qunit-extras 3.0.0, the versions upstream's devDependencies resolve to) and runs every module at once. Each suite runs the vendored file unchanged through `node --require ../qunit-tap.cjs test/test.js`; the preload registers only the tests of one QUnit module (LODASH_QUNIT_MODULE), prints TAP on stdout and sends qunit-extras' own console output to stderr, so the four modules run as four parallel processes.",
+    "test/test.js loads the build under test from ../lodash.js (aliased to shims/lodash.cjs) and evaluates every module's definitions at load time with many other lodash methods, so `_` is a fresh lodash context (runInContext of the pinned package) whose debounce, throttle and cloneDeep are the subject's exports (removed when the subject lacks one). The selected tests call only those three. `lodashStable`, the upstream helper copy of lodash, is the pinned package.",
+    "The preload sets the UI flags of `node test/test.js` against the monolithic ../lodash.js build (isModularize false, isStrict false), as upstream's own run does.",
+    "qunit-extras' asyncRetries (10 in test/test.js) is capped at 2 and QUnit's testTimeout is 2 s: a failing real-timer test would otherwise run eleven times and overrun the 20 s per-file limit. Exceptions thrown from timer callbacks fail the current test instead of ending the process.",
+    "Fuzz targets replace setTimeout, clearTimeout, setInterval, clearInterval, Date (constructor and Date.now) and performance.now with a virtual clock in setup(), before the module is imported; Node's delay clamping (below 1 ms or above 2^31-1 ms becomes 1 ms) is kept.",
+    "The Create API is lodash's debounce, throttle and cloneDeep as three named exports."
+  ],
+  "vendor": [
+    {
+      "from": "test/test.js",
+      "to": "suite/test/test.js",
+      "sha256": "dff4bb034bc54534e9d73ba352accee0a2a49e657f984b25d4c391b2db36e294"
+    },
+    {
+      "from": "LICENSE",
+      "to": "upstream/LICENSE",
+      "sha256": "f71e8ed126b46346494aad5486874cd8f0aafe95092ed67d2e3cb6110f939abc"
+    }
+  ],
+  "reference": "reference.ts",
+  "suites": [
+    {
+      "id": "debounce",
+      "runner": "node",
+      "files": [
+        "test/test.js"
+      ],
+      "nodeArgs": [
+        "--require",
+        "../qunit-tap.cjs"
+      ],
+      "env": {
+        "LODASH_QUNIT_MODULE": "lodash.debounce"
+      }
+    },
+    {
+      "id": "throttle",
+      "runner": "node",
+      "files": [
+        "test/test.js"
+      ],
+      "nodeArgs": [
+        "--require",
+        "../qunit-tap.cjs"
+      ],
+      "env": {
+        "LODASH_QUNIT_MODULE": "lodash.throttle"
+      }
+    },
+    {
+      "id": "debounce-throttle",
+      "runner": "node",
+      "files": [
+        "test/test.js"
+      ],
+      "nodeArgs": [
+        "--require",
+        "../qunit-tap.cjs"
+      ],
+      "env": {
+        "LODASH_QUNIT_MODULE": "lodash.debounce and lodash.throttle"
+      }
+    },
+    {
+      "id": "clone",
+      "runner": "node",
+      "files": [
+        "test/test.js"
+      ],
+      "nodeArgs": [
+        "--require",
+        "../qunit-tap.cjs"
+      ],
+      "env": {
+        "LODASH_QUNIT_MODULE": "clone methods"
+      }
+    }
+  ],
+  "aliases": {
+    "lodash": "shims/lodash.cjs"
+  },
+  "create": {
+    "conformance": "conformance/create.ts",
+    "tests": [
+      {
+        "suite": "debounce"
+      },
+      {
+        "suite": "throttle",
+        "exclude": "should clear timeout when `func` is called|should work with a system time of `0`"
+      },
+      {
+        "suite": "debounce-throttle",
+        "exclude": "should work if the system time is set backwards"
+      },
+      {
+        "suite": "clone",
+        "match": "› `_\\.cloneDeep` ",
+        "exclude": "should return a unwrapped value when chaining|should not error on DOM elements|should not clone DOM elements|should create an object from the same realm as `value`"
+      }
+    ],
+    "fuzz": [
+      "debounce",
+      "throttle",
+      "cloneDeep"
+    ]
+  },
+  "features": {
+    "debounce": {
+      "title": "debounce with leading, trailing and maxWait",
+      "conformance": "conformance/debounce.ts",
+      "tests": [
+        {
+          "suite": "debounce"
+        },
+        {
+          "suite": "debounce-throttle",
+          "match": "› `_\\.debounce` ",
+          "exclude": "should work if the system time is set backwards"
+        }
+      ],
+      "fuzz": [
+        "debounce"
+      ]
+    },
+    "throttle": {
+      "title": "throttle",
+      "conformance": "conformance/throttle.ts",
+      "tests": [
+        {
+          "suite": "throttle",
+          "exclude": "should clear timeout when `func` is called|should work with a system time of `0`"
+        },
+        {
+          "suite": "debounce-throttle",
+          "match": "› `_\\.throttle` ",
+          "exclude": "should work if the system time is set backwards"
+        }
+      ],
+      "fuzz": [
+        "throttle"
+      ]
+    },
+    "cloneDeep": {
+      "title": "cloneDeep",
+      "conformance": "conformance/cloneDeep.ts",
+      "tests": [
+        {
+          "suite": "clone",
+          "match": "› `_\\.cloneDeep` ",
+          "exclude": "should return a unwrapped value when chaining|should not error on DOM elements|should not clone DOM elements|should create an object from the same realm as `value`"
+        }
+      ],
+      "fuzz": [
+        "cloneDeep"
+      ]
+    }
+  },
+  "excluded": [
+    {
+      "match": "throttle:test/test.js › lodash.throttle › should clear timeout when `func` is called",
+      "reason": "Builds a separate lodash with `_.runInContext` and a mocked `Date.now`, so it exercises lodash's context injection rather than the module's throttle."
+    },
+    {
+      "match": "throttle:test/test.js › lodash.throttle › should work with a system time of `0`",
+      "reason": "Builds a separate lodash with `_.runInContext` and a mocked `Date.now`, so it exercises lodash's context injection rather than the module's throttle."
+    },
+    {
+      "match": "debounce-throttle:test/test.js › lodash.debounce and lodash.throttle › `_.(debounce|throttle)` should work if the system time is set backwards",
+      "reason": "Builds a separate lodash with `_.runInContext` and a mocked `Date.now`, so it exercises lodash's context injection rather than the module's functions."
+    },
+    {
+      "match": "clone:test/test.js › clone methods › `_.cloneDeep` should return a unwrapped value when chaining",
+      "reason": "Calls `_(value).cloneDeep()`, lodash's chaining wrapper, which is outside the API; the wrapper would call lodash's own cloneDeep."
+    },
+    {
+      "match": "clone:test/test.js › clone methods › `_.cloneDeep` should (not error on|not clone) DOM elements",
+      "reason": "Needs a browser `document`; under Node the test skips its assertions, so it passes for any module."
+    },
+    {
+      "match": "clone:test/test.js › clone methods › `_.cloneDeep` should create an object from the same realm as `value`",
+      "reason": "Clones the other-realm values a browser iframe attaches to `_` as `_._realm`; under Node there are none, so it passes for any module."
+    },
+    {
+      "match": "clone:test/test.js › clone methods › `_.(clone|cloneWith|cloneDeepWith)` ",
+      "reason": "Tests clone, cloneWith and cloneDeepWith, which are outside the API subset (cloneDeep only)."
+    },
+    {
+      "match": "Other QUnit modules of test/test.js",
+      "reason": "Test lodash methods outside the subset; the preload registers only the four selected modules."
+    }
+  ]
+}

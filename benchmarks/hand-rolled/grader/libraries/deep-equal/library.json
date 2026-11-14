@@ -1,0 +1,114 @@
+{
+  "id": "deep-equal",
+  "title": "deep-equal",
+  "tier": "medium",
+  "package": {
+    "name": "deep-equal",
+    "version": "2.2.3"
+  },
+  "upstream": {
+    "repository": "https://github.com/inspect-js/node-deep-equal",
+    "commit": "48d3bb5b7fe3e65fd564b737c69a9411eb40bc65",
+    "tag": "v2.2.3",
+    "license": "MIT",
+    "licenseFile": "upstream/LICENSE"
+  },
+  "standardAlternative": "node:util isDeepStrictEqual (or node:assert deepEqual/deepStrictEqual in a try block).",
+  "vendor": [
+    {
+      "from": "test/cmp.js",
+      "to": "suite/test/cmp.js",
+      "sha256": "7cbcad2bef43a1cf777fc90fc56b7deafbfafe73b1ec9cc5589b7e179d238391"
+    },
+    {
+      "from": "test/_tape.js",
+      "to": "suite/test/_tape.js",
+      "sha256": "638dd2d815e2b37a86eb5729071279bfe09d1c0b6df19b8d82a0ac0cb6be36b1"
+    },
+    {
+      "from": "assert.js",
+      "to": "suite/assert.js",
+      "sha256": "af886adb04837fb7ab7c461db32322321804a91fa9770d9f19dc6fc6682e586c"
+    },
+    {
+      "from": "LICENSE",
+      "to": "upstream/LICENSE",
+      "sha256": "4839125439c51ef70db530780f90cfa90e3a09b7e18694fc914d5daa2e463d14"
+    }
+  ],
+  "reference": "reference.ts",
+  "suites": [
+    {
+      "id": "upstream",
+      "runner": "node",
+      "files": [
+        "test/cmp.js"
+      ],
+      "nodeArgs": [
+        "--require",
+        "../tape-isolation.cjs"
+      ]
+    }
+  ],
+  "aliases": {
+    ".": "shims/default.cjs"
+  },
+  "notes": "tape 5.10.3 is the newest release in upstream's ^5.7.2 range (upstream's own test helper test/_tape.js extends tape/lib/test, which 5.10.3 still provides). test/cmp.js runs directly with the node runner, with tape-isolation.cjs preloaded (--require): plain tape lets an exception thrown inside one test callback (for example a stack overflow on a circular input) end the whole file, so the preload reports it as a failed assertion and ends that test instead. The reference passes every test with or without it. ../assert.js is vendored for test/_tape.js; it is only used when the ASSERT environment variable is set, which the grader never sets.",
+  "create": {
+    "title": "deepEqual",
+    "conformance": "conformance/create.ts",
+    "tests": [
+      {
+        "suite": "upstream"
+      }
+    ],
+    "fuzz": [
+      "values",
+      "special",
+      "collections",
+      "binary"
+    ]
+  },
+  "features": {
+    "loose-strict": {
+      "title": "Strict and loose comparison",
+      "conformance": "conformance/loose-strict.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/cmp\\.js › (?:equal|not equal|nested nulls|objects with strings vs numbers|non-objects|infinities|Arrays|booleans|booleans and arrays|arrays initiated|arrays assigned|arrays push|null == undefined|NaNs|zeroes|Object\\.create|Object\\.create\\(null\\)|object literals|arrays and objects|functions|object and null|\\[\\[Prototypes\\]\\]|getters|circular references) › "
+        }
+      ],
+      "fuzz": [
+        "values"
+      ]
+    },
+    "collections": {
+      "title": "Map and Set comparison",
+      "conformance": "conformance/collections.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/cmp\\.js › (?:Maps|WeakMaps|Sets|Set and Map|WeakSets) › "
+        }
+      ],
+      "fuzz": [
+        "collections"
+      ]
+    },
+    "binary": {
+      "title": "Typed arrays, ArrayBuffers and Buffers",
+      "conformance": "conformance/binary.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/cmp\\.js › (?:buffers|bufferlikes|bufferlike|Buffer faked as Uint8Array|Float16Arrays|Float32Arrays|Float64Arrays|Int8Arrays|Int16Arrays|Int32Arrays|Uint8Arrays|Uint8ClampedArrays|Uint16Arrays|Uint32Arrays|BigInt64Arrays|BigUint64Arrays|one TypedArray faking as another|ArrayBuffers|SharedArrayBuffers|lies about byteLength) › "
+        }
+      ],
+      "fuzz": [
+        "binary"
+      ]
+    }
+  },
+  "excluded": []
+}

@@ -1,0 +1,9 @@
+{
+  "name": "hand-rolled-grader",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "typescript": "6.0.3",
+    "@types/node": "24.19.2"
+  }
+}

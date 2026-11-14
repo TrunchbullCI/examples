@@ -1,0 +1,8 @@
+{
+  "name": "hand-rolled-clsx",
+  "private": true,
+  "dependencies": {
+    "clsx": "2.1.1",
+    "uvu": "0.5.4"
+  }
+}
