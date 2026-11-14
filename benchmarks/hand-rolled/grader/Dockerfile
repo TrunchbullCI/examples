@@ -22,10 +22,10 @@ RUN for library in libraries/*/; do \
     done \
  && npm cache clean --force
 COPY harness/ harness/
-COPY tools/ tools/
+COPY scripts/ scripts/
 COPY server.mjs ./
-RUN node tools/vendor.mjs --check \
- && node tools/expectations.mjs --check \
+RUN node scripts/vendor.mjs --check \
+ && node scripts/expectations.mjs --check \
  && rm -rf libraries/*/.work
 
 RUN useradd --system --uid 10001 --home-dir /nonexistent grader \

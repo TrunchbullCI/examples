@@ -1,8 +1,8 @@
 // Copies a library's upstream test files byte for byte from the pinned
 // upstream commit and records their SHA-256 in library.json `vendor`.
 //
-//   node tools/vendor.mjs <library> [--from <local checkout at the commit>]
-//   node tools/vendor.mjs --check [library...]   verify every vendored hash
+//   node scripts/vendor.mjs <library> [--from <local checkout at the commit>]
+//   node scripts/vendor.mjs --check [library...]   verify every vendored hash
 import { execFileSync } from "node:child_process"
 import { createHash } from "node:crypto"
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises"

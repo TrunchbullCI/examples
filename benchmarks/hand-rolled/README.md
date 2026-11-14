@@ -107,7 +107,7 @@ hand-rolled/
 ├── benchmark.config.ts    benchmark, groups, limits, grader declaration
 ├── evals/                 create.ts, feature.ts and their generated .jsonl cases
 ├── specs/<library>/       prompt sources: create.md and one file per feature
-├── tools/build-cases.mjs  builds evals/*.jsonl and provenance.json from specs
+├── scripts/               build-cases.mjs: evals/*.jsonl and provenance.json from specs
 ├── provenance.json        hashes of library metadata, cases and expectations
 ├── NOTICE                 upstream attribution
 └── grader/                grader context (see grader/README.md)
@@ -116,12 +116,12 @@ hand-rolled/
 ## Checks
 
 ```sh
-node tools/build-cases.mjs --check
+node scripts/build-cases.mjs --check
 cd grader
 npm ci && for d in libraries/*/; do (cd "$d" && npm ci --ignore-scripts); done
-node tools/vendor.mjs --check
-node tools/expectations.mjs --check
-node tools/parity.mjs        # reference 1; stub, empty, forbidden import, crash 0
+node scripts/vendor.mjs --check
+node scripts/expectations.mjs --check
+node scripts/parity.mjs        # reference 1; stub, empty, forbidden import, crash 0
 ```
 
 The image build reruns the vendor and expectation checks, so an image whose
