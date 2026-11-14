@@ -15,7 +15,7 @@ under their own licenses (see [NOTICE](./NOTICE)).
 
 Both settings use the same 10 libraries and the same grader. Each case is one
 model turn with no tools: the model answers with a single `index.ts` in a
-```ts block.
+fenced TypeScript code block.
 
 - **Create** (10 cases): a README-level description, the exact exports and
   types, and a few examples. The model writes the library's public API (a
