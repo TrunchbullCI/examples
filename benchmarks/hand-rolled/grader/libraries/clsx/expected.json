@@ -1,0 +1,61 @@
+{
+  "create": [
+    "upstream:test/index.js › exports",
+    "upstream:test/index.js › strings",
+    "upstream:test/index.js › strings (variadic)",
+    "upstream:test/index.js › numbers",
+    "upstream:test/index.js › numbers (variadic)",
+    "upstream:test/index.js › objects",
+    "upstream:test/index.js › objects (variadic)",
+    "upstream:test/index.js › arrays",
+    "upstream:test/index.js › arrays (nested)",
+    "upstream:test/index.js › arrays (variadic)",
+    "upstream:test/index.js › arrays (no `push` escape)",
+    "upstream:test/index.js › functions",
+    "upstream:test/classnames.js › (compat) keeps object keys with truthy values",
+    "upstream:test/classnames.js › (compat) joins arrays of class names and ignore falsy values",
+    "upstream:test/classnames.js › (compat) supports heterogenous arguments",
+    "upstream:test/classnames.js › (compat) should be trimmed",
+    "upstream:test/classnames.js › (compat) returns an empty string for an empty configuration",
+    "upstream:test/classnames.js › (compat) supports an array of class names",
+    "upstream:test/classnames.js › (compat) joins array arguments with string arguments",
+    "upstream:test/classnames.js › (compat) handles multiple array arguments",
+    "upstream:test/classnames.js › (compat) handles arrays that include falsy and true values",
+    "upstream:test/classnames.js › (compat) handles arrays that include arrays",
+    "upstream:test/classnames.js › (compat) handles arrays that include objects",
+    "upstream:test/classnames.js › (compat) handles deep array recursion",
+    "upstream:test/classnames.js › (compat) handles arrays that are empty",
+    "upstream:test/classnames.js › (compat) handles nested arrays that have empty nested arrays",
+    "upstream:test/classnames.js › (compat) handles all types of truthy and falsy property values as expected"
+  ],
+  "features": {
+    "arrays": [
+      "upstream:test/index.js › strings",
+      "upstream:test/index.js › strings (variadic)",
+      "upstream:test/index.js › numbers",
+      "upstream:test/index.js › numbers (variadic)",
+      "upstream:test/index.js › arrays",
+      "upstream:test/index.js › arrays (nested)",
+      "upstream:test/index.js › arrays (variadic)",
+      "upstream:test/index.js › functions",
+      "upstream:test/classnames.js › (compat) joins arrays of class names and ignore falsy values",
+      "upstream:test/classnames.js › (compat) supports an array of class names",
+      "upstream:test/classnames.js › (compat) joins array arguments with string arguments",
+      "upstream:test/classnames.js › (compat) handles multiple array arguments",
+      "upstream:test/classnames.js › (compat) handles arrays that include falsy and true values",
+      "upstream:test/classnames.js › (compat) handles arrays that include arrays",
+      "upstream:test/classnames.js › (compat) handles arrays that are empty",
+      "upstream:test/classnames.js › (compat) handles nested arrays that have empty nested arrays"
+    ],
+    "objects": [
+      "upstream:test/index.js › objects",
+      "upstream:test/index.js › objects (variadic)",
+      "upstream:test/index.js › arrays (no `push` escape)",
+      "upstream:test/classnames.js › (compat) keeps object keys with truthy values",
+      "upstream:test/classnames.js › (compat) supports heterogenous arguments",
+      "upstream:test/classnames.js › (compat) should be trimmed",
+      "upstream:test/classnames.js › (compat) returns an empty string for an empty configuration",
+      "upstream:test/classnames.js › (compat) handles all types of truthy and falsy property values as expected"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "hand-rolled-uuid",
+  "private": true,
+  "dependencies": {
+    "uuid": "14.0.3"
+  }
+}

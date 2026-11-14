@@ -1,0 +1,157 @@
+{
+  "id": "dotenv",
+  "title": "dotenv",
+  "tier": "medium",
+  "package": {
+    "name": "dotenv",
+    "version": "18.0.10"
+  },
+  "upstream": {
+    "repository": "https://github.com/motdotla/dotenv",
+    "commit": "7ed8f363671d3d2027b52cdce4b72b0004d0411a",
+    "tag": "v18.0.10",
+    "license": "BSD-2-Clause",
+    "licenseFile": "upstream/LICENSE"
+  },
+  "standardAlternative": "Node's built-in process.loadEnvFile() and util.parseEnv() (Node 20.12+/21.7+) cover reading a .env file into process.env.",
+  "vendor": [
+    {
+      "from": "tests/test-config.js",
+      "to": "suite/tests/test-config.js",
+      "sha256": "336f9eeefe392decb9101dba12b22a71685c6c61ca025eebb771189a8faec71b"
+    },
+    {
+      "from": "tests/test-parse.js",
+      "to": "suite/tests/test-parse.js",
+      "sha256": "62aa22388fb0f766fbe530b919cede7798e46d0117bd61c1ebd49d7ce046841d"
+    },
+    {
+      "from": "tests/test-parse-multiline.js",
+      "to": "suite/tests/test-parse-multiline.js",
+      "sha256": "f6281c83730796680f2362d3d8c123e3342ac210813652aa66937b6aadb1503b"
+    },
+    {
+      "from": "tests/test-parse-fast.js",
+      "to": "suite/tests/test-parse-fast.js",
+      "sha256": "3f5b9ffce8102b22b33e7b35af99f5ce42b8966c8ee3216adae09b5a5a7ae4d7"
+    },
+    {
+      "from": "tests/test-populate.js",
+      "to": "suite/tests/test-populate.js",
+      "sha256": "92176f13bf7b969c710d171a2b26a445de09d725aed8e6d8c1700f3fe20d756d"
+    },
+    {
+      "from": "tests/.env",
+      "to": "suite/tests/.env",
+      "sha256": "806834f7d3bbea810e3028ce82008d1586de7e852e9940fc972dc5b7e914f755"
+    },
+    {
+      "from": "tests/.env.local",
+      "to": "suite/tests/.env.local",
+      "sha256": "9686f7b75caad46378c71f5889f8ccb9330f06b05477e2d7105a834cc5372a98"
+    },
+    {
+      "from": "tests/.env.multiline",
+      "to": "suite/tests/.env.multiline",
+      "sha256": "95f101e5113165c22a9ef446bfbb9de7ea8b41974c001a9f7e1367fbd9ba1908"
+    },
+    {
+      "from": "tests/.env.bom",
+      "to": "suite/tests/.env.bom",
+      "sha256": "daca210ca805d252e71ea79a741ce4a0e2c5507744de5b8a165fbe8f8edc9e3d"
+    },
+    {
+      "from": "LICENSE",
+      "to": "upstream/LICENSE",
+      "sha256": "74b629b24865e1e83c5277ee84590b7937644d6fd959d0c7bdce758676cd2ced"
+    }
+  ],
+  "reference": "reference.ts",
+  "suites": [
+    {
+      "id": "upstream",
+      "runner": "node",
+      "files": [
+        "tests/test-config.js",
+        "tests/test-parse.js",
+        "tests/test-parse-multiline.js",
+        "tests/test-parse-fast.js",
+        "tests/test-populate.js"
+      ]
+    }
+  ],
+  "aliases": {
+    "lib/main": "shims/main.cjs",
+    "bare:sinon": "shims/sinon.cjs"
+  },
+  "create": {
+    "conformance": "conformance/create.ts",
+    "tests": [
+      {
+        "suite": "upstream"
+      }
+    ],
+    "fuzz": [
+      "parse",
+      "populate",
+      "config"
+    ]
+  },
+  "features": {
+    "parse": {
+      "title": "Parse .env source",
+      "conformance": "conformance/parse.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:tests/test-parse(-multiline|-fast)?\\.js › ",
+          "exclude": " › config\\(\\{ fast: true \\}\\) "
+        }
+      ],
+      "fuzz": [
+        "parse"
+      ]
+    },
+    "config": {
+      "title": "Load .env files into an environment",
+      "conformance": "conformance/config.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:tests/test-(config|populate)\\.js › "
+        },
+        {
+          "suite": "upstream",
+          "match": "^upstream:tests/test-parse-fast\\.js › config\\(\\{ fast: true \\}\\) "
+        }
+      ],
+      "fuzz": [
+        "populate",
+        "config"
+      ]
+    }
+  },
+  "excluded": [
+    {
+      "match": "tests/test-cli.js",
+      "reason": "Tests the dotenv command-line program (dist/cli.cjs) by spawning it; the CLI is not part of the library API."
+    },
+    {
+      "match": "tests/test-cli-signals.js",
+      "reason": "Tests signal forwarding of the dotenv command-line program by spawning it."
+    },
+    {
+      "match": "tests/test-config-import.js",
+      "reason": "Spawns Node processes that import the published package entry points ('dotenv', 'dotenv/config', './config.js', -r preload) by package name; the grader's module redirection does not reach child processes, and package entry points and ESM interop are packaging, not library behaviour."
+    },
+    {
+      "match": "tests/test-config-options.js",
+      "reason": "Unit-tests the private lib/config-options module (optionsFromEnv) and spawns the built package and CLI in child processes. The environment-default behaviour it covers is tested in-process by test-config.js and the config fuzz target."
+    },
+    {
+      "match": "tests/test-config-quiet.js",
+      "reason": "Spawns child Node processes that load dist/index.cjs and the dist/config.cjs preload by absolute path, outside the grader's module redirection. The quiet-from-.env behaviour it covers is exercised by the config fuzz target, which records console output."
+    }
+  ],
+  "notes": "Upstream runs these files with node-tap 21 (tap run); each file also runs directly with node and prints TAP, which is how the grader runs them (runner node, tap 21.7.4 and sinon 14.0.1 as pinned in upstream's package-lock.json). test-config.js and test-populate.js stub fs.readFileSync, os.homedir, path.relative and console with sinon on the CommonJS built-in objects; shims/sinon.cjs wraps sinon so every stub and restore also calls module.syncBuiltinESMExports(), which makes the stubs visible to an ESM module whatever import form it uses for node:fs, node:os and node:path (verified with a port that uses named imports). shims/main.cjs gives the tests a plain, stubbable object holding the module's four functions."
+}

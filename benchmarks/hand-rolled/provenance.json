@@ -1,0 +1,100 @@
+{
+  "upstreamRepository": "https://github.com/TrunchbullCI/examples/tree/main/benchmarks/hand-rolled",
+  "upstreamRevision": "hand-rolled 1.0.0",
+  "license": "MIT AND ISC AND BSD-2-Clause AND BSD-3-Clause",
+  "sourceFormat": "Upstream test suites of 10 npm packages, vendored at pinned commits (grader/libraries/*/library.json)",
+  "sources": [
+    {
+      "path": "grader/libraries/clsx/library.json",
+      "sha256": "1b3abc44fc2036943fc50b20601c0ede77b1a1230b267f55f5d09b12d7753f5d"
+    },
+    {
+      "path": "grader/libraries/is-number/library.json",
+      "sha256": "88a62b03e08a5481d5d83efa2306124549a3c10a8ff4adb32a08cf0490170d4f"
+    },
+    {
+      "path": "grader/libraries/ms/library.json",
+      "sha256": "14b9e61cfb0eeb9eec119d37b0af734789210338ceff04484b59e36f892f71f7"
+    },
+    {
+      "path": "grader/libraries/deep-equal/library.json",
+      "sha256": "1c4453649ed6f0a79f37778a8d0f058cf0bbc845cb23760d24e421ebf18ebc34"
+    },
+    {
+      "path": "grader/libraries/dotenv/library.json",
+      "sha256": "9ef10c35ccb27529047f9c5dd9b3204f431f54c91346c0f34841b7a80daa3af0"
+    },
+    {
+      "path": "grader/libraries/uuid/library.json",
+      "sha256": "1f791727878b16ad98206d751f287a319a6547c98c607b3ec9929b6b4b796fea"
+    },
+    {
+      "path": "grader/libraries/lodash/library.json",
+      "sha256": "8e6b5e797fa079277418b9f32cbbacb156174a4bbe74e1278da30cd32dfcac36"
+    },
+    {
+      "path": "grader/libraries/qs/library.json",
+      "sha256": "9212168edf3055a02de2d923a404ba070fe8d3a5a70799ddb6eec65d798e00eb"
+    },
+    {
+      "path": "grader/libraries/semver/library.json",
+      "sha256": "6c1a8fe8edbcbe28473d5a0093a77e69ff3610d8f908f0e43c5975179735c25f"
+    },
+    {
+      "path": "grader/libraries/yargs-parser/library.json",
+      "sha256": "b4f90761cfcb9b71b319efb819502f560cc5dbfe0604c4c83361dac2b743d1da"
+    }
+  ],
+  "generatedFiles": [
+    {
+      "path": "evals/create.jsonl",
+      "sha256": "bcf41c88746e802e001a9c917a9da11980988cc8dbefebdc7f54ca1373caf8fa",
+      "caseCount": 10
+    },
+    {
+      "path": "evals/feature.jsonl",
+      "sha256": "7e942721c6b75f62413c975a87c845ce8f91105fad9227c9f3ded44745a63f28",
+      "caseCount": 26
+    },
+    {
+      "path": "grader/libraries/clsx/expected.json",
+      "sha256": "6b750fa28a44a9aa29f436de52a9d32fa4dc838cdd46939d1ef7191739f67069"
+    },
+    {
+      "path": "grader/libraries/is-number/expected.json",
+      "sha256": "6f0a1b41cb995ec574aa7f5b8f2a42c25a96cd20ce57911e1fb1b8e474bb68d7"
+    },
+    {
+      "path": "grader/libraries/ms/expected.json",
+      "sha256": "73582316e3302b4b1535762c68db095c50dd295724b582baedec1300624724d3"
+    },
+    {
+      "path": "grader/libraries/deep-equal/expected.json",
+      "sha256": "a1eb32bd3861c702b00a44b76fd81ca4acf9a46f9f2d6d5aaf7734128357292c"
+    },
+    {
+      "path": "grader/libraries/dotenv/expected.json",
+      "sha256": "d26df94c23d7bb1f460900d9bf707efdb5e1c0b4515124e200f3b9a199fbd70b"
+    },
+    {
+      "path": "grader/libraries/uuid/expected.json",
+      "sha256": "4466e899ca4e117a877ead72652eb94a244e6e9e5c6025f1b419b96895c6f19a"
+    },
+    {
+      "path": "grader/libraries/lodash/expected.json",
+      "sha256": "cbb529a450cc96183f8b7cebc59cd72c2852b6af9a2789a108e4deffd3659ec0"
+    },
+    {
+      "path": "grader/libraries/qs/expected.json",
+      "sha256": "a4d9bf30ca966fff4321bf4c1c6e8d25c8ae0a0bb51fb4c884db8c24623a0f4f"
+    },
+    {
+      "path": "grader/libraries/semver/expected.json",
+      "sha256": "4ff2d75e1c9e2b77ef61dce2e1caf25707c4b94eeac9d526416ed02cf8f15118"
+    },
+    {
+      "path": "grader/libraries/yargs-parser/expected.json",
+      "sha256": "22af59630317bfdc5cb08334b79d3f4672c1c45692e79664ff139ee177ebaaf2"
+    }
+  ]
+}

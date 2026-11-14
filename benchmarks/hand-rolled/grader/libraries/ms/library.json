@@ -1,0 +1,83 @@
+{
+  "id": "ms",
+  "title": "ms",
+  "tier": "tiny",
+  "package": {
+    "name": "ms",
+    "version": "2.1.3"
+  },
+  "upstream": {
+    "repository": "https://github.com/vercel/ms",
+    "commit": "1c6264b795492e8fdecbc82cb8802fcfbfc08d26",
+    "tag": "2.1.3",
+    "license": "MIT",
+    "licenseFile": "upstream/license.md"
+  },
+  "standardAlternative": "A few lines of explicit arithmetic over a unit table.",
+  "vendor": [
+    {
+      "from": "tests.js",
+      "to": "suite/tests.js",
+      "sha256": "0f53ac6af9f789d05c724bcd09d2d01488381a199f5706348b40ffa927e55d4a"
+    },
+    {
+      "from": "license.md",
+      "to": "upstream/license.md",
+      "sha256": "1662fae9b5314d11cf51284e2dcd1f006a354f7343f08712a730fcff9a359801"
+    }
+  ],
+  "reference": "reference.ts",
+  "suites": [
+    {
+      "id": "upstream",
+      "runner": "mocha",
+      "files": [
+        "tests.js"
+      ]
+    }
+  ],
+  "aliases": {
+    ".": "shims/default.cjs"
+  },
+  "create": {
+    "conformance": "conformance/create.ts",
+    "tests": [
+      {
+        "suite": "upstream"
+      }
+    ],
+    "fuzz": [
+      "parse",
+      "format",
+      "invalid"
+    ]
+  },
+  "features": {
+    "parse": {
+      "title": "Parse duration strings",
+      "conformance": "conformance/parse.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:tests\\.js › ms\\((string|long string)\\) "
+        }
+      ],
+      "fuzz": [
+        "parse"
+      ]
+    },
+    "format": {
+      "title": "Format milliseconds",
+      "conformance": "conformance/format.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:tests\\.js › ms\\(number(, \\{ long: true \\})?\\) "
+        }
+      ],
+      "fuzz": [
+        "format"
+      ]
+    }
+  }
+}

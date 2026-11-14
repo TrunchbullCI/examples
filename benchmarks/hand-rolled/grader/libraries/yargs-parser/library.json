@@ -1,0 +1,148 @@
+{
+  "id": "yargs-parser",
+  "title": "yargs-parser",
+  "tier": "hard",
+  "package": {
+    "name": "yargs-parser",
+    "version": "22.0.0"
+  },
+  "upstream": {
+    "repository": "https://github.com/yargs/yargs-parser",
+    "commit": "66f0bb2d2c8a2c9689489784cfe2e5128b0abfc2",
+    "tag": "yargs-parser-v22.0.0",
+    "license": "ISC",
+    "licenseFile": "upstream/LICENSE.txt"
+  },
+  "standardAlternative": "util.parseArgs from node:util parses typed long and short options, though without dot-notation, camel-case aliases, counts or coercion.",
+  "notes": [
+    "test/yargs-parser.mjs and test/string-utils.mjs run unchanged under mocha 11.8.0 with chai 5.3.3, the versions upstream's devDependencies resolve to. They import ../build/lib/index.js and ../build/lib/string-utils.js; the aliases point those at shims/index.mjs (the subject's default export) and shims/string-utils.mjs, which exposes camelCase, decamelize and looksLikeNumber from the subject's parser helpers, so the module ships the helpers on the parser instead of as a second file.",
+    "The Create API is yargs-parser's default export with parser.detailed, parser.camelCase, parser.decamelize and parser.looksLikeNumber. It leaves out configuration files (opts.config), opts.configObjects, environment variables (opts.envPrefix), the combine-arrays flag (which only merges those sources), opts.key and the opts.__ translation hook; the Configuration type keeps the other 17 flags. The spec states the subset.",
+    "Fuzz outputs are compared with object keys sorted, because yargs-parser's key order depends on insertion details the spec does not pin down; the alias lists of parser.detailed are sorted too. Generated argv names normalize at most once, as --path P or --path=P, so path.normalize stays on POSIX-style inputs.",
+    "Feature selectors list exact test titles. '#' is dropped from titles, because mocha's TAP reporter cuts a test name at '#' (\"should handle parsing negative #s\" becomes \"should handle parsing negative s\")."
+  ],
+  "vendor": [
+    {
+      "from": "test/yargs-parser.mjs",
+      "to": "suite/test/yargs-parser.mjs",
+      "sha256": "db4ebe7b6e948ef9ccceb9c01bfce7fe005b6eabe744bdccaafe0851aeda4b0c"
+    },
+    {
+      "from": "test/string-utils.mjs",
+      "to": "suite/test/string-utils.mjs",
+      "sha256": "054dc1e8812ddf7086380afd1cc4ced94574e2791052402d6d8e37a86aef9c2c"
+    },
+    {
+      "from": "LICENSE.txt",
+      "to": "upstream/LICENSE.txt",
+      "sha256": "365496ca1f56da40b23c9815fc40fa9005847b2f8f8fd1c1a4929ef25ec8cd1d"
+    }
+  ],
+  "reference": "reference.ts",
+  "suites": [
+    {
+      "id": "upstream",
+      "runner": "mocha",
+      "files": [
+        "test/yargs-parser.mjs",
+        "test/string-utils.mjs"
+      ]
+    }
+  ],
+  "aliases": {
+    "build/lib": "shims/index.mjs",
+    "build/lib/string-utils": "shims/string-utils.mjs"
+  },
+  "create": {
+    "conformance": "conformance/create.ts",
+    "tests": [
+      {
+        "suite": "upstream",
+        "exclude": "^upstream:test/yargs-parser\\.mjs › yargs-parser config |^upstream:test/yargs-parser\\.mjs › yargs-parser env vars (?!should not apply all env vars if prefix is undefined$)|^upstream:test/yargs-parser\\.mjs › yargs-parser normalizes all paths in array when provided via config object$|^upstream:test/yargs-parser\\.mjs › yargs-parser defaults track defaulted should log defaulted options - not specified by user$|^upstream:test/yargs-parser\\.mjs › yargs-parser configuration dot notation does not append nested-object keys from config to top-level key$|^upstream:test/yargs-parser\\.mjs › yargs-parser configuration parse numbers should coerce elements of number typed arrays to numbers$|^upstream:test/yargs-parser\\.mjs › yargs-parser prototype collisions handles key in configuration file that collides with prototype$"
+      }
+    ],
+    "fuzz": [
+      "parse",
+      "stringInput",
+      "detailed",
+      "helpers",
+      "dotNotation",
+      "booleans",
+      "arrays"
+    ]
+  },
+  "features": {
+    "dotNotation": {
+      "title": "Dot-notation and nested objects",
+      "conformance": "conformance/dotNotation.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/yargs-parser\\.mjs › (?:yargs-parser should correctly parse dot-notation boolean flags|yargs-parser dot notation should allow object graph traversal via dot notation|yargs-parser dot notation should apply defaults to dot notation arguments|yargs-parser dot notation should allow default to be overridden when an alias is provided|yargs-parser dot notation should also override alias|yargs-parser dot notation should not set an undefined dot notation key|yargs-parser dot notation should respect \\.string\\(\\) for dot notation arguments|yargs-parser dot notation should populate aliases when dot notation is used|yargs-parser dot notation should populate aliases when dot notation is used on camel-cased option|yargs-parser dot notation should populate aliases when nested dot notation is used|yargs-parser dot notation should allow flags to use dot notation, when separated by '='|yargs-parser dot notation should allow flags to use dot notation, when separated by ' '|yargs-parser dot notation should allow flags to use dot notation when no right-hand-side is given|yargs-parser dot notation should not pollute the prototype|yargs-parser defaults for boolean options should combine dot-notation and camel-case expansion|yargs-parser configuration dot notation does not expand dot notation defaults|yargs-parser configuration dot notation does not expand dot notation arguments|yargs-parser configuration dot notation should use value from cli, if cli overrides dot notation default|yargs-parser configuration dot notation should also override dot notation alias|yargs-parser configuration dot notation does not expand alias of first element of dot notation arguments|yargs-parser dot-notation array arguments combined with string arguments parses correctly when dot-notation argument is first|yargs-parser dot-notation array arguments combined with string arguments parses correctly when dot-notation argument is last|yargs-parser dot-notation array arguments combined with string arguments parses correctly when there are multiple dot-notation arguments|yargs-parser prototype collisions handle dot notation colliding with alias)$"
+        }
+      ],
+      "fuzz": [
+        "dotNotation"
+      ]
+    },
+    "booleans": {
+      "title": "Booleans, negation and camel-case expansion",
+      "conformance": "conformance/booleans.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/yargs-parser\\.mjs › (?:yargs-parser should parse a \"short boolean\"|yargs-parser should parse a \"long boolean\"|yargs-parser should explicitly set a boolean option to false if preceded by \"--no-\"|yargs-parser should not set the next value as the value of a short option if that option is explicitly defined as a boolean|yargs-parser should set boolean options values if the next value is \"true\" or \"false\"|yargs-parser should not set boolean options values if the next value only contains the words \"true\" or \"false\"|yargs-parser should allow defining options as boolean in groups|yargs-parser should set boolean and alias using explicit true|yargs-parser should set boolean and --x=true|yargs-parser should set boolean options values if next value is \"true\" or \"false\" with = as separator|yargs-parser does not collect arguments configured as booleans into implicit array|yargs-parser alias should set single-digit boolean alias|yargs-parser alias should not set single-digit boolean alias if no boolean defined|yargs-parser alias should be able to negate set single-digit boolean alias|yargs-parser boolean modifier function should prevent yargs from sucking in the next option as the value of the first option|yargs-parser boolean modifier function should set boolean numeric option, with numeric option at the end of a group|yargs-parser boolean modifier function should set boolean numeric option, with numeric option at the start of a group|yargs-parser boolean modifier function should set boolean numeric option, with numeric option as part of a group|yargs-parser defaults should define option as boolean and set default to true|yargs-parser defaults should define option as boolean and set default to false|yargs-parser defaults should set boolean options to false by default|yargs-parser defaults for options with aliases should set defaults if no args|yargs-parser defaults for options with aliases should set defaults if one extra arg|yargs-parser defaults for typed options without aliases should set defaults if no args|yargs-parser defaults for typed options without aliases should set defaults if one extra arg|yargs-parser defaults for typed options without aliases should set defaults even if arg looks like a string|yargs-parser defaults for typed options with aliases should set defaults if no args|yargs-parser defaults for typed options with aliases should set defaults if one extra arg|yargs-parser defaults for typed options with aliases should set defaults even if arg looks like a string|yargs-parser defaults for boolean options should apply defaults to camel-case form of argument|yargs-parser defaults for boolean options with explicit true default should set true if --flag in arg|yargs-parser defaults for boolean options with explicit true default should set false if --no-flag in arg|yargs-parser defaults for boolean options with explicit true default should set true if no flag in arg|yargs-parser defaults for boolean options with explicit false default should set true if --flag in arg|yargs-parser defaults for boolean options with explicit false default should set false if --no-flag in arg|yargs-parser defaults for boolean options with explicit false default should set false if no flag in arg|yargs-parser defaults for boolean options with explicit undefined default should set true if --flag in arg|yargs-parser defaults for boolean options with explicit undefined default should set false if --no-flag in arg|yargs-parser defaults for boolean options with explicit undefined default should set undefined if no flag in arg|yargs-parser defaults for boolean options with explicit null default should set true if --flag in arg|yargs-parser defaults for boolean options with explicit null default should set false if --no-flag in arg|yargs-parser defaults for boolean options with explicit null default should set null if no flag in arg|yargs-parser defaults for boolean options without any default value should set true if --flag in arg|yargs-parser defaults for boolean options without any default value should set false if --no-flag in arg|yargs-parser defaults for boolean options without any default value should not add property if no flag in arg|yargs-parser camelCase dashes and camelCase should provide options with dashes as camelCase properties|yargs-parser camelCase dashes and camelCase should provide options with dashes and aliases as camelCase properties|yargs-parser camelCase dashes and camelCase should provide defaults of options with dashes as camelCase properties|yargs-parser camelCase dashes and camelCase should provide aliases of options with dashes as camelCase properties|yargs-parser camelCase dashes and camelCase should not apply camel-case logic to 1-character options|yargs-parser camelCase dashes and camelCase should provide aliases with dashes as camelCase properties|yargs-parser camelCase dashes and camelCase should not duplicate option values when equivalent dashed aliases are provided|yargs-parser camelCase dashes and camelCase \\(strict\\) should provide options with dashes and aliases as camelCase properties|yargs-parser camelCase dashes and camelCase \\(strict\\) should provide defaults of options with dashes as camelCase properties|yargs-parser camelCase dashes and camelCase \\(strict\\) should provide aliases of options with dashes as camelCase properties|yargs-parser camelCase dashes and camelCase \\(strict\\) should not apply camel-case logic to 1-character options|yargs-parser camelCase dashes and camelCase \\(strict\\) should provide aliases with dashes as camelCase properties|yargs-parser camelCase dashes and camelCase \\(strict\\) should not duplicate option values when equivalent dashed aliases are provided|yargs-parser - should set b to true and set - as a non-hyphenated value when b is set as a boolean|yargs-parser configuration boolean negation does not negate arguments prefixed with --no-|yargs-parser configuration boolean negation negates boolean arguments with correct prefix)$"
+        }
+      ],
+      "fuzz": [
+        "booleans"
+      ]
+    },
+    "arrays": {
+      "title": "Arrays and narg",
+      "conformance": "conformance/arrays.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/yargs-parser\\.mjs › (?:yargs-parser should place bare options in the _ array|yargs-parser should handle parsing negative s|yargs-parser should handle negative \\(and positive\\) numbers with decimal places, with or without a leading 0|yargs-parser should not use next value for boolean/number/string configured with zero narg|yargs-parser defaults to empty array if array option is provided no values|yargs-parser does not collect arguments configured as booleans into implicit array|yargs-parser camelCase dashes and camelCase should not duplicate option values when equivalent dashed aliases are provided|yargs-parser camelCase dashes and camelCase \\(strict\\) should not duplicate option values when equivalent dashed aliases are provided|yargs-parser array should group values into an array if the same option is specified multiple times \\(duplicate-arguments-array=true\\)|yargs-parser array should keep only the last value if the same option is specified multiple times \\(duplicate-arguments-false\\)|yargs-parser array should default an array to an empty array if passed as first option followed by another|yargs-parser array should not attempt to default array if an element has already been populated|yargs-parser array should default argument to empty array if no value given|yargs-parser array should place default of argument in array, when default provided|yargs-parser array should place value of argument in array, when one argument provided|yargs-parser array should add multiple argument values to the array|yargs-parser array should allow array: true, to be set inside an option block|yargs-parser array should default camel-case alias to array type|yargs-parser array should default alias to array type|yargs-parser array should eat non-hyphenated arguments until hyphenated option is hit|yargs-parser array should support array for --foo= format when the key is a number|yargs-parser array should support array for -f= and --bar= format when the value is dashed|yargs-parser array should create an array when passing an argument twice with same value|yargs-parser array should eat camelCase switch with camelCase array option|yargs-parser array should eat hyphenated switch with hyphenated array option|yargs-parser array should eat camelCase switch with hyphenated array option|yargs-parser array should eat hyphenated switch with camelCase array option|yargs-parser array should respect the type `boolean` option for arrays|yargs-parser array should respect type `boolean` without value for arrays|yargs-parser array should respect `boolean negation` for arrays|yargs-parser array should respect the type `number` option for arrays|yargs-parser array should eat non-hyphenated arguments until hyphenated option is hit - combined with coercion|yargs-parser nargs should allow the number of arguments following a key to be specified|yargs-parser nargs should raise an exception if -f== format is used for a key with no expected argument|yargs-parser nargs should raise an exception if --bar== format is used for a key with no expected argument|yargs-parser nargs should raise an exception if there are not enough arguments following key|yargs-parser nargs nargs is applied to aliases|yargs-parser nargs should apply nargs to flag arguments|yargs-parser nargs should support nargs for -f= and --bar= format arguments|yargs-parser nargs should support nargs for -f= and --bar= format arguments with dashed values|yargs-parser nargs should not modify the input args if an = was used|yargs-parser nargs allows multiple nargs to be set at the same time|yargs-parser nargs should support nargs for --foo= format when the key is a number|yargs-parser nargs should not treat flag arguments as satisfying narg requirements|yargs-parser nargs should treat flag arguments as satisfying narg requirements, if nargs-eats-options=true|yargs-parser nargs should not consume more than configured nargs|yargs-parser nargs should ignore undefined configured nargs|yargs-parser nargs should default to 1 if configured narg is NaN|yargs-parser configuration duplicate arguments array adds duplicate argument to array|yargs-parser configuration duplicate arguments array keeps only last argument|yargs-parser configuration duplicate arguments array does not interfere with nargs|yargs-parser configuration flatten duplicate arrays flattens duplicate array type|yargs-parser configuration flatten duplicate arrays nests duplicate array types|yargs-parser configuration flatten duplicate arrays nests duplicate array types of more than 2|yargs-parser configuration flatten duplicate arrays doesn't nests single arrays|yargs-parser configuration flatten duplicate arrays flattens duplicate array type, when argument uses dot notation|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=false, flatten=false, type=array \\[-x 1 2 3\\] => \\[1, 2, 3\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=false, flatten=false, type=array \\[-x 1 2 3 -x 2 3 4\\] => \\[2, 3, 4\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=false, flatten=false, type=number \\[-x 1 -x 2 -x 3\\] => 3|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=false, flatten=false, type=boolean \\[-x true -x true -x false\\] => false|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=false, flatten=true, type=array \\[-x 1 2 3\\] => \\[1, 2, 3\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=false, flatten=true, type=array \\[-x 1 2 3 -x 2 3 4\\] => \\[2, 3, 4\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=false, flatten=true, type=number \\[-x 1 -x 2 -x 3\\] => 3|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=false, flatten=true, type=boolean \\[-x true -x true -x false\\] => false|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=true, flatten=true, type=array \\[-x 1 2 3\\] => \\[1, 2, 3\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=true, flatten=true, type=array \\[-x 1 2 3 -x 2 3 4\\] => \\[1, 2, 3, 2, 3, 4\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=true, flatten=true, type=number \\[-x 1 -x 2 -x 3\\] => \\[1, 2, 3\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=true, flatten=true, type=boolean \\[-x true -x true -x false\\] => false|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=true, flatten=false, type=array \\[-x 1 -x 2 -x 3\\] => \\[\\[1\\], \\[2\\], \\[3\\]\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=true, flatten=false, type=array \\[-x 1 2 3 -x 2 3 4\\] => \\[\\[1, 2, 3\\], \\[ 2, 3, 4\\]\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=true, flatten=false, type=number \\[-x 1 -x 2 -x 3\\] => \\[1, 2, 3\\]|yargs-parser configuration duplicate-arguments-array VS flatten-duplicate-arrays duplicate=true, flatten=false, type=boolean \\[-x true -x true -x false\\] => false|yargs-parser dot-notation array arguments combined with string arguments parses correctly when dot-notation argument is first|yargs-parser dot-notation array arguments combined with string arguments parses correctly when dot-notation argument is last|yargs-parser dot-notation array arguments combined with string arguments parses correctly when there are multiple dot-notation arguments|yargs-parser strings with quotes and dashes respects inner quotes \\(array\\)|yargs-parser prototype collisions handles \"arrays\" colliding with prototype|yargs-parser prototype collisions handles \"nargs\" colliding with prototype|yargs-parser array with nargs allows array and nargs to be configured in conjunction, enforcing the nargs value|yargs-parser array with nargs allows special NaN count to be provided to narg, to indicate one or more array values|yargs-parser array with nargs throws error if at least one value not provided for NaN|yargs-parser array with nargs returns an error if not enough positionals were provided for nargs|yargs-parser array with nargs returns an error if not enough positionals were provided for nargs even with nargs-eats-options|yargs-parser array with nargs does not raise error if no arguments are provided for boolean option|yargs-parser greedy-arrays=false does not consume more than one argument after array option|yargs-parser greedy-arrays=false places argument into array when specified multiple times|yargs-parser greedy-arrays=false places boolean arguments into array when specified multiple times)$"
+        }
+      ],
+      "fuzz": [
+        "arrays"
+      ]
+    }
+  },
+  "excluded": [
+    {
+      "match": "upstream:test/yargs-parser.mjs › yargs-parser config ",
+      "reason": "Tests opts.config: loading JSON and JS configuration files from test/fixtures through require or a configParser. Configuration files are outside the Create subset, and the fixtures are not vendored."
+    },
+    {
+      "match": "upstream:test/yargs-parser.mjs › yargs-parser config objects ",
+      "reason": "Tests opts.configObjects, which is outside the Create subset (matched by the `config ` prefix above)."
+    },
+    {
+      "match": "upstream:test/yargs-parser.mjs › yargs-parser env vars (except `should not apply all env vars if prefix is undefined`)",
+      "reason": "Tests opts.envPrefix, which reads process.env and is outside the Create subset. The kept test passes envPrefix: undefined, so it checks only that no environment variable is applied."
+    },
+    {
+      "match": "upstream:test/yargs-parser.mjs › yargs-parser normalizes all paths in array when provided via config object",
+      "reason": "Supplies the array through opts.configObjects, which is outside the Create subset."
+    },
+    {
+      "match": "upstream:test/yargs-parser.mjs › yargs-parser defaults track defaulted should log defaulted options - not specified by user",
+      "reason": "Supplies a value through opts.configObjects, which is outside the Create subset."
+    },
+    {
+      "match": "upstream:test/yargs-parser.mjs › yargs-parser configuration dot notation does not append nested-object keys from config to top-level key",
+      "reason": "Supplies the nested object through opts.configObjects, which is outside the Create subset."
+    },
+    {
+      "match": "upstream:test/yargs-parser.mjs › yargs-parser configuration parse numbers should coerce elements of number typed arrays to numbers",
+      "reason": "Uses opts.configObjects with combine-arrays, both outside the Create subset."
+    },
+    {
+      "match": "upstream:test/yargs-parser.mjs › yargs-parser prototype collisions handles key in configuration file that collides with prototype",
+      "reason": "Loads a configuration file through opts.config, which is outside the Create subset."
+    }
+  ]
+}

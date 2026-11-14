@@ -1,0 +1,27 @@
+Hand-Rolled vendors, unmodified, test files from the following projects at
+the pinned commits listed in grader/libraries/<id>/library.json. Each remains
+under its own license; the full license text is in
+grader/libraries/<id>/upstream/.
+
+- is-number, Copyright (c) 2014-present Jon Schlinkert. MIT.
+  https://github.com/jonschlinkert/is-number
+- clsx, Copyright (c) Luke Edwards. MIT. https://github.com/lukeed/clsx
+- ms, Copyright (c) 2020 Vercel, Inc. MIT. https://github.com/vercel/ms
+- uuid, Copyright (c) 2010-2020 Robert Kieffer and other contributors. MIT.
+  https://github.com/uuidjs/uuid
+- dotenv, Copyright (c) 2015 Scott Motte. BSD-2-Clause.
+  https://github.com/motdotla/dotenv
+- deep-equal (node-deep-equal), Copyright (c) 2012, 2013, 2014 James Halliday,
+  2009 Thomas Robinson. MIT. https://github.com/inspect-js/node-deep-equal
+- lodash, Copyright OpenJS Foundation and other contributors. MIT.
+  https://github.com/lodash/lodash
+- qs, Copyright (c) 2014, Nathan LaFreniere and other contributors.
+  BSD-3-Clause. https://github.com/ljharb/qs
+- semver (node-semver), Copyright (c) Isaac Z. Schlueter and Contributors. ISC.
+  https://github.com/npm/node-semver
+- yargs-parser, Copyright (c) 2016, Contributors. ISC.
+  https://github.com/yargs/yargs-parser
+
+The library descriptions in specs/ are adapted from each project's README.
+The real packages are installed only inside the grader image, from the
+lockfiles in grader/libraries/<id>/.

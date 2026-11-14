@@ -1,0 +1,99 @@
+{
+  "id": "clsx",
+  "title": "clsx",
+  "tier": "tiny",
+  "package": {
+    "name": "clsx",
+    "version": "2.1.1"
+  },
+  "upstream": {
+    "repository": "https://github.com/lukeed/clsx",
+    "commit": "925494cf31bcd97d3337aacd34e659e80cae7fe2",
+    "tag": "v2.1.1",
+    "license": "MIT",
+    "licenseFile": "upstream/license"
+  },
+  "standardAlternative": "A filter(Boolean) and join(\" \") over the class names, with Object.entries for conditional ones.",
+  "vendor": [
+    {
+      "from": "test/index.js",
+      "to": "suite/test/index.js",
+      "sha256": "ec693edef6d85cc7929c80cf03ab0c6468f89f4e3b608738d3176096fabaec4a"
+    },
+    {
+      "from": "test/classnames.js",
+      "to": "suite/test/classnames.js",
+      "sha256": "84bcc17b2d896934c24c7e7d6d5fadb68b000ea940a7292f71fcb7f83e10c729"
+    },
+    {
+      "from": "license",
+      "to": "upstream/license",
+      "sha256": "9a9edad7baae52622bddf3c15b2ef8a33d2c89f2d25408ad13e8a7481c6b0c97"
+    }
+  ],
+  "reference": "reference.ts",
+  "suites": [
+    {
+      "id": "upstream",
+      "runner": "node-test",
+      "files": [
+        "test/index.js",
+        "test/classnames.js"
+      ]
+    }
+  ],
+  "aliases": {
+    "src": "shims/index.mjs",
+    "bare:uvu": "shims/uvu.mjs"
+  },
+  "create": {
+    "conformance": "conformance/create.ts",
+    "tests": [
+      {
+        "suite": "upstream"
+      }
+    ],
+    "fuzz": [
+      "arrays",
+      "objects",
+      "mixed"
+    ]
+  },
+  "features": {
+    "arrays": {
+      "title": "Strings, numbers and nested arrays",
+      "conformance": "conformance/arrays.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/(index\\.js › (strings|numbers|arrays|arrays \\(nested\\)|arrays \\(variadic\\)|functions)( \\(variadic\\))?$|classnames\\.js › \\(compat\\) (joins arrays of class names|supports an array|joins array arguments|handles multiple array|handles arrays that include (falsy|arrays)|handles arrays that are empty|handles nested arrays))"
+        }
+      ],
+      "fuzz": [
+        "arrays"
+      ]
+    },
+    "objects": {
+      "title": "Class dictionaries",
+      "conformance": "conformance/objects.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/(index\\.js › (objects|objects \\(variadic\\)|arrays \\(no `push` escape\\))$|classnames\\.js › \\(compat\\) (keeps object keys|supports heterogenous|should be trimmed|returns an empty string|handles all types of truthy))"
+        }
+      ],
+      "fuzz": [
+        "objects"
+      ]
+    }
+  },
+  "excluded": [
+    {
+      "match": "test/lite.js",
+      "reason": "Tests the separate clsx/lite entry point. A submission is one module, which cannot export both the full clsx and the string-only lite clsx under the same names, so lite is outside the Create API and not vendored."
+    }
+  ],
+  "notes": [
+    "Upstream runs its tests with uvu 0.5.4 (`uvu -r esm test`). uvu's runner prints only per-file totals, so shims/uvu.mjs maps uvu's test() and suite() onto node:test to report one TAP point per test; assertions still use the real uvu/assert 0.5.4. The esm loader is unnecessary on Node 24."
+  ]
+}

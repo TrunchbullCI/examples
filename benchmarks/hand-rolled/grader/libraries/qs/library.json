@@ -1,0 +1,128 @@
+{
+  "id": "qs",
+  "title": "qs",
+  "tier": "hard",
+  "package": {
+    "name": "qs",
+    "version": "6.17.1"
+  },
+  "upstream": {
+    "repository": "https://github.com/ljharb/qs",
+    "commit": "43baea4655cb9b543fb1c5cc0db95cde42852140",
+    "tag": "v6.17.1",
+    "license": "BSD-3-Clause",
+    "licenseFile": "upstream/LICENSE.md"
+  },
+  "standardAlternative": "URLSearchParams plus a small hand-written walk over bracketed keys.",
+  "vendor": [
+    {
+      "from": "test/parse.js",
+      "to": "suite/test/parse.js",
+      "sha256": "c2f233a7bd8ba5489818b73ef7a9fcd082512f489389e51d24e51e7170f99569"
+    },
+    {
+      "from": "test/stringify.js",
+      "to": "suite/test/stringify.js",
+      "sha256": "ca9764d020171e107690d7200a0d54b8f96336c9e5f22932778e0552429b86d7"
+    },
+    {
+      "from": "test/empty-keys-cases.js",
+      "to": "suite/test/empty-keys-cases.js",
+      "sha256": "14d3091bdde249668f5d88d61a045185a0d5c2ea376a3211b791a58148475224"
+    },
+    {
+      "from": "LICENSE.md",
+      "to": "upstream/LICENSE.md",
+      "sha256": "e7dc37bf662d7f786efcb46c545615e70c1daf458a38385521c63cf6607cdfe1"
+    }
+  ],
+  "reference": "reference.ts",
+  "suites": [
+    {
+      "id": "upstream",
+      "runner": "node",
+      "files": [
+        "test/parse.js",
+        "test/stringify.js"
+      ],
+      "nodeArgs": [
+        "--require",
+        "../tape-isolation.cjs"
+      ]
+    }
+  ],
+  "aliases": {
+    ".": "shims/qs.cjs",
+    "lib/utils": "shims/utils.cjs"
+  },
+  "notes": "tape 5.10.3 is the newest release in upstream's ^5.10.3 range. Each tape file runs directly with the node runner, with tape-isolation.cjs preloaded (--require): plain tape lets an exception thrown inside one test callback end the whole file, so the preload reports it as a failed assertion and ends that test instead. The reference passes every selected test with or without it, so expected.json is unchanged. test/parse.js and test/stringify.js load qs's private lib/utils; it is aliased to shims/utils.cjs, which provides the one helper the tests call (utils.assign), and the two assertions that compare against lib/utils functions are excluded.",
+  "create": {
+    "title": "parse, stringify and formats",
+    "conformance": "conformance/create.ts",
+    "tests": [
+      {
+        "suite": "upstream",
+        "exclude": " › receives the default (?:de|en)coder as a second argument › should be strictly equal$"
+      }
+    ],
+    "fuzz": [
+      "parse",
+      "stringify"
+    ]
+  },
+  "features": {
+    "nested-parsing": {
+      "title": "Nested bracket parsing",
+      "conformance": "conformance/nested-parsing.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/parse\\.js › (?:parse\\(\\)|parses a simple string|comma: false|allows enabling dot notation|decode dot keys with case-insensitive percent escapes|decode dot keys correctly|decodes dot in key of object, and allow enabling dot notation when decodeDotInKeys is set to true and allowDots is undefined|throws when decodeDotInKeys is not of type boolean|allows empty arrays in obj values|throws when allowEmptyArrays is not of type boolean|allowEmptyArrays \\+ strictNullHandling|only parses one level when depth = 1|uses original key when depth = 0|ignores prototype keys when depth = 0 and allowPrototypes is false|ignores bracket-wrapped prototype keys when depth = 0 and allowPrototypes is false|allows prototype keys when depth = 0 and allowPrototypes is true|keeps bracket-wrapped prototype keys when depth = 0 and plainObjects is true|strips one wrapping bracket pair from the key when depth = 0|uses original key when depth = false|parses an explicit array|parses a nested array|parses keys with literal \\[\\] inside a bracket group \\(#493\\)|currently parses unbalanced bracket keys after a parent leniently to literal segments \\(issue #558\\)|currently parses unbalanced bracket keys containing inner brackets leniently \\(issue #558\\)|currently parses bracket-prefixed unbalanced keys leniently \\(issue #558\\)|lenient unbalanced-bracket handling currently depends on the depth option \\(issue #558\\)|currently parses an allowDots key with a trailing unclosed bracket leniently \\(issue #558\\)|valid and stray-close bracket keys are unaffected by unbalanced-bracket handling|currently moves the key/value split to a later `\\]=` when the first `=` comes before any bracket group|supports encoded = signs|is ok with url encoded strings|allows brackets in the value|allows empty values|transforms arrays to objects|transforms arrays to objects \\(dot notation\\)|correctly prunes undefined values when converting an array to an object|supports malformed uri characters|doesn't produce empty keys|cannot access Object prototype|parses arrays of objects|parses sparse arrays|continues parsing when no parent is found|does not error when parsing a very long array|does not throw when a native prototype has an enumerable property|allows disabling array parsing|does not blow up when Buffer global is missing|does not crash when parsing deep objects|does not allow overwriting prototype properties|can allow overwriting prototype properties|does not crash when the global Object prototype is frozen|params starting with a closing bracket|params starting with a starting bracket|add keys to objects|strictMerge wraps object and primitive into an array|strictMerge conflicts do not overwrite indexed values already at that path|dunder proto is ignored|can return null objects|returns null objects for empty brackets when parseArrays is false|does not mutate the options argument|skips empty string key with .*|array brackets with object key - under limit|array index with object key - under limit) › "
+        }
+      ],
+      "fuzz": [
+        "nested"
+      ]
+    },
+    "array-formats": {
+      "title": "Nested objects and array formats in stringify",
+      "conformance": "conformance/array-formats.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/stringify\\.js › (?:stringifies a querystring object|stringifies falsy values|throws when `commaRoundTrip` is not a boolean|stringifies nested falsy values|stringifies a nested object|`allowDots` option: stringifies a nested object with dots notation|stringifies an array value|ignores inherited array format names|`skipNulls` option|omits array indices when asked|omits object key/value pair when value is empty array|should not omit object key/value pair when value is empty array and when asked|should throw when allowEmptyArrays is not of type boolean|allowEmptyArrays \\+ strictNullHandling|allowEmptyArrays only short-circuits arrays with no own keys|non-array item|array with a single item|array with multiple items|array with multiple items with a comma inside|stringifies a nested array value|stringifies comma and empty array values|stringifies comma and empty non-array values|stringifies a nested array value with dots notation|stringifies an object inside an array|stringifies an array with mixed objects and primitives|stringifies an object inside an array with dots notation|does not omit object keys when indices = false|uses indices notation for arrays when indices=true|uses indices notation for arrays when no arrayFormat is specified|uses indices notation for arrays when arrayFormat=indices|uses repeat notation for arrays when arrayFormat=repeat|uses brackets notation for arrays when arrayFormat=brackets|stringifies a complicated object|stringifies an empty value|stringifies an empty array in different arrayFormat|does not crash on null/undefined entries in arrayFormat=comma with encodeValuesOnly|arrayFormat=comma: entries with `Symbol\\.toPrimitive` are unaffected|stringifies a null object|returns an empty string for invalid input|stringifies an object with a null object as a child|drops keys with a value of undefined|url encodes values|stringifies a date|skips properties that are part of the object prototype|stringifies boolean values|does not crash when parsing circular references|non-circular duplicated references can still work|can disable uri encoding|encodeValuesOnly|encodeValuesOnly - strictNullHandling|does not mutate the options argument|objects inside arrays|stringifies sparse arrays|stringifies an object with empty string key with .*|edge case with object/arrays) › "
+        }
+      ],
+      "fuzz": [
+        "arrays"
+      ]
+    },
+    "limits": {
+      "title": "Depth, array and parameter limits",
+      "conformance": "conformance/limits.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:test/parse\\.js › (?:only parses one level when depth = 1|strips one wrapping bracket pair from the key when depth = 0|uses original key when depth = false|parses a mix of simple and explicit arrays|allows to specify array indices|limits specific array indices to arrayLimit|allows for empty strings in arrays|compacts sparse arrays|allows overriding parameter limit|allows setting the parameter limit to Infinity|allows overriding array limit|does not crash when parsing deep objects|strictMerge conflicts do not overwrite values once the container overflows|does not throw error when within parameter limit|throws error when throwOnLimitExceeded is present but not boolean|throws error when parameter limit exceeded|silently truncates when throwOnLimitExceeded is not given|silently truncates when parameter limit exceeded without error|allows unlimited parameters when parameterLimit set to Infinity|allows unlimited parameters when parameterLimit is Infinity and throwOnLimitExceeded is true|does not throw error when array is within limit|throws error when throwOnLimitExceeded is present but not boolean for array limit|throws error when array limit exceeded|does not throw when at limit|converts array to object if length is greater than limit|throws error when indexed notation exceeds arrayLimit with throwOnLimitExceeded|does not throw for indexed notation within arrayLimit with throwOnLimitExceeded|silently converts to object for indexed notation exceeding arrayLimit without throwOnLimitExceeded|throws when duplicate bracket keys exceed arrayLimit with throwOnLimitExceeded|throws when plain duplicate keys combine past arrayLimit at the boundary|throws when mixed index and key notation merge past arrayLimit|enforces arrayLimit on merge at the boundary, consistently with combine|counts the elements of a sparse indexed array on merge, not its holes|enforces arrayLimit when a strictMerge conflict appends to its container|enforces arrayLimit when differently spelled keys collide|throws an exception when depth exceeds the limit with strictDepth: true|throws an exception for multiple nested arrays with strictDepth: true|throws an exception for nested objects and arrays with strictDepth: true|throws an exception for different types of values with strictDepth: true|when depth is 0 and strictDepth true, do not throw|parses successfully when depth is within the limit with strictDepth: true|does not throw an exception when depth exceeds the limit with strictDepth: false|parses successfully when depth is within the limit with strictDepth: false|does not throw when depth is exactly at the limit with strictDepth: true|DOS|exactly at the limit stays as array|one over the limit converts to object|arrayLimit 1 with one value|arrayLimit 1 with two values converts to object|plain value with array brackets - under limit|array brackets with plain value - under limit|plain value with array index - under limit|multiple plain values with duplicates combine|multiple plain values exceeding limit|mixed notation produces consistent results when arrayLimit is exceeded) › "
+        }
+      ],
+      "fuzz": [
+        "limits"
+      ]
+    }
+  },
+  "excluded": [
+    {
+      "match": "upstream:test/parse.js › receives the default decoder as a second argument › should be strictly equal",
+      "reason": "Asserts that the decoder's second argument is the very function object exported by qs's private lib/utils module, which a reimplementation cannot provide."
+    },
+    {
+      "match": "upstream:test/stringify.js › receives the default encoder as a second argument › should be strictly equal",
+      "reason": "Asserts that the encoder's second argument is the very function object exported by qs's private lib/utils module, which a reimplementation cannot provide."
+    },
+    {
+      "match": "upstream:test/utils.js",
+      "reason": "Unit tests of the private lib/utils module (merge, combine, encode internals); not vendored."
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "id": "uuid",
+  "title": "uuid",
+  "tier": "medium",
+  "package": {
+    "name": "uuid",
+    "version": "14.0.3"
+  },
+  "upstream": {
+    "repository": "https://github.com/uuidjs/uuid",
+    "commit": "993ff7b64a289ef7f921ccafc8bb98ef9461d214",
+    "tag": "v14.0.3",
+    "license": "MIT",
+    "licenseFile": "upstream/LICENSE.md"
+  },
+  "standardAlternative": "crypto.randomUUID() for v4, plus a few lines of byte packing over crypto.createHash and Date.now() for the other versions.",
+  "vendor": [
+    {
+      "from": "src/test/parse.test.ts",
+      "to": "suite/src/test/parse.test.ts",
+      "sha256": "ef223930ff5253c45c6f42ab542075dbc084d5e8aa1166570ff9a1693986d218"
+    },
+    {
+      "from": "src/test/stringify.test.ts",
+      "to": "suite/src/test/stringify.test.ts",
+      "sha256": "dd7e05fa23f98d29a4587a12f115f08102c7208b98f42e104224dda0d83d16a4"
+    },
+    {
+      "from": "src/test/validate.test.ts",
+      "to": "suite/src/test/validate.test.ts",
+      "sha256": "8194ec92951374e7831cbe89b787eef635b2df93dec559126084b391376913d1"
+    },
+    {
+      "from": "src/test/version.test.ts",
+      "to": "suite/src/test/version.test.ts",
+      "sha256": "152d7900c974a7bf7ffc226da531fe2688621256cc8bdd084024ce5625565dcb"
+    },
+    {
+      "from": "src/test/v1.test.ts",
+      "to": "suite/src/test/v1.test.ts",
+      "sha256": "5227cb50d913a27a4ea493c990d1301c5bb1b66dacecf21eb820f874322432e4"
+    },
+    {
+      "from": "src/test/v4.test.ts",
+      "to": "suite/src/test/v4.test.ts",
+      "sha256": "d18e31a8e79da834a828704c888d055208d9013d9a9576a4db74f9757ca32639"
+    },
+    {
+      "from": "src/test/v6.test.ts",
+      "to": "suite/src/test/v6.test.ts",
+      "sha256": "5cc83c0fca04494c461dbd420757bf17aa4de50b5dfb4607c1e43a267d0c829d"
+    },
+    {
+      "from": "src/test/v7.test.ts",
+      "to": "suite/src/test/v7.test.ts",
+      "sha256": "22cbd869e8ba596f91be0f68984be4ccd55e4914d9d57fb633382ad0ebbe0952"
+    },
+    {
+      "from": "src/test/v35.test.ts",
+      "to": "suite/src/test/v35.test.ts",
+      "sha256": "35623affb47e49ca98c58708a2d08202600b0ad2fa96d05ff2161a95ff3aacef"
+    },
+    {
+      "from": "src/test/test_constants.ts",
+      "to": "suite/src/test/test_constants.ts",
+      "sha256": "edcf9ffdcba22129bee80d930b7c5d50b88574038433b3613e1cd1c8c2c30f19"
+    },
+    {
+      "from": "LICENSE.md",
+      "to": "upstream/LICENSE.md",
+      "sha256": "beaa6b04fb82e41dd2ad679e19e27953afb5999b1abbb455b6564e78ebfeb332"
+    }
+  ],
+  "reference": "reference.ts",
+  "suites": [
+    {
+      "id": "upstream",
+      "runner": "node-test",
+      "files": [
+        "src/test/parse.test.ts",
+        "src/test/stringify.test.ts",
+        "src/test/validate.test.ts",
+        "src/test/version.test.ts",
+        "src/test/v1.test.ts",
+        "src/test/v4.test.ts",
+        "src/test/v6.test.ts",
+        "src/test/v7.test.ts",
+        "src/test/v35.test.ts"
+      ]
+    }
+  ],
+  "aliases": {
+    "src/parse": "shims/parse.mjs",
+    "src/stringify": "shims/stringify.mjs",
+    "src/validate": "shims/validate.mjs",
+    "src/version": "shims/version.mjs",
+    "src/max": "shims/max.mjs",
+    "src/nil": "shims/nil.mjs",
+    "src/v1": "shims/v1.mjs",
+    "src/v1ToV6": "shims/v1ToV6.mjs",
+    "src/v3": "shims/v3.mjs",
+    "src/v35": "shims/v35.mjs",
+    "src/v4": "shims/v4.mjs",
+    "src/v5": "shims/v5.mjs",
+    "src/v6": "shims/v6.mjs",
+    "src/v6ToV1": "shims/v6ToV1.mjs",
+    "src/v7": "shims/v7.mjs",
+    "src/md5": "shims/md5.mjs",
+    "src/sha1": "shims/sha1.mjs",
+    "src/test/test_constants": "shims/test_constants.mjs"
+  },
+  "create": {
+    "conformance": "conformance/create.ts",
+    "tests": [
+      {
+        "suite": "upstream",
+        "exclude": "› (stringify › Stringify (Array|w/ offset) \\(unsafe\\)|v1 › v1\\(\\) state transitions|v7 › (v7\\(\\) state transitions|default seq \\(no explicit seq option\\) is consistent with updateV7State formula)|v35 › (sha1|md5)\\(node\\) HASH_SAMPLES\\[\\d\\])$"
+      }
+    ],
+    "fuzz": [
+      "v1",
+      "v6",
+      "v7",
+      "v4",
+      "v35",
+      "parse",
+      "stringify",
+      "validate",
+      "version",
+      "convert"
+    ]
+  },
+  "features": {
+    "name-based": {
+      "title": "Name-based UUIDs (v3 and v5)",
+      "conformance": "conformance/name-based.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:src/test/v35\\.test\\.ts › v35 › v[35]",
+          "exclude": "› (stringify › Stringify (Array|w/ offset) \\(unsafe\\)|v1 › v1\\(\\) state transitions|v7 › (v7\\(\\) state transitions|default seq \\(no explicit seq option\\) is consistent with updateV7State formula)|v35 › (sha1|md5)\\(node\\) HASH_SAMPLES\\[\\d\\])$"
+        }
+      ],
+      "fuzz": [
+        "v35"
+      ]
+    },
+    "time-based": {
+      "title": "Gregorian time-based UUIDs (v1 and v6)",
+      "conformance": "conformance/time-based.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:src/test/v[16]\\.test\\.ts › ",
+          "exclude": "› (stringify › Stringify (Array|w/ offset) \\(unsafe\\)|v1 › v1\\(\\) state transitions|v7 › (v7\\(\\) state transitions|default seq \\(no explicit seq option\\) is consistent with updateV7State formula)|v35 › (sha1|md5)\\(node\\) HASH_SAMPLES\\[\\d\\])$"
+        }
+      ],
+      "fuzz": [
+        "v1",
+        "v6",
+        "convert"
+      ]
+    },
+    "parse-validate": {
+      "title": "Parse, stringify and validate",
+      "conformance": "conformance/parse-validate.ts",
+      "tests": [
+        {
+          "suite": "upstream",
+          "match": "^upstream:src/test/(parse|stringify|validate|version)\\.test\\.ts › ",
+          "exclude": "› (stringify › Stringify (Array|w/ offset) \\(unsafe\\)|v1 › v1\\(\\) state transitions|v7 › (v7\\(\\) state transitions|default seq \\(no explicit seq option\\) is consistent with updateV7State formula)|v35 › (sha1|md5)\\(node\\) HASH_SAMPLES\\[\\d\\])$|› parse › String -> bytes -> string symmetry for assorted uuids$"
+        }
+      ],
+      "fuzz": [
+        "parse",
+        "stringify",
+        "validate",
+        "version"
+      ]
+    }
+  },
+  "excluded": [
+    {
+      "match": "src/test/rng.test.ts",
+      "reason": "Tests the private rng module (src/rng.ts), which is not part of the public API; not vendored."
+    },
+    {
+      "match": "stringify › Stringify Array (unsafe) | Stringify w/ offset (unsafe)",
+      "reason": "Test the private unsafeStringify helper, which the package does not export."
+    },
+    {
+      "match": "v1 › v1() state transitions",
+      "reason": "Tests the private updateV1State helper, exported from src/v1.ts only for testing."
+    },
+    {
+      "match": "v7 › v7() state transitions | default seq (no explicit seq option) is consistent with updateV7State formula",
+      "reason": "Use the private updateV7State helper, exported from src/v7.ts only for testing. The default-seq behaviour itself is covered by the v7 fuzz target."
+    },
+    {
+      "match": "v35 › sha1(node) HASH_SAMPLES[0-2] | md5(node) HASH_SAMPLES[0-2]",
+      "reason": "Test the private md5 and sha1 modules, which the package does not export."
+    }
+  ],
+  "notes": [
+    "Upstream compiles src/ with tsc and runs `node --test dist-node/test/*.js`. The vendored .ts test files run directly on Node 24's built-in type stripping (they use only erasable syntax: annotations and `import type`), under node:test as upstream. Their `./test_constants.js` import is aliased to the vendored test_constants.ts.",
+    "Each private source module a test imports is a shim over the subject. Shims for private helpers (unsafeStringify, updateV1State, updateV7State, md5, sha1) throw when called and the tests that call them are excluded; the v35 shim's stringToBytes is a TextEncoder used only to build the excluded hash fixtures.",
+    "The time-based feature's API includes parse because v1.test.ts and v6.test.ts call it at load time and in their tests."
+  ]
+}
