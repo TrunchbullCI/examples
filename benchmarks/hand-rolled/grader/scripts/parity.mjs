@@ -7,7 +7,7 @@
 // The reference and crash fixtures may import their own package; nothing
 // else may. Prints one JSON line per case and exits 1 on any mismatch.
 //
-//   node tools/parity.mjs [library...]
+//   node scripts/parity.mjs [library...]
 import { readdir, readFile } from "node:fs/promises"
 import { join } from "node:path"
 import { grade, loadLibrary } from "../harness/grade.mjs"

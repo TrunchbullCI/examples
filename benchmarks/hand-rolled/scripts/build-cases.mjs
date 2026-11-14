@@ -1,8 +1,8 @@
 // Builds the case files from the library specs and grader metadata, and
 // rewrites provenance.json with the hashes of every input and output.
 //
-//   node tools/build-cases.mjs          write evals/*.jsonl and provenance.json
-//   node tools/build-cases.mjs --check  fail if either would change
+//   node scripts/build-cases.mjs          write evals/*.jsonl and provenance.json
+//   node scripts/build-cases.mjs --check  fail if either would change
 import { createHash } from "node:crypto"
 import { readdir, readFile, writeFile } from "node:fs/promises"
 import { dirname, join } from "node:path"
@@ -89,7 +89,7 @@ for (const [path, text] of Object.entries(outputs)) {
     const current = await readFile(join(ROOT, path), "utf8").catch(() => "")
     if (current !== text) {
       stale = true
-      console.error(`${path} is out of date; run node tools/build-cases.mjs.`)
+      console.error(`${path} is out of date; run node scripts/build-cases.mjs.`)
     }
   } else {
     await writeFile(join(ROOT, path), text)

@@ -2,8 +2,8 @@
 // API) through its upstream suites and records, per target, the test points
 // that the grader expects a correct module to pass.
 //
-//   node tools/expectations.mjs [library...]          write expected.json
-//   node tools/expectations.mjs --check [library...]  fail if it would change
+//   node scripts/expectations.mjs [library...]          write expected.json
+//   node scripts/expectations.mjs --check [library...]  fail if it would change
 import { readdir, readFile, writeFile } from "node:fs/promises"
 import { join } from "node:path"
 import { referenceModule } from "../harness/grade.mjs"

@@ -50,13 +50,13 @@ Upstream tests that cannot apply to a reimplementation (they stub the
 library's internals or test private modules) are left out of the selectors
 and listed in `excluded` with the reason.
 
-## Tools
+## Scripts
 
 ```sh
 npm ci && (cd libraries/<id> && npm ci)       # dependencies
-node tools/vendor.mjs <id> --from <checkout>  # vendor upstream files at the pinned commit
-node tools/vendor.mjs --check                 # verify vendored hashes
-node tools/expectations.mjs [<id>]            # record expected.json from the real library
-node tools/expectations.mjs --check           # verify expected.json (also run in the image build)
-node tools/parity.mjs [<id>]                  # reference 1, stub/empty/forbidden/crash 0, for every target
+node scripts/vendor.mjs <id> --from <checkout>  # vendor upstream files at the pinned commit
+node scripts/vendor.mjs --check                 # verify vendored hashes
+node scripts/expectations.mjs [<id>]            # record expected.json from the real library
+node scripts/expectations.mjs --check           # verify expected.json (also run in the image build)
+node scripts/parity.mjs [<id>]                  # reference 1, stub/empty/forbidden/crash 0, for every target
 ```
