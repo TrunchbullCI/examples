@@ -45,7 +45,7 @@ for (const library of libraries) {
   })
   for (const [featureId, target] of Object.entries(library.features)) {
     feature.push({
-      id: `feature-${id}-${featureId}`,
+      id: `feature-${id}-${featureId.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}`,
       groups: ["feature", tier, id],
       description: `${title}: ${target.title}.`,
       prompt: `# Feature: ${title}, ${target.title.charAt(0).toLowerCase()}${target.title.slice(1)}\n\nImplement exactly this feature of the npm package \`${name}\` (version ${version}), edge cases included, as a dependency-free TypeScript module.\n\n## The feature\n\n${await spec(id, featureId)}\n\n${RULES}\n`,
