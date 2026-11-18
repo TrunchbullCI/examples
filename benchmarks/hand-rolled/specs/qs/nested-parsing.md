@@ -54,7 +54,8 @@ The options object is never mutated.
   `"a[b][c][d][e][f][g][h][i]=j"` gives
   `{ a: { b: { c: { d: { e: { f: { "[g][h][i]": "j" } } } } } } }`.
   `depth: 0` or less (or `false`) never splits keys; it only strips one pair of
-  brackets that wraps the whole key.
+  brackets that wraps the whole key. The stripped key is the top-level key and is checked
+  like any other below, so `"[toString]=foo"` with `depth: 0` is ignored.
 - `allowDots` also accepts dot notation: a `.` outside brackets that is
   followed by something other than `.` or `[` turns the text up to the next
   `.` or `[` into a bracket group (`"a.b.c=d"` is `"a[b][c]=d"`; dots
@@ -83,6 +84,15 @@ The options object is never mutated.
   top-level key is never an index (`"0=a"` gives `{ "0": "a" }`).
 - No array holds more than 20 elements: an array that would grow beyond that
   becomes an object keyed by index that keeps every element.
+- An object keyed by index that stands in for an array (made by an index of
+  20 or more, or by an array that outgrew 20 elements) keeps counting its
+  integer keys. `[]` applied to it keeps it as it is instead of wrapping it
+  in an array (`"a[][25]=x"` gives `{ a: { "25": "x" } }`). A plain value merged after it takes the index after its largest
+  integer key, with or without `strictMerge` (`"a[25]=x&a=y"` gives
+  `{ a: { "25": "x", "26": "y" } }`), and one merged before it is prepended,
+  shifting its integer keys up by one (`"a=y&a[25]=x"` gives
+  `{ a: { "0": "y", "26": "x" } }`). An object it is merged into counts the
+  same way afterwards.
 - `parseArrays: false` makes `[]` and `[n]` produce objects (`"a[]=b"` gives
   `{ a: { "0": "b" } }`); duplicate plain keys still combine into arrays.
 
@@ -99,9 +109,12 @@ Parameters are merged into the result in order:
   `["b", "c"]`).
 - When a key holds both an object and a plain value, `strictMerge` (the
   default) wraps them in an array in arrival order (`"a[b]=c&a=d"` gives
-  `{ a: [{ b: "c" }, "d"] }`; further plain values are appended to that
-  container); with `strictMerge: false` the plain value becomes a key set to
-  `true` (`{ a: { b: "c", d: true } }`).
+  `{ a: [{ b: "c" }, "d"] }`); with `strictMerge: false` the plain value
+  becomes a key set to `true` (`{ a: { b: "c", d: true } }`). A later plain
+  value is appended to that wrapper at the index after the largest integer
+  key it holds, also after merging an object into it turned it into an
+  object keyed by index: `"a[z]=o&a=p&a[y]=q&a[2]=keep&[a]=r"` gives
+  `{ a: { 0: { z: "o" }, 1: "p", 2: "keep", 3: "r", y: "q" } }`.
 
 ## Errors
 

@@ -57,7 +57,10 @@ that are not numbers fall back to their defaults; `depth` also accepts
   array or object is prepended or appended (`"a=b&a[]=c"` gives
   `["b", "c"]`); an object and a plain value under one key are wrapped in an
   array in arrival order (`"a[b]=c&a=d"` gives `{ a: [{ b: "c" }, "d"] }`),
-  and further plain values are appended to that container.
+  and further plain values are appended to that container at the index after
+  the largest integer key it holds, also after merging an object into it
+  turned it into an object keyed by index (`"a[z]=o&a=p&a[y]=q&[a]=r"` gives
+  `{ a: { 0: { z: "o" }, 1: "p", 2: "r", y: "q" } }`).
 
 ## Depth
 
@@ -87,6 +90,19 @@ that are not numbers fall back to their defaults; `depth` also accepts
   element, and values appended to it later take the next index. Holes are not
   counted as elements. A zero or negative `arrayLimit` therefore turns every
   array into an object.
+- Such an object, and one made by an index of `arrayLimit` or more, keeps
+  counting its integer keys. `[]` applied to it keeps it as it is instead of
+  wrapping it in an array (`"a[][4]=x"` with `arrayLimit: 3` gives
+  `{ a: { "4": "x" } }`). A plain value merged after it takes the index after
+  its largest integer key, and one merged before it is prepended, shifting
+  its integer keys up by one (`"a=y&a[4]=x"` with `arrayLimit: 3` gives
+  `{ a: { "0": "y", "5": "x" } }`). An object it is merged into counts the
+  same way afterwards (`"a[]=b&a[1]=c&a=d"` with `arrayLimit: 1` gives
+  `{ a: { "0": "b", "1": "c", "2": "d" } }`).
+- Appending to a wrapped object-and-value container (see Parsing) counts
+  too: with `throwOnLimitExceeded` it throws when the new index would be
+  `arrayLimit` or more (`"a[z]=o&a=p&a[y]=q&[a]=r"` with `arrayLimit: 2`);
+  without it the value is appended even past `arrayLimit`.
 - With `throwOnLimitExceeded`, each of those cases throws `RangeError`
   instead: `Array limit exceeded. Only N elements allowed in an array.`
   (`element` when N is 1). Plain values and objects are never affected.

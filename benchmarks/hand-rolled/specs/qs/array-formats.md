@@ -35,7 +35,9 @@ The module exports `stringify`. Defaults: `allowDots: false`,
 - Objects and arrays recurse; one with nothing to write (`{}`, `[]`,
   `[{}]`) produces nothing. With `allowEmptyArrays` an empty array (with no
   other own keys) is written as the key followed by a literal `[]` and no
-  `=`.
+  `=`. That key is encoded like any other key (with `encode` and without
+  `encodeValuesOnly`), and only the `[]` stays literal:
+  `{ "a b": [] }` gives `"a%20b[]"` and `{ a: [[]] }` gives `"a%5B0%5D[]"`.
 - A cyclic reference throws `RangeError`: `Cyclic object value`. The same
   object appearing twice without a cycle is fine.
 - Parts are joined with `&`.

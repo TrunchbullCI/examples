@@ -106,7 +106,18 @@ Advanced ranges desugar into primitive comparators. Upper bounds get a
 ### Normalisation
 
 - The range is trimmed and every run of whitespace becomes one space . Whitespace between an operator (including `~`, `~>` and
-  `^`) and its version is removed. Build metadata is ignored.
+  `^`) and its version is removed.
+- Build metadata is removed right after that whitespace collapse, before
+  any other step (operator whitespace and desugaring included): every `+`
+  followed by one or more dot-separated runs of letters, digits and `-` is
+  deleted wherever it appears, also when it stands on its own or is longer than a
+  version may be (`~ +build 1` := `>=1.0.0 <2.0.0-0`, `7+build - 3` is the
+  hyphen range `7 - 3`, `1.2.3+` followed by 300 `a`s := `1.2.3`). A bound
+  that carried build metadata is then an ordinary version, so
+  `0.0.2+001 - 1.1.3` with `includePrerelease` := `>=0.0.2-0 <1.1.4-0`.
+  The whitespace around the removed text stays and is not collapsed again,
+  so in strict mode `1 +a +b = 2` is invalid (its `=` is left as a
+  comparator of its own), while loose mode drops that `=`.
 - Comparators are formatted as operator plus strict version, with `=` dropped;
   `>=0.0.0` (and `>=0.0.0-0` with `includePrerelease`) is dropped as it
   matches everything, leaving the empty comparator `""` (any version).

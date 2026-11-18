@@ -46,6 +46,7 @@
         "test/stringify.js"
       ],
       "nodeArgs": [
+        "--stack-size=4000",
         "--require",
         "../tape-isolation.cjs"
       ]
@@ -55,7 +56,7 @@
     ".": "shims/qs.cjs",
     "lib/utils": "shims/utils.cjs"
   },
-  "notes": "tape 5.10.3 is the newest release in upstream's ^5.10.3 range. Each tape file runs directly with the node runner, with tape-isolation.cjs preloaded (--require): plain tape lets an exception thrown inside one test callback end the whole file, so the preload reports it as a failed assertion and ends that test instead. The reference passes every selected test with or without it, so expected.json is unchanged. test/parse.js and test/stringify.js load qs's private lib/utils; it is aliased to shims/utils.cjs, which provides the one helper the tests call (utils.assign), and the two assertions that compare against lib/utils functions are excluded.",
+  "notes": "tape 5.10.3 is the newest release in upstream's ^5.10.3 range. Each tape file runs directly with the node runner, with tape-isolation.cjs preloaded (--require): plain tape lets an exception thrown inside one test callback end the whole file, so the preload reports it as a failed assertion and ends that test instead. The reference passes every selected test with or without it, so expected.json is unchanged. The files also run with --stack-size=4000 (about 4 MB of the container's 8 MB stack): `does not crash when parsing deep objects` parses a key 5000 levels deep, and at Node's default stack a module that recurses once per level passed or failed that test from one run to the next with the same code. The real library passes it either way. test/parse.js and test/stringify.js load qs's private lib/utils; it is aliased to shims/utils.cjs, which provides the one helper the tests call (utils.assign), and the two assertions that compare against lib/utils functions are excluded.",
   "create": {
     "title": "parse, stringify and formats",
     "conformance": "conformance/create.ts",

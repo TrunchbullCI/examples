@@ -125,9 +125,10 @@ The two names are the same function.
 - **Return value.** `{ parsed }`, or `{ parsed, error }` when an error was
   kept. The `error` key is absent, not `undefined`, on success.
 - **Logging.** `quiet` is the explicit option if one was given, otherwise
-  `DOTENV_QUIET`/`DOTENV_CONFIG_QUIET` read from the target
-  `processEnv` after it was populated, so a `.env` file can silence its own
-  load. When `debug` is on or `quiet` is off, `config` writes one line to
+  the environment default from `process.env` (`DOTENV_QUIET`, then
+  `DOTENV_CONFIG_QUIET`, as above). Only when neither is set is it read the
+  same way from the target `processEnv` after it was populated, so a `.env`
+  file can silence its own load. When `debug` is on or `quiet` is off, `config` writes one line to
   `console.error`: `◇ injected env (N) from P`, where `N` is the number
   of keys `populate` actually set and `P` is the comma-joined list of each
   path relative to `process.cwd()` (a `URL` is converted with
