@@ -140,7 +140,8 @@ number or `false` (same as `0`). The options object is never mutated.
   the next `[`, becomes one literal key (with `depth: 1`,
   `"a[b][c][d]=e"` gives `{ a: { b: { "[c][d]": "e" } } }`). With
   `strictDepth` that case throws instead. `depth: 0` or less (or `false`) never
-  splits keys; it only strips one pair of brackets that wraps the whole key.
+  splits keys; it only strips one pair of brackets that wraps the whole key. The stripped key is the top-level key and is checked
+  like any other below, so `"[toString]=foo"` with `depth: 0` is ignored.
 - `allowDots` also accepts dot notation: a `.` outside brackets that is
   followed by something other than `.` or `[` turns the text up to the next
   `.` or `[` into a bracket group (`"a.b.c=d"` is `"a[b][c]=d"`; dots
@@ -176,6 +177,16 @@ number or `false` (same as `0`). The options object is never mutated.
   appended to it take the next index. With `throwOnLimitExceeded` any of
   these throws instead, including a comma value with more than `arrayLimit`
   elements. Holes are not counted as elements.
+- An object keyed by index that stands in for an array (made by an index of
+  `arrayLimit` or more, or by an array that outgrew `arrayLimit`) keeps counting its
+  integer keys. `[]` applied to it keeps it as it is instead of wrapping it
+  in an array (with the default `arrayLimit` of 20, `"a[][25]=x"` gives
+  `{ a: { "25": "x" } }`; the examples here use that default). A plain value merged after it takes the index after its largest
+  integer key, with or without `strictMerge` (`"a[25]=x&a=y"` gives
+  `{ a: { "25": "x", "26": "y" } }`), and one merged before it is prepended,
+  shifting its integer keys up by one (`"a=y&a[25]=x"` gives
+  `{ a: { "0": "y", "26": "x" } }`). An object it is merged into counts the
+  same way afterwards.
 
 ### Merging
 
@@ -190,9 +201,15 @@ Parameters are merged into the result in order:
   `["b", "c"]`).
 - When a key holds both an object and a plain value, `strictMerge` (the
   default) wraps them in an array in arrival order (`"a[b]=c&a=d"` gives
-  `{ a: [{ b: "c" }, "d"] }`; further plain values are appended to that
-  container); with `strictMerge: false` the plain value becomes a key set to
-  `true` (`{ a: { b: "c", d: true } }`).
+  `{ a: [{ b: "c" }, "d"] }`); with `strictMerge: false` the plain value
+  becomes a key set to `true` (`{ a: { b: "c", d: true } }`). A later plain
+  value is appended to that wrapper at the index after the largest integer
+  key it holds, also after merging an object into it turned it into an
+  object keyed by index: `"a[z]=o&a=p&a[y]=q&a[2]=keep&[a]=r"` gives
+  `{ a: { 0: { z: "o" }, 1: "p", 2: "keep", 3: "r", y: "q" } }`. With
+  `throwOnLimitExceeded`, appending to the wrapper throws the array limit
+  error when the new index would be `arrayLimit` or more; without it the
+  value is appended even past `arrayLimit`.
 
 ### Object input
 
@@ -226,14 +243,17 @@ their defaults, except for the validated options listed under Errors.
 - Objects and arrays recurse; one with nothing to write (`{}`, `[]`,
   `[{}]`) produces nothing. With `allowEmptyArrays` an empty array (with no
   other own keys) is written as the key followed by a literal `[]` and no
-  `=`.
+  `=`. That key is encoded like any other key (with `encode` and without
+  `encodeValuesOnly`), and only the `[]` stays literal:
+  `{ "a b": [] }` gives `"a%20b[]"` and `{ a: [[]] }` gives `"a%5B0%5D[]"`.
 - A cyclic reference throws; the same object appearing twice without a cycle
   is fine. With a finite `depth`, values nested more than `depth` levels
   below the top-level keys throw (with `depth: 2`, `{ a: { b: { c: "d" } } }`
   is allowed and `{ a: { b: { c: { d: "e" } } } }` throws).
 - `filter` as a function is called as `filter(prefix, value)` for the input
   itself (with prefix `""`) and for every value, and its return value is used
-  instead (`undefined` omits the key). As an array it lists the keys and
+  instead (`undefined` omits the key). A `Date` it returns is still passed
+  through `serializeDate`. As an array it lists the keys and
   indices to write, in that order, at every level; the caller's array is not
   reordered.
 
